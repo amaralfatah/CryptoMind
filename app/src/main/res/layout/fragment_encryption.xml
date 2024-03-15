@@ -1,0 +1,52 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text yang belum dienkripsi"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/editTextUnencrypted"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:padding="6dp"
+        android:hint="Masukkan teks di sini"
+        android:background="@drawable/outline"
+        android:gravity="top|start"
+        android:textSize="14sp"/>
+
+    <Button
+        android:id="@+id/buttonEncrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enkripsi"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text yang sudah dienkripsi"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/editTextEncrypted"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:padding="6dp"
+        android:text="Ini adalah nilai tetap dalam EditText"
+        android:enabled="false"
+        android:background="@drawable/outline"
+        android:gravity="top|start"
+        android:textSize="14sp"/>
+
+</LinearLayout>

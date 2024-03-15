@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="color_primary">#FF0498EC</color> <!-- Warna primer yang telah diubah -->
+    <color name="color_primary_dark">#EAEAEA</color> <!-- Warna primer gelap yang telah diubah -->
+    <color name="thin_grey">#c4c0c9</color>
+</resources>

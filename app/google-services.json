@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "584691482180",
+    "firebase_url": "https://cryptomind-913e5-default-rtdb.firebaseio.com",
+    "project_id": "cryptomind-913e5",
+    "storage_bucket": "cryptomind-913e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584691482180:android:cc94f193236810d8cd8611",
+        "android_client_info": {
+          "package_name": "com.uadev.cryptomind"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8YCqBQoDMzJRLSrjIbumbdzew9fMztz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

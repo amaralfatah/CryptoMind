@@ -10,16 +10,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Base.Theme.CryptoMind"
+        android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".views.SimulasiActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.ProgramActivity"
-            android:exported="false"
-            android:theme="@style/Theme.CryptoMind.WithActionBar"/>
+            android:exported="false" />
         <activity
             android:name=".views.MateriActivity"
-            android:exported="false"
-            android:theme="@style/Theme.CryptoMind.WithActionBar" />
+            android:exported="false" />
         <activity
             android:name=".views.ResultActivity"
             android:exported="false" />
@@ -28,7 +29,8 @@
             android:exported="false" />
         <activity
             android:name=".views.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

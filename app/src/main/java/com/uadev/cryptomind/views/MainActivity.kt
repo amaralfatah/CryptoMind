@@ -16,9 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        enableEdgeToEdge()
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.container) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -37,6 +36,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnProgram.setOnClickListener {
             val intent = Intent(this, ProgramActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnSimulasi.setOnClickListener {
+            val intent = Intent(this, SimulasiActivity::class.java)
             startActivity(intent)
         }
     }

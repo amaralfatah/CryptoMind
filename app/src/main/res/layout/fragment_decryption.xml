@@ -1,14 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.DecryptionFragment">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text yang belum didekripsi"
+        android:textSize="14sp"/>
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/editTextUnencrypted"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:padding="6dp"
+        android:hint="Masukkan teks di sini"
+        android:background="@drawable/outline"
+        android:gravity="top|start"
+        android:textSize="14sp"/>
+
+    <Button
+        android:id="@+id/buttonEncrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dekripsi"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text yang sudah dienkripsi"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"/>
+
+    <EditText
+        android:id="@+id/editTextEncrypted"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:padding="6dp"
+        android:text="Text yang telah didekripsi akan muncul disini"
+        android:enabled="false"
+        android:background="@drawable/outline"
+        android:gravity="top|start"
+        android:textSize="14sp"/>
+
+</LinearLayout>

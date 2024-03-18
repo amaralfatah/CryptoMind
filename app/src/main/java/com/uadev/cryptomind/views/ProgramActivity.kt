@@ -1,6 +1,7 @@
 package com.uadev.cryptomind.views
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,7 +18,6 @@ class ProgramActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProgramBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        enableEdgeToEdge()
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -26,7 +26,6 @@ class ProgramActivity : AppCompatActivity() {
         }
 
         // Buat adapter untuk ViewPager dan tambahkan fragmen ke dalamnya
-        val adapter = ViewPagerAdapter(this)
         binding.viewPager.adapter = ViewPagerAdapter(this)
 
         // Hubungkan ViewPager dengan TabLayout
@@ -37,5 +36,21 @@ class ProgramActivity : AppCompatActivity() {
                 else -> ""
             }
         }.attach()
+
+        // Aktifkan action bar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Program"
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                // Handle klik tombol kembali di action bar
+                onBackPressed()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

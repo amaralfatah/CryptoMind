@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="primary_color">#FF0498EC</color>
+    <color name="primary_dark_color">#FF0364A0</color>
+    <color name="accent_color">#FFEEC907</color>
+    <color name="secondary_color">#FF4CAF50</color>
+    <color name="primary_variant_color">#FF0271AC</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="color_primary">#FF0498EC</color> <!-- Warna primer yang telah diubah -->
-    <color name="color_primary_dark">#EAEAEA</color> <!-- Warna primer gelap yang telah diubah -->
     <color name="thin_grey">#c4c0c9</color>
 </resources>

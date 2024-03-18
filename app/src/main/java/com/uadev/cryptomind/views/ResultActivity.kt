@@ -2,39 +2,37 @@ package com.uadev.cryptomind.views
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.uadev.cryptomind.R
+import com.uadev.cryptomind.databinding.ActivityResultBinding
 
 class ResultActivity : AppCompatActivity() {
 
-    private lateinit var scoreTextView: TextView
-    private lateinit var retryButton: Button
-    private lateinit var dashboardButton: Button
+    private lateinit var binding: ActivityResultBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_result)
+        binding = ActivityResultBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        initializeViews()
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         val score = intent.getIntExtra("SCORE", 0)
-        scoreTextView.text = getString(R.string.score_format, score)
+        binding.scoreTextView.text = getString(R.string.score_format, score)
 
-        retryButton.setOnClickListener {
+        binding.retryButton.setOnClickListener {
             startMainActivity()
         }
 
-        dashboardButton.setOnClickListener {
+        binding.dashboardButton.setOnClickListener {
             startMainActivity()
         }
-    }
-
-    private fun initializeViews() {
-        scoreTextView = findViewById(R.id.scoreTextView)
-        retryButton = findViewById(R.id.retryButton)
-        dashboardButton = findViewById(R.id.dashboardButton)
     }
 
     private fun startMainActivity() {

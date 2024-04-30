@@ -2,51 +2,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textViewUnencryptedTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Text yang belum dienkripsi"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
+        android:text="Text yang akan dienkripsi"
         android:textSize="14sp"/>
 
-    <EditText
-        android:id="@+id/editTextUnencrypted"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutKey"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginTop="8dp"
-        android:padding="6dp"
-        android:hint="Masukkan teks di sini"
-        android:background="@drawable/outline"
-        android:gravity="top|start"
-        android:textSize="14sp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:hint="Kunci">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="8"/>
+
+        <TextView
+            android:id="@+id/errorKey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="gone"
+            android:text="Kunci harus terdiri dari 8 karakter dan dalam format biner"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutIV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:hint="Initial Vector (IV)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextIV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="8"/>
+
+        <TextView
+            android:id="@+id/errorIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="gone"
+            android:text="IV harus terdiri dari 8 karakter dan dalam format biner"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Input teks">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/buttonEncrypt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enkripsi"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_gravity="center"/>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textViewEncryptedTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Text yang sudah didekripsi"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
+        android:text="Text yang telah didekripsi"
         android:textSize="14sp"/>
 
-    <EditText
-        android:id="@+id/editTextEncrypted"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutEncrypted"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginTop="8dp"
-        android:padding="6dp"
-        android:text="Text yang telah dienkripsi akan muncul disini"
-        android:enabled="false"
-        android:background="@drawable/outline"
-        android:gravity="top|start"
-        android:textSize="14sp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_copy"
+        app:endIconContentDescription="Copy Text"
+        android:hint="Cipher Text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextEncrypted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hasil enkripsi akan muncul disini"
+            android:enabled="false"
+            android:gravity="top|start"
+            android:textSize="14sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
 
 </LinearLayout>

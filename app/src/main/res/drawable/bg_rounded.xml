@@ -5,7 +5,7 @@
         android:color="#FFFFFFFF"
         />
     <corners
-        android:topLeftRadius="29dp"
-        android:topRightRadius="29dp"
+        android:topLeftRadius="16dp"
+        android:topRightRadius="16dp"
         />
 </shape>

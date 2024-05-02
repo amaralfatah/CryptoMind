@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_color">#FF0498EC</color>
-    <color name="primary_dark_color">#FF0364A0</color>
-    <color name="accent_color">#FFEEC907</color>
-    <color name="secondary_color">#FF4CAF50</color>
+    <color name="primary_color">#0598ED</color>
+    <color name="primary_dark_color">#004e98</color>
+    <color name="accent_color">#ff6700</color>
+    <color name="secondary_color">#c0c0c0</color>
     <color name="primary_variant_color">#FF0271AC</color>
 
     <color name="black">#FF000000</color>
+    <color name="soft_black">#3E3E3F</color>
     <color name="white">#FFFFFFFF</color>
     <color name="thin_grey">#c4c0c9</color>
+    <color name="dark_grey">#463f3a</color>
 </resources>

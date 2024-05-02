@@ -105,7 +105,6 @@
             android:id="@+id/textInputEditTextEncrypted"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hasil enkripsi akan muncul disini"
             android:enabled="false"
             android:gravity="top|start"
             android:textSize="14sp"/>

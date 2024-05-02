@@ -13,6 +13,7 @@
         <item name="android:statusBarColor">@color/primary_dark_color</item>
         <!-- Text color in action bar -->
         <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
         <!-- Customize your theme here. -->
         <item name="homeAsUpIndicator">@drawable/baseline_arrow_back_ios_new_24</item>
     </style>

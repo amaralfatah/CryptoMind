@@ -1,4 +1,6 @@
 package com.uadev.cryptomind.views
+import android.util.Log
+
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -14,6 +16,7 @@ import java.util.Locale
 import javax.crypto.Cipher
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
+import kotlin.math.log
 
 class EncryptionFragment : Fragment() {
     private var _binding: FragmentEncryptionBinding? = null
@@ -32,29 +35,43 @@ class EncryptionFragment : Fragment() {
 
         binding.buttonEncrypt.setOnClickListener {
 
-            var initialVector = listOf<Int>()
-            val key = mutableListOf<Int>()
-            var register = mutableListOf<Int>()
-            var cipherText = mutableListOf<Int>()
-            val plainText: List<Int>
-
             val inText = binding.textInputEditTextInput.text.toString()
             val inKey = binding.textInputEditTextKey.text.toString()
             val inIv = binding.textInputEditTextIV.text.toString()
 
-            println("Bismillah")
+            if (inText.isEmpty() || inKey.isEmpty() || inIv.isEmpty()) {
+                showToast("Field tidak boleh kosong")
+                return@setOnClickListener
+            }
+
+            if (inIv.length != inKey.length) {
+                binding.textInputEditTextIV.error = "IV dan Key harus memiliki panjang karakter yang sama"
+                return@setOnClickListener
+            }
+
+            var initialVector: List<Int>
+            var key: List<Int>
+            var register = mutableListOf<Int>()
+            var cipherText = mutableListOf<Int>()
+            val plainText: List<Int>
+
             plainText = inText.map { charToBinary(it).toInt(2) }
-            key.addAll(inKey.map { charToBinary(it).toInt(2) })
+            key = inKey.map { charToBinary(it).toInt(2) }
             initialVector = inIv.map { charToBinary(it).toInt(2) }
             register.addAll(initialVector)
 
-
+            Log.d("ISI REGISTER", register.toString())
             for (i in plainText.indices) {
-                // Enkripsi IV menggunakan key yang sesuai
-                val temp = encrypt(register[i], key[i])
+
+                val temp = mutableListOf<Int>()
+
+                for (y in key.indices){
+                    // Enkripsi IV menggunakan key yang sesuai
+                    temp.add(encrypt(register[y], key[y]))
+                }
 
                 // XOR hasil enkripsi dengan PlainText
-                val encryptedValue = temp xor plainText[i]
+                val encryptedValue = temp[0] xor plainText[i]
 
                 // Tambahkan hasil XOR sebagai CipherText
                 cipherText.add(encryptedValue)
@@ -63,16 +80,12 @@ class EncryptionFragment : Fragment() {
                 register = inputDataRegister(register, cipherText.last())
 
                 // Cetak hasil
-                println("CipherText setelah diisi index $i:")
-                println(cipherText.joinToString(" ") { it.toString(2).padStart(8, '0') })
-                println("Register after input data for index $i:")
-                println(register.joinToString(" ") { it.toString(2).padStart(8, '0') })
-                println()
+                logEncryptionDetails(i, cipherText, register)
             }
 
             binding.textInputEditTextEncrypted.setText(cipherText.joinToString(" ") { it.toString(2).padStart(8, '0') })
             // Show toast message
-            showToast("Text successfully encrypted")
+//            showToast("Text successfully encrypted")
         }
 
         binding.textInputLayoutEncrypted.setEndIconOnClickListener {
@@ -122,5 +135,15 @@ class EncryptionFragment : Fragment() {
 
     fun charToBinary(char: Char): String {
         return char.toInt().toString(2).padStart(8, '0')
+    }
+
+    private fun logEncryptionDetails(index: Int, cipherText: List<Int>, register: MutableList<Int>) {
+        with(register) {
+            Log.d("ISI REGISTER", "CipherText setelah diisi index $index:")
+            Log.d("ISI REGISTER", cipherText.joinToString(" ") { it.toString(2).padStart(8, '0') })
+            Log.d("ISI REGISTER", "Register after input data for index $index:")
+            Log.d("ISI REGISTER", joinToString(" ") { it.toString(2).padStart(8, '0') })
+            Log.d("ISI REGISTER", "\n")
+        }
     }
 }

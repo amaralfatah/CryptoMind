@@ -13,132 +13,134 @@
         android:id="@+id/r2491earmtyq"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
         android:layout_weight="1"
-        android:paddingBottom="20dp"
-        >
+        android:paddingBottom="20dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/rvqbcy6qjosk"
                 app:shapeAppearanceOverlay="@style/cr6"
                 android:layout_width="match_parent"
                 android:layout_height="174dp"
-                android:layout_marginBottom="19dp"
-                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="16dp"
                 android:src="@mipmap/ic_launcher"
                 android:scaleType="fitXY"
                 />
             <TextView
-                android:id="@+id/rxblx39ez7s"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="16dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:text="Keamanan informasi menjadi semakin krusial di era digital ini, di mana pesan-pesan rahasia dapat dengan mudah terpapar oleh pihak yang tidak berhak. Salah satu cara untuk melindungi pesan-pesan ini adalah dengan menggunakan algoritma kriptografi yang canggih. Salah satu algoritma yang cukup populer dan efektif adalah Chiper Feedback (CFB). Mari kita telusuri lebih dalam tentang algoritma ini dan bagaimana ia dapat memastikan keamanan pesan kita."
                 />
             <TextView
-                android:id="@+id/rgrafnfdr5a"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:layout_marginBottom="21dp"
-                android:layout_marginHorizontal="19dp"
+                android:layout_marginTop="16dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Apa itu Chiper Feedback (CFB)?"
                 />
             <TextView
-                android:id="@+id/rm7fw2urmp3"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:layout_marginBottom="17dp"
-                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="16dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:text="Chiper Feedback (CFB) adalah sebuah mode operasi dalam kriptografi blok yang digunakan untuk enkripsi dan dekripsi data. Algoritma ini memanfaatkan kunci yang sama untuk enkripsi dan dekripsi, membuatnya lebih efisien dan praktis."
+                android:text="Cipher Feedback (CFB) adalah salah satu mode operasi kriptografi blok yang digunakan untuk mengenkripsi data dalam unit-unit yang lebih kecil daripada ukuran blok kunci. Mode ini memungkinkan enkripsi data yang tidak mencapai ukuran satu blok kunci, yang berguna dalam beberapa kasus di mana data yang akan dienkripsi tidak memiliki panjang yang sesuai dengan ukuran blok yang digunakan dalam algoritma enkripsi."
                 />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Dalam mode CFB, data dienkripsi dalam unit yang lebih kecil daripada ukuran blok. Unit data yang dienkripsi bisa memiliki panjang yang bervariasi, seperti 1 bit, 2 bit, 4 bit, 8 bit, dan seterusnya. Sebagai contoh, jika setiap unit yang dienkripsi adalah satu karakter, maka mode CFB-nya disebut CFB 8-bit."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Pada mode CFB r-bit, plainteks dienkripsi sebanyak r bit pada setiap langkahnya, dimana r merupakan panjang unit yang dienkripsi dan n merupakan ukuran blok. Dengan kata lain, CFB memperlakukan blok cipher seperti pada cipher alir."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Untuk menerapkan mode CFB, diperlukan sebuah antrian (queue) yang memiliki ukuran yang sama dengan ukuran blok masukan. Antrian ini digunakan untuk menyimpan blok cipher sebelumnya yang diperlukan dalam proses enkripsi selanjutnya."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Sebagai contoh, tinjauan mode CFB 8-bit yang bekerja pada blok berukuran 64-bit (atau setara dengan 8 byte), akan membantu mahasiswa memahami bagaimana proses enkripsi dilakukan dengan menggunakan mode CFB."/>
+
             <TextView
                 android:id="@+id/rn61r85b230g"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:layout_marginBottom="19dp"
-                android:layout_marginHorizontal="19dp"
+                android:layout_marginTop="16dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Enkripsi dengan CFB"
                 />
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/r1buf5thzfqj"
                 app:shapeAppearanceOverlay="@style/cr6"
                 android:layout_width="match_parent"
                 android:layout_height="174dp"
-                android:layout_marginBottom="19dp"
-                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="16dp"
                 android:src="@mipmap/ic_launcher"
                 android:scaleType="fitXY"
                 />
             <TextView
-                android:id="@+id/rjyp50szzk1"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:layout_marginBottom="14dp"
-                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="16dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:text="Proses enkripsi dengan CFB dimulai dengan membagi pesan asli menjadi blok-blok yang lebih kecil. Setiap blok pesan akan di-encrypt dengan menggunakan blok sebelumnya sebagai input. Inilah yang membuat CFB menjadi unik, karena blok sebelumnya di-feedback ke proses enkripsi. Hasil output dari enkripsi kemudian akan di-XOR (eksklusif OR) dengan blok pesan berikutnya. Proses ini diulang hingga seluruh pesan terenkripsi."
                 />
             <TextView
-                android:id="@+id/rmx0oqgcp6eg"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:layout_marginBottom="19dp"
-                android:layout_marginHorizontal="19dp"
+                android:layout_marginTop="16dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Deskripsi dengan CFB"
                 />
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/rw0jxxj055je"
                 app:shapeAppearanceOverlay="@style/cr6"
                 android:layout_width="match_parent"
                 android:layout_height="174dp"
-                android:layout_marginBottom="19dp"
-                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="16dp"
                 android:src="@mipmap/ic_launcher"
                 android:scaleType="fitXY"
                 />
             <TextView
-                android:id="@+id/rapuekqpjkio"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginHorizontal="19dp"
+                android:layout_marginTop="16dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:text="Untuk proses deskripsi, CFB melakukan hal yang mirip dengan enkripsi. Blok pesan terenkripsi di-decrypt dengan menggunakan blok sebelumnya sebagai input, dan hasil output kemudian di-XOR dengan blok pesan berikutnya. Dengan menggunakan kunci yang sama, CFB dapat dengan mudah mengembalikan pesan ke bentuk aslinya."
                 />
             <TextView
-                android:id="@+id/rggsrxl005af"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:layout_marginBottom="21dp"
-                android:layout_marginHorizontal="19dp"
+                android:layout_marginTop="16dp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Keamanan CFB"
                 />
             <TextView
-                android:id="@+id/rjwhv2zfeo7n"
                 android:textColor="#000000"
                 android:textSize="14sp"
-                android:layout_marginHorizontal="18dp"
+                android:layout_marginTop="16dp"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_weight="1"

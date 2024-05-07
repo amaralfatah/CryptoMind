@@ -16,6 +16,20 @@
         android:textSize="14sp"/>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:hint="Plain Text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutKey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,7 +56,6 @@
         android:id="@+id/textInputLayoutIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
         android:hint="Initial Vector (IV)">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -58,19 +71,6 @@
             android:textColor="@android:color/holo_red_dark"
             android:visibility="gone"
             android:text="IV harus terdiri dari 8 karakter dan dalam format biner"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Input teks">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditTextInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,7 +110,6 @@
             android:textSize="14sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
 
 

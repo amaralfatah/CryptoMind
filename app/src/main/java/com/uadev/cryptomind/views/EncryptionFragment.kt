@@ -85,7 +85,7 @@ class EncryptionFragment : Fragment() {
 
             binding.textInputEditTextEncrypted.setText(cipherText.joinToString(" ") { it.toString(2).padStart(8, '0') })
             // Show toast message
-//            showToast("Text successfully encrypted")
+            showToast("Proses Enkripsi Berhasil")
         }
 
         binding.textInputLayoutEncrypted.setEndIconOnClickListener {
@@ -109,7 +109,7 @@ class EncryptionFragment : Fragment() {
         _binding = null
     }
 
-    fun encrypt(cipherText: Int, key: Int): Int {
+    private fun encrypt(cipherText: Int, key: Int): Int {
         // Enkripsi menggunakan operasi XOR antara cipherText dan key
         var temp = cipherText xor key
 
@@ -122,7 +122,7 @@ class EncryptionFragment : Fragment() {
         return temp
     }
 
-    fun inputDataRegister(register: MutableList<Int>, cipherText: Int): MutableList<Int> {
+    private fun inputDataRegister(register: MutableList<Int>, cipherText: Int): MutableList<Int> {
         // Geser nilai-nilai dalam register ke kiri
         for (i in 1 until register.size) {
             register[i - 1] = register[i]
@@ -133,7 +133,7 @@ class EncryptionFragment : Fragment() {
     }
 
 
-    fun charToBinary(char: Char): String {
+    private fun charToBinary(char: Char): String {
         return char.toInt().toString(2).padStart(8, '0')
     }
 
@@ -146,4 +146,6 @@ class EncryptionFragment : Fragment() {
             Log.d("ISI REGISTER", "\n")
         }
     }
+
+
 }

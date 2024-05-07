@@ -71,10 +71,13 @@ class DecryptionFragment : Fragment() {
             }
 
             // Mengubah List<Char> menjadi String sebelum menampilkannya
-            binding.outEncrypted.setText(plainText.joinToString(""))
+            binding.outDecrypted.setText(plainText.joinToString(""))
             showToast("Proses Dekripsi Berhasil")
 
 //            01111001 01100001 01111111 01101011 01001010
+        }
+        binding.layoutOutDecrypted.setEndIconOnClickListener {
+            copyTextToClipboard(binding.outDecrypted.text.toString())
         }
     }
 

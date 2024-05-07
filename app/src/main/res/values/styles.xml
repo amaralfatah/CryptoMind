@@ -1,38 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--styles.xml-->
+<!-- styles.xml -->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme -->
-    <style name="AppTheme" parent="Theme.Material3.Light">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primary_color</item>
-        <!-- Primary brand color variant for dark themes. -->
-        <item name="colorPrimaryVariant">@color/primary_variant_color</item>
-        <!-- Secondary color. -->
-        <item name="colorSecondary">@color/secondary_color</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/primary_dark_color</item>
-        <!-- Text color in action bar -->
-        <item name="android:textColorPrimary">@android:color/white</item>
-        <item name="android:fontFamily">@font/inter_regular</item>
-        <!-- Customize your theme here. -->
-        <item name="homeAsUpIndicator">@drawable/baseline_arrow_back_ios_new_24</item>
-    </style>
 
     <style name="ButtonSmall" parent="Widget.MaterialComponents.Button">
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@color/primary_dark_color</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
+        <item name="android:padding">8dp</item>
         <item name="android:minWidth">64dp</item>
         <item name="android:minHeight">36dp</item>
         <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MyApp.Button</item>
     </style>
 
-    <style name="ShapeAppearanceOverlay.MyApp.Button" parent="">
+    <style name="ShapeAppearanceOverlay.MyApp.Button" parent="ShapeAppearance.Material3.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item>
     </style>
+
 </resources>

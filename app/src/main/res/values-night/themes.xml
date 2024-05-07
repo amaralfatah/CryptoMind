@@ -1,7 +1,7 @@
 <!--theme.xml (night)-->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.CryptoMind.Night" parent="AppTheme">
+    <style name="Base.Theme.CryptoMind.Night" parent="Theme.BaseAppTheme">
         <!-- Customize your dark theme here. -->
     </style>
 </resources>

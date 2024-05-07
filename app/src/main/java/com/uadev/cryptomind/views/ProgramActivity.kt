@@ -1,9 +1,12 @@
 package com.uadev.cryptomind.views
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.tabs.TabLayoutMediator
@@ -18,6 +21,11 @@ class ProgramActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProgramBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Aktifkan action bar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Program"
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.primary_color)))
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -36,10 +44,6 @@ class ProgramActivity : AppCompatActivity() {
                 else -> ""
             }
         }.attach()
-
-        // Aktifkan action bar
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Program"
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

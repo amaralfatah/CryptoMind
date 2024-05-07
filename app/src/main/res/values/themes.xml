@@ -1,7 +1,23 @@
-<!--theme.xml (light)-->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.CryptoMind.Light" parent="AppTheme">
-        <!-- Customize your light theme here. -->
+    <!-- Base application theme -->
+    <style name="Theme.BaseAppTheme" parent="Theme.Material3.Light">
+        <item name="android:windowBackground">@color/white</item>
+        <!-- Atau menyesuaikan warna aksen -->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <!-- Primary brand color variant for dark themes. -->
+        <item name="colorPrimaryVariant">@color/primary_variant_color</item>
+        <!-- Secondary color. -->
+        <item name="colorSecondary">@color/secondary_color</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/primary_dark_color</item>
+        <!-- Text color in action bar -->
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <!-- Customize your theme here. -->
+        <item name="homeAsUpIndicator">@drawable/baseline_arrow_back_ios_new_24</item>
+
+        <item name="titleTextColor">@color/white</item>
     </style>
+
 </resources>

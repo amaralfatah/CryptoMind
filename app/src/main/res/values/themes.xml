@@ -10,7 +10,7 @@
         <!-- Secondary color. -->
         <item name="colorSecondary">@color/secondary_color</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/primary_dark_color</item>
+        <item name="android:statusBarColor">@color/primary_color</item>
         <!-- Text color in action bar -->
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="android:fontFamily">@font/inter_regular</item>

@@ -1,151 +1,363 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#FFFFFFFF"
-    android:orientation="vertical"
+    android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main"
-    tools:context=".views.MateriActivity">
+    tools:context=".views.MateriActivity"
+    android:paddingBottom="20dp">
 
-    <ScrollView
-        android:fillViewport="true"
-        android:id="@+id/r2491earmtyq"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="16dp"
-        android:layout_weight="1"
-        android:paddingBottom="20dp">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:fontFamily="@font/inter_bold"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/pendahuluan"
+            />
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:fontFamily="@font/inter_regular"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/materi_algoritma_cipher_feedback"
+            />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            app:shapeAppearanceOverlay="@style/cr6"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <com.google.android.material.imageview.ShapeableImageView
-                app:shapeAppearanceOverlay="@style/cr6"
-                android:layout_width="match_parent"
-                android:layout_height="174dp"
-                android:layout_marginTop="16dp"
-                android:src="@mipmap/ic_launcher"
-                android:scaleType="fitXY"
-                />
-            <TextView
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:text="Keamanan informasi menjadi semakin krusial di era digital ini, di mana pesan-pesan rahasia dapat dengan mudah terpapar oleh pihak yang tidak berhak. Salah satu cara untuk melindungi pesan-pesan ini adalah dengan menggunakan algoritma kriptografi yang canggih. Salah satu algoritma yang cukup populer dan efektif adalah Chiper Feedback (CFB). Mari kita telusuri lebih dalam tentang algoritma ini dan bagaimana ia dapat memastikan keamanan pesan kita."
-                />
-            <TextView
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Apa itu Chiper Feedback (CFB)?"
-                />
-            <TextView
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:text="Cipher Feedback (CFB) adalah salah satu mode operasi kriptografi blok yang digunakan untuk mengenkripsi data dalam unit-unit yang lebih kecil daripada ukuran blok kunci. Mode ini memungkinkan enkripsi data yang tidak mencapai ukuran satu blok kunci, yang berguna dalam beberapa kasus di mana data yang akan dienkripsi tidak memiliki panjang yang sesuai dengan ukuran blok yang digunakan dalam algoritma enkripsi."
-                />
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/header_kriptografi"
+            android:scaleType="fitXY"
+            />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Dalam mode CFB, data dienkripsi dalam unit yang lebih kecil daripada ukuran blok. Unit data yang dienkripsi bisa memiliki panjang yang bervariasi, seperti 1 bit, 2 bit, 4 bit, 8 bit, dan seterusnya. Sebagai contoh, jika setiap unit yang dienkripsi adalah satu karakter, maka mode CFB-nya disebut CFB 8-bit."/>
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="24dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/intro"
+            />
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/intro2"
+            />
+        <!--            Apa itu CFB?-->
+        <TextView
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:fontFamily="@font/inter_bold"
+            android:layout_marginTop="24dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/cfb_title"
+            />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Pada mode CFB r-bit, plainteks dienkripsi sebanyak r bit pada setiap langkahnya, dimana r merupakan panjang unit yang dienkripsi dan n merupakan ukuran blok. Dengan kata lain, CFB memperlakukan blok cipher seperti pada cipher alir."/>
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/cfb_materi"
+            />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Untuk menerapkan mode CFB, diperlukan sebuah antrian (queue) yang memiliki ukuran yang sama dengan ukuran blok masukan. Antrian ini digunakan untuk menyimpan blok cipher sebelumnya yang diperlukan dalam proses enkripsi selanjutnya."/>
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/cfb_title_poin"
+            />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Sebagai contoh, tinjauan mode CFB 8-bit yang bekerja pada blok berukuran 64-bit (atau setara dengan 8 byte), akan membantu mahasiswa memahami bagaimana proses enkripsi dilakukan dengan menggunakan mode CFB."/>
+        <TextView
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:padding="16dp"
+            android:lineSpacingExtra="6dp"
+            android:background="@drawable/bg_primary_light_rounded"
+            android:justificationMode="inter_word"
+            android:text="@string/cfb_poin1"/>
 
-            <TextView
-                android:id="@+id/rn61r85b230g"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Enkripsi dengan CFB"
-                />
-            <com.google.android.material.imageview.ShapeableImageView
-                app:shapeAppearanceOverlay="@style/cr6"
-                android:layout_width="match_parent"
-                android:layout_height="174dp"
-                android:layout_marginTop="16dp"
-                android:src="@mipmap/ic_launcher"
-                android:scaleType="fitXY"
-                />
-            <TextView
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:text="Proses enkripsi dengan CFB dimulai dengan membagi pesan asli menjadi blok-blok yang lebih kecil. Setiap blok pesan akan di-encrypt dengan menggunakan blok sebelumnya sebagai input. Inilah yang membuat CFB menjadi unik, karena blok sebelumnya di-feedback ke proses enkripsi. Hasil output dari enkripsi kemudian akan di-XOR (eksklusif OR) dengan blok pesan berikutnya. Proses ini diulang hingga seluruh pesan terenkripsi."
-                />
-            <TextView
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Deskripsi dengan CFB"
-                />
-            <com.google.android.material.imageview.ShapeableImageView
-                app:shapeAppearanceOverlay="@style/cr6"
-                android:layout_width="match_parent"
-                android:layout_height="174dp"
-                android:layout_marginTop="16dp"
-                android:src="@mipmap/ic_launcher"
-                android:scaleType="fitXY"
-                />
-            <TextView
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:text="Untuk proses deskripsi, CFB melakukan hal yang mirip dengan enkripsi. Blok pesan terenkripsi di-decrypt dengan menggunakan blok sebelumnya sebagai input, dan hasil output kemudian di-XOR dengan blok pesan berikutnya. Dengan menggunakan kunci yang sama, CFB dapat dengan mudah mengembalikan pesan ke bentuk aslinya."
-                />
-            <TextView
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Keamanan CFB"
-                />
-            <TextView
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:text="Kelebihan utama dari CFB adalah kemampuannya dalam mengatasi masalah error propagation yang biasa terjadi pada mode operasi lainnya. Jika satu blok pesan mengalami corruption, hanya blok tersebut yang akan terpengaruh. Blok-blok pesan lainnya tetap aman dan dapat diakses."
-                />
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+        <TextView
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:padding="16dp"
+            android:lineSpacingExtra="6dp"
+            android:background="@drawable/bg_primary_light_rounded"
+            android:justificationMode="inter_word"
+            android:text="@string/cfb_poin2"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:padding="16dp"
+            android:lineSpacingExtra="6dp"
+            android:background="@drawable/bg_primary_light_rounded"
+            android:justificationMode="inter_word"
+            android:text="@string/cfb_poin3"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:padding="16dp"
+            android:lineSpacingExtra="6dp"
+            android:background="@drawable/bg_primary_light_rounded"
+            android:justificationMode="inter_word"
+            android:text="@string/cfb_poin4"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:padding="16dp"
+            android:lineSpacingExtra="6dp"
+            android:background="@drawable/bg_primary_light_rounded"
+            android:justificationMode="inter_word"
+            android:text="@string/cfb_poin5"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:padding="16dp"
+            android:lineSpacingExtra="6dp"
+            android:background="@drawable/bg_primary_light_rounded"
+            android:justificationMode="inter_word"
+            android:text="@string/cfb_poin6"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:padding="16dp"
+            android:lineSpacingExtra="6dp"
+            android:background="@drawable/bg_primary_light_rounded"
+            android:justificationMode="inter_word"
+            android:text="@string/cfb_poin7"/>
+
+        <!-- Enkripsi CFB-->
+        <!-- Enkripsi CFB-->
+        <!-- Enkripsi CFB-->
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:layout_marginTop="24dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/enkripsi_title"
+            />
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/enkripsi_ket_gambar"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            app:shapeAppearanceOverlay="@style/cr6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/cfb_enkripsi"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_marginTop="24dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/enkripsi_materi"
+            />
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/enkripsi_ket_rumus"
+            />
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:background="@drawable/bg_primary_light_rounded"
+            android:text="@string/enkripsi_rumus"
+            />
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/keterangan_rumus"/>
+
+        <!-- Dekripsi CFB-->
+        <!-- Dekripsi CFB-->
+        <!-- Dekripsi CFB-->
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:layout_marginTop="24dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/dekripsi_title"
+            />
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/dekripsi_ket_gambar"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            app:shapeAppearanceOverlay="@style/cr6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/cfb_dekripsi"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="24dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/dekripsi_materi"
+            />
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/dekripsi_ket_rumus"
+            />
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:background="@drawable/bg_primary_light_rounded"
+            android:text="@string/dekripsi_rumus"
+            />
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/keterangan_rumus"/>
+
+        <!-- Keamanan CFB-->
+        <!-- Keamanan CFB-->
+        <!-- Keamanan CFB-->
+
+        <TextView
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:layout_marginTop="24dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/keamanan_title"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/keamanan_materi1"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_word"
+            android:lineSpacingExtra="6dp"
+            android:text="@string/keamanan_materi2"/>
+    </LinearLayout>
+</ScrollView>

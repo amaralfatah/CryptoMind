@@ -11,40 +11,36 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="lorem_ipsum">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
-        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
-        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
-        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
-        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
-        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
-        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
-        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
-        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
-        bibendum, vel congue leo egestas.\n\n
-        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
-        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
-        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
-        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
-        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
-        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
-        est.\n\n
-        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
-        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
-        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
-        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
-        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
-        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
-        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
-        convallis.\n\n
-        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
-        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
-        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
-        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
-        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
-        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
-        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
-    </string>
+    <string name="pendahuluan">Pendahuluan</string>
+    <string name="materi_algoritma_cipher_feedback">Materi Algoritma Cipher Feedback</string>
+    <string name="intro">\tKeamanan informasi menjadi semakin krusial di era digital ini, di mana pesan-pesan rahasia dapat dengan mudah terpapar oleh pihak yang tidak berhak. Salah satu cara untuk melindungi pesan-pesan ini adalah dengan menggunakan algoritma kriptografi. Salah satu algoritma yang cukup populer diantaranya adalah Chiper Feedback (CFB).</string>
+    <string name="intro2">\tMari kita telusuri lebih dalam tentang algoritma ini dan bagaimana ia dapat memastikan keamanan pesan kita.</string>
+    <string name="cfb_title">Apa itu Chiper Feedback (CFB)?</string>
+    <string name="cfb_materi">Cipher Feedback (CFB) adalah salah satu mode operasi kriptografi blok yang digunakan untuk mengenkripsi data dalam unit-unit yang lebih kecil daripada ukuran blok kunci. Mode ini memungkinkan enkripsi data yang tidak mencapai ukuran satu blok kunci, yang berguna dalam beberapa kasus di mana data yang akan dienkripsi tidak memiliki panjang yang sesuai dengan ukuran blok yang digunakan dalam algoritma enkripsi.</string>
+    <string name="cfb_title_poin">Di bawah ini adalah beberapa poin dari algoritma CFB :</string>
+    <string name="cfb_poin1">Data dienkripsi dalam unit yang lebih kecil daripada ukuran blok.</string>
+    <string name="cfb_poin2">Unit data yang dienkripsi panjangnya bisa 1 bit, 2 bit, 4-bit, 8 bit dan lain-lain.</string>
+    <string name="cfb_poin3">Bila unit yang dienkripsi adalah satu karakter setiap kalinya, maka mode CFB-nya disebut CFB 8-bit.</string>
+    <string name="cfb_poin4"><![CDATA[CFB r-bit mengenkripsi plainteks sebanyak r bit setiap kalinya, r <= n(n = ukuran blok).]]></string>
+    <string name="cfb_poin5">Dengan kata lain, CFB r-bit meperlakukan cipher blok sama seperti pada cipher alir.</string>
+    <string name="cfb_poin6">Mode CFB membutuhkan sebuah antrian (queue) yang berukuran sama dengan ukuran blok masukan.</string>
+    <string name="cfb_poin7">Antrian pertama diisi dengan initialization vector (IV)</string>
+
+    <string name="enkripsi_title">Enkripsi dengan CFB</string>
+    <string name="enkripsi_ket_gambar">Perhatikan proses enkripsi mode CFB 8-bit yang bekerja pada blok berukuran 64-bit (setara dengan 8 byte) pada gambar berikut</string>
+    <string name="enkripsi_materi">\tProses enkripsi dengan CFB dimulai dengan membagi pesan asli menjadi blok-blok yang lebih kecil. Setiap blok pesan akan di-encrypt dengan menggunakan blok sebelumnya sebagai input. Inilah yang membuat CFB menjadi unik, karena blok sebelumnya di-feedback ke proses enkripsi. Hasil output dari enkripsi kemudian akan di-XOR (eksklusif OR) dengan blok pesan berikutnya. Proses ini diulang hingga seluruh pesan terenkripsi.</string>
+    <string name="enkripsi_rumus">Ci = Pi ⊕ MSBr(EK (Xi)) \nXi+1 = LSBn – r(Xi) || Ci</string>
+    <string name="enkripsi_ket_rumus">\tSecara matematis, proses enkripsi CFB r-bit dapat dinyatakan sebagai :</string>
+
+    <string name="keterangan_rumus">Keterangan : \n\t\t\ti = 1, 2, 3, …, m. \n\t\t\tXi = isi antrian dengan X1 adalah IV \n\t\t\tE = fungsi enkripsi \n\t\t\tK = kunci \n\t\t\tn = panjang blok enkripsi \n\t\t\tr = panjang unit enkripsi \n\t\t\t|| = operator penyambungan (concatenation)</string>
+
+    <string name="dekripsi_title">Deskripsi dengan CFB</string>
+    <string name="dekripsi_ket_gambar">Berikut adalah gambaran proses dekripsi mode CFB 8-bit yang bekerja pada blok berukuran 64-bit (setara dengan 8 byte)</string>
+    <string name="dekripsi_materi">\tUntuk proses deskripsi, CFB melakukan hal yang mirip dengan enkripsi. Blok pesan terenkripsi di-decrypt dengan menggunakan blok sebelumnya sebagai input, dan hasil output kemudian di-XOR dengan blok pesan berikutnya. Dengan menggunakan kunci yang sama, CFB dapat dengan mudah mengembalikan pesan ke bentuk aslinya.</string>
+    <string name="dekripsi_ket_rumus">\tSecara matematis, proses dekripsi CFB r-bit dapat dinyatakan sebagai :</string>
+    <string name="dekripsi_rumus">Pi = Ci ⊕ MSBr(EK (Xi)) \nXi+1 = LSBn – r(Xi) || Ci</string>
+
+    <string name="keamanan_title">Keamanan CFB</string>
+    <string name="keamanan_materi1">\tPada proses enkripsi, kesalahan 1-bit pada blok plaintext akan merambat pada blok-blok cipherteks yang bersangkutan dan blok-blok ciphertext selanjutnya.</string>
+    <string name="keamanan_materi2">\tSedangkan pada proses dekripsi, kesalahan 1-bit hanya berpengaruh pada blok yang bersangkutan dan satu blok setelahnya</string>
 </resources>

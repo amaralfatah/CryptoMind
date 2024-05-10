@@ -13,7 +13,14 @@
     <color name="thin_grey">#c4c0c9</color>
     <color name="dark_grey">#463f3a</color>
 
-    <color name="gost_white">#F8F8FA</color>
+    <color name="gost_white">#FBFBFF</color>
+
+
+<!--    icon-->
+    <color name="ic_materi">#7EFF7E</color>
+    <color name="ic_simulasi">#F8E57A</color>
+    <color name="ic_kuis">#7E7EFF</color>
+    <color name="ic_program">#F87C7C</color>
 
 
 </resources>

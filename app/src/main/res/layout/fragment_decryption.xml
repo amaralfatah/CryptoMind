@@ -20,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
-        android:hint="Cipher Text">
+        android:hint="Cipher Text"
+        android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inCipherText"
@@ -34,7 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
-        android:hint="Kunci">
+        android:hint="Kunci"
+        android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inKey"
@@ -56,7 +58,8 @@
         android:id="@+id/layoutIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Initial Vector (IV)">
+        android:hint="Initial Vector (IV)"
+        android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inIV"
@@ -99,7 +102,8 @@
         app:endIconMode="custom"
         app:endIconDrawable="@drawable/ic_copy"
         app:endIconContentDescription="Copy Text"
-        android:hint="Plain Text">
+        android:hint="Plain Text"
+        android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/outDecrypted"

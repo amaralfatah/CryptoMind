@@ -12,4 +12,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="thin_grey">#c4c0c9</color>
     <color name="dark_grey">#463f3a</color>
+
+    <color name="gost_white">#F8F8FA</color>
+
+
 </resources>

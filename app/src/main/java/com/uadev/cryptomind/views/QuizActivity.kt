@@ -104,7 +104,7 @@ class QuizActivity : AppCompatActivity() {
 
         val currentQuiz = quizViewModel.getCurrentQuestion()
         if (currentQuiz != null) {
-            binding.numberTextView.text = "Soal ke - ${quizViewModel.getCurrentQuestionIndex() + 1}"
+            binding.numberTextView.text = "Soal ${quizViewModel.getCurrentQuestionIndex() + 1}"
             binding.questionTextView.text = currentQuiz.question
             binding.optionA.text = currentQuiz.options[0]
             binding.optionB.text = currentQuiz.options[1]

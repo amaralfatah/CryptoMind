@@ -1,75 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.QuizActivity"
-    android:id="@+id/action_container">
+    android:id="@+id/action_container"
+    android:background="@drawable/bg_home">
 
-    <TextView
-        android:id="@+id/timerTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="00:00"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="16dp"/>
-
-    <TextView
-        android:id="@+id/numberTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Soal Ke - 1"
-        android:layout_alignParentStart="true"
-        android:layout_margin="16dp"/>
-
-    <TextView
-        android:id="@+id/questionTextView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSoal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Question"
-        android:layout_marginTop="25dp"
-        android:textSize="18sp"
-        android:padding="16dp"/>
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="-50dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivbg">
 
-    <RadioGroup
-        android:id="@+id/optionsRadioGroup"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="16dp">
+
+<!--            <ProgressBar-->
+<!--                android:id="@+id/progressBar"-->
+<!--                style="?android:attr/progressBarStyleHorizontal"-->
+<!--                android:layout_width="200dp"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:indeterminate="false"-->
+<!--                android:max="100"-->
+<!--                android:progress="100"-->
+<!--                android:progressDrawable="@drawable/progress_circle" />-->
+
+
+            <TextView
+                android:id="@+id/timerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="00:00"
+                android:textColor="@color/dark_grey" />
+
+            <TextView
+                android:id="@+id/numberTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:text="Soal 1"
+                android:textColor="@color/dark_grey" />
+
+            <TextView
+                android:id="@+id/questionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:text="Question"
+                android:textSize="20sp"
+                android:fontFamily="@font/inter_semi_bold"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/ivbg"
+        android:layout_width="match_parent"
+        android:layout_height="625dp"
+        android:background="@drawable/bg_rounded"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </ImageView>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/questionTextView"
-        android:layout_marginTop="16dp"
-        android:padding="16dp">
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/cardSoal"
+        tools:layout_editor_absoluteX="16dp">
 
-        <RadioButton
-            android:id="@+id/optionA"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/optionsRadioGroup"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Option A"/>
+            android:layout_below="@id/questionTextView"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="24dp"
+            android:padding="16dp">
 
-        <RadioButton
-            android:id="@+id/optionB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Option B"/>
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/optionA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Option A" />
 
-        <RadioButton
-            android:id="@+id/optionC"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Option C"/>
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/optionB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Option B" />
 
-        <RadioButton
-            android:id="@+id/optionD"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Option D"/>
-    </RadioGroup>
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/optionC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Option C" />
 
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/optionD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Option D" />
+        </RadioGroup>
+
+    </LinearLayout>
     <Button
         android:id="@+id/submitButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginVertical="24dp"
         android:text="Submit"
-        android:layout_below="@id/optionsRadioGroup"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"/>
-</RelativeLayout>
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

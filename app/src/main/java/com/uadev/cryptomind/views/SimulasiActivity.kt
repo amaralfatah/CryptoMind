@@ -1,18 +1,16 @@
 package com.uadev.cryptomind.views
 
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.tabs.TabLayoutMediator
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.uadev.cryptomind.R
-import com.uadev.cryptomind.databinding.ActivityProgramBinding
 import com.uadev.cryptomind.databinding.ActivitySimulasiBinding
 
 class SimulasiActivity : AppCompatActivity() {
@@ -71,28 +69,38 @@ class SimulasiActivity : AppCompatActivity() {
     private fun updateTutorialStep(step: Int) {
         when (step) {
             1 -> {
-                // Mengatur gambar dan teks untuk langkah 1
-                binding.imageView.setImageResource(R.drawable.ic_simulasi)
-                binding.textView.text = getString(R.string.next)
-                binding.prevButton.visibility = View.INVISIBLE // Tombol prev tidak terlihat pada langkah pertama
+                Glide.with(this)
+                    .load(R.drawable.cfb4_intro)
+                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                    .into(binding.imageView)
+//                binding.textView.text = getString(R.string.cfb_materi)
+                binding.prevButton.visibility = View.INVISIBLE
             }
             2 -> {
-                // Mengatur gambar dan teks untuk langkah 2
-                binding.imageView.setImageResource(R.drawable.ic_kuis)
-                binding.textView.text = getString(R.string.intro2)
-                binding.prevButton.visibility = View.VISIBLE // Tombol prev terlihat pada langkah kedua
+                Glide.with(this)
+                    .load(R.drawable.cfb4_langkah_1)
+                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                    .into(binding.imageView)
+//                binding.textView.text = getString(R.string.intro2)
+                binding.prevButton.visibility = View.VISIBLE
             }
             3 -> {
-                // Mengatur gambar dan teks untuk langkah 3
-                binding.imageView.setImageResource(R.drawable.ic_program)
-                binding.textView.text = getString(R.string.app_name)
+                Glide.with(this)
+                    .load(R.drawable.cfb4_langkah_2)
+                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                    .into(binding.imageView)
+//                binding.textView.text = getString(R.string.app_name)
+                binding.nextButton.text = "Next"
             }
             4 -> {
-                // Mengatur gambar dan teks untuk langkah 4
-                binding.imageView.setImageResource(R.drawable.ic_materi)
-                binding.textView.text = getString(R.string.dekripsi)
-                binding.nextButton.text = "Finish" // Mengubah teks tombol next menjadi "Finish" pada langkah terakhir
+                Glide.with(this)
+                    .load(R.drawable.cfb4_langkah_3)
+                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                    .into(binding.imageView)
+//                binding.textView.text = getString(R.string.dekripsi)
+                binding.nextButton.text = "Finish"
             }
         }
     }
+
 }

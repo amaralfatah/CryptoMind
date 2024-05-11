@@ -50,6 +50,11 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    
     implementation("org.apache.commons:commons-text:1.9")
+    implementation("com.github.bumptech.glide:glide:4.13.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.13.1")
+
 
 }

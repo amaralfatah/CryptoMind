@@ -47,14 +47,18 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    
+
     implementation("org.apache.commons:commons-text:1.9")
     implementation("com.github.bumptech.glide:glide:4.13.1")
     annotationProcessor("com.github.bumptech.glide:compiler:4.13.1")
+
+    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation("com.google.firebase:firebase-storage")
 
 
 }

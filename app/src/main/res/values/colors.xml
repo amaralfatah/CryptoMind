@@ -17,10 +17,10 @@
 
 
 <!--    icon-->
-    <color name="ic_materi">#7EFF7E</color>
-    <color name="ic_simulasi">#F8E57A</color>
-    <color name="ic_kuis">#7E7EFF</color>
-    <color name="ic_program">#F87C7C</color>
+    <color name="ic_materi">#6FFF6F</color>
+    <color name="ic_simulasi">#FFE96F</color>
+    <color name="ic_kuis">#6F6FFF</color>
+    <color name="ic_program">#FF6F6F</color>
 
 
 </resources>

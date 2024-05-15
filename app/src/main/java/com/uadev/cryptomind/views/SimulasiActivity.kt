@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -24,6 +25,7 @@ class SimulasiActivity : AppCompatActivity() {
 
     private var currentStep = 1
     private val totalSteps = 15
+    private var isPlaying = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,6 +57,17 @@ class SimulasiActivity : AppCompatActivity() {
                 currentStep--
                 updateTutorialStep(currentStep)
             }
+        }
+
+        binding.playPauseButton.setOnClickListener {
+            if (isPlaying) {
+                binding.videoView.pause()
+                binding.playPauseButton.text = "Play"
+            } else {
+                binding.videoView.start()
+                binding.playPauseButton.text = "Pause"
+            }
+            isPlaying = !isPlaying
         }
 
         // Muat konten pertama dari Firebase Storage
@@ -92,7 +105,7 @@ class SimulasiActivity : AppCompatActivity() {
             else -> "cfb2/cfb2_intro.png"
         }
 
-        loadContent(contentPath, binding.imageView, binding.videoView)
+        loadContent(contentPath, binding.imageView, binding.videoView, binding.loadingProgressBar)
 
         when (step) {
             1 -> binding.prevButton.visibility = View.INVISIBLE
@@ -105,7 +118,10 @@ class SimulasiActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadContent(contentPath: String, imageView: ImageView, videoView: VideoView) {
+    private fun loadContent(contentPath: String, imageView: ImageView, videoView: VideoView, progressBar: ProgressBar) {
+        // Tampilkan progress bar saat memuat konten
+        progressBar.visibility = View.VISIBLE
+
         // Referensi ke Firebase Storage
         val storageReference = FirebaseStorage.getInstance().reference.child(contentPath)
 
@@ -115,21 +131,41 @@ class SimulasiActivity : AppCompatActivity() {
                 // Jika file adalah gambar, muat dengan Glide
                 imageView.visibility = View.VISIBLE
                 videoView.visibility = View.GONE
+                binding.playPauseButton.visibility = View.GONE // Sembunyikan tombol play/pause
                 Glide.with(this)
                     .load(uri)
                     .into(imageView)
+                progressBar.visibility = View.GONE // Sembunyikan progress bar setelah gambar dimuat
             } else if (contentPath.endsWith(".mp4")) {
                 // Jika file adalah video, muat dengan VideoView
                 imageView.visibility = View.GONE
                 videoView.visibility = View.VISIBLE
+                binding.playPauseButton.visibility = View.VISIBLE // Tampilkan tombol play/pause
+
                 videoView.setVideoURI(uri)
-                videoView.setOnPreparedListener { it.isLooping = true }
-                videoView.start()
+                videoView.setOnPreparedListener {
+//                    it.isLooping = true
+                    progressBar.visibility = View.GONE // Sembunyikan progress bar setelah video dimuat
+                    videoView.start()
+                    isPlaying = true
+                    binding.playPauseButton.text = "Pause"
+                }
+
+                videoView.setOnCompletionListener {
+                    // Di sini Anda dapat menangani kejadian saat video selesai diputar
+                    // Misalnya, mengubah teks tombol menjadi "Play" atau melakukan tindakan lain yang diinginkan.
+                    isPlaying = false
+                    binding.playPauseButton.text = "Play"
+//                    binding.playPauseButton.setBackgroundColor(ContextCompat.getColor(this, R.color.primary_color))
+//                    binding.playPauseButton.setTextColor(ContextCompat.getColor(this, R.color.white))
+                }
+
             }
         }.addOnFailureListener { exception ->
             // Tangani kegagalan
             Log.e("SimulasiActivity", "Error getting download URL", exception)
             Toast.makeText(this, "Failed to load content", Toast.LENGTH_SHORT).show()
+            progressBar.visibility = View.GONE // Sembunyikan progress bar jika terjadi kegagalan
         }
     }
 }

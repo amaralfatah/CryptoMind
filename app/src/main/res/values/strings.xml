@@ -43,4 +43,7 @@
     <string name="keamanan_title">Keamanan CFB</string>
     <string name="keamanan_materi1">\tPada proses enkripsi, kesalahan 1-bit pada blok plaintext akan merambat pada blok-blok cipherteks yang bersangkutan dan blok-blok ciphertext selanjutnya.</string>
     <string name="keamanan_materi2">\tSedangkan pada proses dekripsi, kesalahan 1-bit hanya berpengaruh pada blok yang bersangkutan dan satu blok setelahnya</string>
+    <string name="enkripsi_langkah_title">Langkah Enkripsi CFB</string>
+    <string name="enkripsi_langkah_ket">Dibawah ini merupakan langkah-langkah proses enkripsi cfb r-bit :</string>
+    <string name="enkripsi_langkah">- Isi antrian pertama (X1) dengan Initialization Vector (IV) sebanyak n-blok.\n- Enkripsi antrian menggunakan kunci (k).\n- hasil enkripsi tersebut diambil blok yang paling kiri lalu di xor-kan dengan Plaintext (Pi) sebanyak r-bit dan akan menghasilkan Ciphertext (Ci) sebanyak r-bit pula.\n- Salinan Ci disimpan pada blok paling kanan antrian.</string>
 </resources>

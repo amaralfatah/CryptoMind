@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.uadev.cryptomind.databinding.ActivityMainBinding
+import com.uadev.cryptomind.views.simulasi.OptionSimulasiActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnSimulasi.setOnClickListener {
-            val intent = Intent(this, SimulasiActivity::class.java)
+            val intent = Intent(this, OptionSimulasiActivity::class.java)
             startActivity(intent)
         }
     }

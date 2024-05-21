@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".views.SimulasiActivity"
+    tools:context=".views.simulasi.decrypt.Decrypt2BitActivity"
     android:id="@+id/main"
     android:background="@color/gost_white">
 

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.simulasi.OptionSimulasiActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih mode simulasi :"
+        android:fontFamily="@font/inter_regular"
+        android:textSize="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/enkripsi"
+        android:fontFamily="@font/inter_semi_bold"
+        android:textSize="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEn2Bit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 Bit"/>
+
+        <Button
+            android:id="@+id/btnEn4Bit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="4 Bit"/>
+
+        <Button
+            android:id="@+id/btnEn8Bit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8 Bit"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/dekripsi"
+        android:fontFamily="@font/inter_semi_bold"
+        android:textSize="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnDek2Bit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 Bit"/>
+
+        <Button
+            android:id="@+id/btnDek4Bit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="4 Bit"/>
+
+        <Button
+            android:id="@+id/btnDek8Bit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8 Bit"/>
+
+    </LinearLayout>
+
+</LinearLayout>

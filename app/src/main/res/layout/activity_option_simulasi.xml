@@ -1,90 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
-    android:padding="24dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.simulasi.OptionSimulasiActivity">
+    tools:context=".views.simulasi.OptionSimulasiActivity"
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pilih mode simulasi :"
-        android:fontFamily="@font/inter_regular"
-        android:textSize="16dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/enkripsi"
-        android:fontFamily="@font/inter_semi_bold"
-        android:textSize="20dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnEn2Bit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2 Bit"/>
-
-        <Button
-            android:id="@+id/btnEn4Bit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:text="4 Bit"/>
-
-        <Button
-            android:id="@+id/btnEn8Bit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="8 Bit"/>
-
-    </LinearLayout>
-
-
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/dekripsi"
-        android:fontFamily="@font/inter_semi_bold"
-        android:textSize="20dp"/>
+        android:background="@drawable/rounded_corner"
+        android:src="@drawable/iv_text_simulasi_option"
+        android:scaleType="centerCrop"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="36dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/iv"
+        app:layout_constraintStart_toStartOf="@+id/iv" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belajar Simulasi"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:fontFamily="@font/inter_semi_bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Algoritma Cipher Feedback"
+            android:textSize="16dp"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="16dp"
+        android:paddingHorizontal="16dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/iv"
+        tools:layout_editor_absoluteX="24dp">
 
-        <Button
-            android:id="@+id/btnDek2Bit"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2 Bit"/>
+            android:fontFamily="@font/inter_regular"
+            android:text="Pilih mode simulasi :"
+            android:textSize="16dp" />
 
-        <Button
-            android:id="@+id/btnDek4Bit"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:text="4 Bit"/>
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter_semi_bold"
+            android:text="@string/enkripsi"
+            android:textSize="20dp" />
 
-        <Button
-            android:id="@+id/btnDek8Bit"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnEn2Bit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 Bit" />
+
+            <Button
+                android:id="@+id/btnEn4Bit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="4 Bit" />
+
+            <Button
+                android:id="@+id/btnEn8Bit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8 Bit" />
+
+        </LinearLayout>
+
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="8 Bit"/>
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/inter_semi_bold"
+            android:text="@string/dekripsi"
+            android:textSize="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDek2Bit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 Bit" />
+
+            <Button
+                android:id="@+id/btnDek4Bit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="4 Bit" />
+
+            <Button
+                android:id="@+id/btnDek8Bit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8 Bit" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

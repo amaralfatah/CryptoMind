@@ -1,4 +1,4 @@
-package com.uadev.cryptomind.views
+package com.uadev.cryptomind.views.materi
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle

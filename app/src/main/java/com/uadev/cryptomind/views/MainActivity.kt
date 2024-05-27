@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.uadev.cryptomind.databinding.ActivityMainBinding
+import com.uadev.cryptomind.views.materi.MateriActivity
+import com.uadev.cryptomind.views.materi.OptionMateriActivity
 import com.uadev.cryptomind.views.simulasi.OptionSimulasiActivity
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnMateri.setOnClickListener {
-            val intent = Intent(this, MateriActivity::class.java)
+            val intent = Intent(this, OptionMateriActivity::class.java)
             startActivity(intent)
         }
 

@@ -15,6 +15,12 @@
         android:theme="@style/Theme.BaseAppTheme"
         tools:targetApi="31" >
         <activity
+            android:name=".views.materi.LatihanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.materi.OptionMateriActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.simulasi.decrypt.Decrypt2BitActivity"
             android:exported="false" />
         <activity
@@ -27,7 +33,7 @@
             android:name=".views.ProgramActivity"
             android:exported="false" />
         <activity
-            android:name=".views.MateriActivity"
+            android:name=".views.materi.MateriActivity"
             android:exported="false" />
         <activity
             android:name=".views.ResultActivity"

@@ -6,773 +6,628 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main"
-    tools:context=".views.materi.LatihanActivity"
-    android:paddingBottom="16dp">
+    tools:context=".views.materi.LatihanActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
         android:orientation="vertical"
-        android:padding="24dp">
-
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="8dp"-->
-<!--            app:cardCornerRadius="16dp">-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical"-->
-<!--                android:paddingVertical="32dp"-->
-<!--                android:paddingHorizontal="16dp">-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Mulai Latihan"-->
-<!--            android:textSize="24sp"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:fontFamily="@font/inter_semi_bold"/>-->
-
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Kita akan melakukan latihan enkripsi CFB 2 Bit yang berkerja pada blok 6 bit"-->
-<!--            android:textSize="16sp"-->
-<!--            android:textColor="@color/black"/>-->
-<!--            </LinearLayout>-->
-<!--        </androidx.cardview.widget.CardView>-->
+        android:padding="8dp">
 
         <!-- START Introduction -->
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mulai Latihan"
-                android:textSize="24sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/inter_semi_bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kita akan melakukan latihan enkripsi CFB 2 Bit yang berkerja pada blok 6 bit. Artinya plaintext akan dienkripsi setiap 2 bit."
-                android:textColor="@color/black"
-                android:justificationMode="inter_word"/>
-
-            <TextView
-                android:textColor="#000000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="12dp"
-                android:lineSpacingExtra="6dp"
-                android:background="@drawable/bg_primary_light_rounded"
-                android:justificationMode="inter_word"
-                android:fontFamily="sans-serif"
-                android:textSize="12sp"
-                android:text="Diketahui :
-                \nPlaintext (P)         = 01111000
-                \nKey (K)               = 101010 (6 bit)
-                \nInitial Vector (IV)   = 000000 (6 bit)"/>
-
-            <TextView
-                android:textColor="#000000"
-                android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="16dp">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:justificationMode="inter_word"
-                android:lineSpacingExtra="6dp"
-                android:text="Sebagaimana kita ketahui, Antrian (X1) diisi dengan iv. Maka :"/>
-
-            <TextView
-                android:textColor="#000000"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="12dp"
-                android:lineSpacingExtra="6dp"
-                android:background="@drawable/bg_primary_light_rounded"
-                android:justificationMode="inter_word"
-                android:fontFamily="sans-serif"
-                android:textSize="12sp"
-                android:text="Antrian ke-1 (X1) = 000000"/>
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pecah Plaintext"
-                android:textColor="@color/black"
-                android:fontFamily="@font/inter_semi_bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mulai Latihan"
+                    android:textSize="24sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
 
-            <TextView
-                android:textColor="#000000"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:justificationMode="inter_word"
-                android:lineSpacingExtra="6dp"
-                android:text="Agar lebih mudah, pecah dan definisikanlah Pn sebagai berikut :"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kita akan melakukan latihan enkripsi CFB 8 Bit yang berkerja pada blok 16 bit. Artinya plaintext akan dienkripsi setiap 8 bit."
+                    android:textColor="@color/black"
+                    android:justificationMode="inter_word"/>
 
-            <TextView
-                android:textColor="#000000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="12dp"
-                android:lineSpacingExtra="6dp"
-                android:background="@drawable/bg_primary_light_rounded"
-                android:justificationMode="inter_word"
-                android:fontFamily="sans-serif"
-                android:textSize="12sp"
-                android:text="P = 01 11 10 00\n       P1 P2 P3 P4"/>
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="Diketahui :
+                    \n\nPlaintext (P) = UAD4
+                    \n\nKey (K)\n= 10101010 10101010 10101010 (16 bit)
+                    \n\nInitial Vector (IV)\n= 00000000 00000000 00000000 (16 bit)"/>
 
-        </LinearLayout>
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="6dp"
+                    android:text="Sebagaimana kita ketahui, Antrian (X1) diisi dengan iv. Maka :"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="Antrian ke-1 (X1) \n= 00000000 00000000 00000000"/>
+
+                <!--    Convert to biner    -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Konversi Ke Biner"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="6dp"
+                    android:text="Key dab IV sudah dalam bentuk biner, sedangkan Plaintext belum. Maka kita akan mengkonversi Plaintext ke dalam bentuk biner dengan melihat tabel ASCII :"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="U = 01010101 \nA = 01000001 \nD = 01000100 \n4 = 00110100 \n\nmaka : \nP = 01010101 01000100 01000100 00110100 \n\ndimana : \nP =    P1       P2       P3       P4"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="6dp"
+                    android:text="Setelah semua yang dibutuhkan berbentuk biner maka kita siap melakukan step selanjutnya."/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
         <!-- END Introduction -->
 
-        <!-- START Plaintext 1 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Enkripsi IV Atau X1"
-                android:textColor="@color/black"
-                android:fontFamily="@font/inter_semi_bold"/>
-
-            <TextView
-                android:textColor="#000000"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:justificationMode="inter_word"
-                android:lineSpacingExtra="6dp"
-                android:text="Lakukan enkripsi IV/X1 menggunakan K :"/>
-
-            <TextView
-                android:textColor="#000000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="12dp"
-                android:lineSpacingExtra="6dp"
-                android:background="@drawable/bg_primary_light_rounded"
-                android:justificationMode="inter_word"
-                android:fontFamily="sans-serif"
-                android:textSize="12sp"
-                android:text="IV = 00 00 00\nK   = 10 10 10\n        ------------- ⊕\n        10 10 10\n        &lt;------------ w1 (geser 1 bit ke kiri)\n        01 01 01"/>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="XOR MSB dengan P1"
-                android:textColor="@color/black"
-                android:fontFamily="@font/inter_semi_bold"/>
-
-            <TextView
-                android:textColor="#000000"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:justificationMode="inter_word"
-                android:lineSpacingExtra="6dp"
-                android:text="Ambil blok 2 bit paling kiri (Most Signifi) dan XOR dengan P1 :"/>
-
-            <TextView
-                android:textColor="#000000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:padding="12dp"
-                android:lineSpacingExtra="6dp"
-                android:background="@drawable/bg_primary_light_rounded"
-                android:justificationMode="inter_word"
-                android:fontFamily="sans-serif"
-                android:textSize="12sp"
-                android:text="MSB = 01\nP1     = 01\n             --- ⊕\n             00\n             &lt;-- w1 (geser 1 bit ke kiri)\n             00"/>
-
-
-        </LinearLayout>
-        <!-- END Plaintext 1 -->
-
-
-        <!-- Introduction-->
+        <!-- START Encrypt Plaintext 1 -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:cardCornerRadius="16dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingVertical="32dp"
-                android:paddingHorizontal="16dp">
-
+                android:padding="16dp"
+                android:orientation="vertical">
                 <TextView
-                    android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/inter_bold"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="@string/pendahuluan"
-                    />
-
-                <TextView
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/inter_regular"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/materi_algoritma_cipher_feedback"
-                    />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    app:shapeAppearanceOverlay="@style/cr6"
-                    android:layout_width="match_parent"
-                    android:layout_height="185dp"
-                    android:layout_marginTop="24dp"
-                    android:src="@drawable/header_kriptografi"
-                    android:scaleType="fitXY"
-                    />
+                    android:text="Enkripsi IV Atau X1"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_marginTop="24dp"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:justificationMode="inter_word"
                     android:lineSpacingExtra="6dp"
-                    android:text="@string/intro"
-                    />
+                    android:text="Lakukan enkripsi IV/X1 menggunakan K :"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_marginTop="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="X1 = 00000000 00000000 00000000 \nK  = 10101010 10101010 10101010\n     -------------------------- ⊕\n     10101010 10101010 10101010\n     &lt;------------------------- w1 \n     01010101 01010101 01010101 \n\nnote : \nw1 berarti geser 1 bit ke kiri"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="XOR MSB dengan P1"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
+
+                <TextView
+                    android:textColor="#000000"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:justificationMode="inter_word"
                     android:lineSpacingExtra="6dp"
-                    android:text="@string/intro2"
-                    />
+                    android:text="Ambil blok 8 bit paling kiri (Most Significant Byte) dan XOR dengan P1 untuk mendapatkan C1 :"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="MSB = 01010101\nP1  = 01010101\n      -------- ⊕\nC1    00000000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Simpan C1 Ke Antrian X1"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="6dp"
+                    android:text="Simpan C1 ke blok paling kanan atau Least Significant Byte (LSB) dari antrian X1 dan akan menghasilkan antrian X2"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="X1 = 00000000 00000000 00000000 \n\nmasukan C2 \nC1 = 00000000 \nX2 = 00000000 00000000 00010100"/>
+
+
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
-        <!-- END Introduction-->
+        <!-- END Encrypt Plaintext 1 -->
 
-        <!-- Apa itu CFB?-->
+        <!-- START Encrypt Plaintext 2 -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:cardCornerRadius="16dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingVertical="32dp"
-                android:paddingHorizontal="16dp">
-
+                android:padding="16dp"
+                android:orientation="vertical">
                 <TextView
-                    android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:fontFamily="@font/inter_bold"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="@string/cfb_title"
-                    />
+                    android:layout_height="wrap_content"
+                    android:text="Enkripsi Antrian X2"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_marginTop="16dp"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:justificationMode="inter_word"
                     android:lineSpacingExtra="6dp"
-                    android:text="@string/cfb_materi"
-                    />
+                    android:text="Lakukan enkripsi antrian X2 menggunakan K :"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_marginTop="16dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:justificationMode="inter_word"
-                    android:lineSpacingExtra="6dp"
-                    android:text="@string/cfb_title_poin"
-                    />
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
                     android:lineSpacingExtra="6dp"
                     android:background="@drawable/bg_primary_light_rounded"
                     android:justificationMode="inter_word"
-                    android:text="@string/cfb_poin1"/>
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="X2 = 00000000 00000000 00000000 \nK  = 10101010 10101010 10101010\n     -------------------------- ⊕\n     10101010 10101010 10101010\n     &lt;------------------------- w1 \n     01010101 01010101 01010101"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="XOR MSB dengan P2"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
+                    android:layout_width="match_parent"
                     android:justificationMode="inter_word"
-                    android:text="@string/cfb_poin2"/>
+                    android:lineSpacingExtra="6dp"
+                    android:text="Ambil blok 8 bit paling kiri (Most Significant Byte) dan XOR dengan P2 untuk mendapatkan C2 :"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
                     android:lineSpacingExtra="6dp"
                     android:background="@drawable/bg_primary_light_rounded"
                     android:justificationMode="inter_word"
-                    android:text="@string/cfb_poin3"/>
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="MSB = 01010101\nP2  = 01000001\n      -------- ⊕\nC2    00010100"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Simpan C2 Ke Antrian X2"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
+                    android:layout_width="match_parent"
                     android:justificationMode="inter_word"
-                    android:text="@string/cfb_poin4"/>
+                    android:lineSpacingExtra="6dp"
+                    android:text="Simpan C2 ke blok paling kanan atau Least Significant Byte (LSB) dari antrian X2 dan akan menghasilkan antrian X3"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
                     android:lineSpacingExtra="6dp"
                     android:background="@drawable/bg_primary_light_rounded"
                     android:justificationMode="inter_word"
-                    android:text="@string/cfb_poin5"/>
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
-                    android:justificationMode="inter_word"
-                    android:text="@string/cfb_poin6"/>
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
-                    android:justificationMode="inter_word"
-                    android:text="@string/cfb_poin7"/>
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="X2 = 00000000 00000000 00000000 \n\nmasukan C2 \nC2 = 00010100 \nX3 = 00000000 00000000 00010100"/>
 
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
-        <!-- END Apa itu CFB?-->
+        <!-- END Encrypt Plaintext 2 -->
 
-        <!-- Enkripsi CFB-->
+        <!-- START Encrypt Plaintext 3 -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:cardCornerRadius="16dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingVertical="32dp"
-                android:paddingHorizontal="16dp">
-
+                android:padding="16dp"
+                android:orientation="vertical">
                 <TextView
-                    android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="@string/enkripsi_title"
-                    />
-
-                <TextView
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:layout_marginTop="16dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:justificationMode="inter_word"
-                    android:lineSpacingExtra="6dp"
-                    android:text="@string/enkripsi_ket_gambar"/>
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    app:shapeAppearanceOverlay="@style/cr6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/cfb_enkripsi"
-                    android:scaleType="fitXY"
-                    android:layout_gravity="center"
-                    />
+                    android:text="Enkripsi Antrian X3"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:layout_marginTop="24dp"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:justificationMode="inter_word"
                     android:lineSpacingExtra="6dp"
-                    android:text="@string/enkripsi_materi"
-                    />
+                    android:text="Lakukan enkripsi antrian X3 menggunakan K :"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:layout_marginTop="16dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:justificationMode="inter_word"
-                    android:lineSpacingExtra="6dp"
-                    android:text="@string/enkripsi_ket_rumus"
-                    />
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_marginTop="16dp"
-                    android:padding="16dp"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:justificationMode="inter_word"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
-                    android:text="@string/enkripsi_rumus"
-                    />
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_marginTop="16dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="6dp"
-                    android:text="@string/keterangan_rumus"/>
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_marginTop="24dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="6dp"
-                    android:fontFamily="@font/inter_semi_bold"
-                    android:text="@string/enkripsi_langkah_title"/>
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_marginTop="8dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="6dp"
-                    android:text="@string/enkripsi_langkah_ket"/>
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
                     android:lineSpacingExtra="6dp"
                     android:background="@drawable/bg_primary_light_rounded"
                     android:justificationMode="inter_word"
-                    android:text="Isi antrian pertama (X1) dengan Initialization Vector (IV) sebanyak n-blok."/>
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="X3 = 00000000 00000000 00010100 \nK  = 10101010 10101010 10101010\n     -------------------------- ⊕\n     10101010 10101010 10111110\n     &lt;------------------------- w1 \n     01010101 01010101 01111101"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="XOR MSB dengan P3"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
+                    android:layout_width="match_parent"
                     android:justificationMode="inter_word"
-                    android:text="Enkripsi antrian menggunakan kunci (k)."/>
+                    android:lineSpacingExtra="6dp"
+                    android:text="Ambil blok 8 bit paling kiri (Most Significant Byte) dan XOR dengan P3 untuk mendapatkan C3 :"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
                     android:lineSpacingExtra="6dp"
                     android:background="@drawable/bg_primary_light_rounded"
                     android:justificationMode="inter_word"
-                    android:text="Ambil blok paling kiri dari hasil enkripsi , lalu XOR-kan dengan plaintext (Pi) sebanyak r-bit. Ini akan menghasilkan Ciphertext (Ci) sebanyak r-bit pula."/>
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="MSB = 01010101\nP3  = 01000100\n      -------- ⊕\nC3    00010001"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Simpan C3 Ke Antrian X3"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
+                    android:layout_width="match_parent"
                     android:justificationMode="inter_word"
-                    android:text="Simpan salinan Ci pada blok paling kanan dari antrian."/>
+                    android:lineSpacingExtra="6dp"
+                    android:text="Simpan C3 ke blok paling kanan atau Least Significant Byte (LSB) dari antrian X3 dan akan menghasilkan antrian X4"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
                     android:lineSpacingExtra="6dp"
                     android:background="@drawable/bg_primary_light_rounded"
                     android:justificationMode="inter_word"
-                    android:text="Ulangi langkah-langkah di atas sampai semua plaintext telah terenkripsi atau mencapai Pn."/>
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="X3 = 00000000 00000000 00010100 \n\nmasukan C3 \nC3 = 00010001 \nX4 = 00000000 00010100 00010001"/>
+
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
-        <!-- END Enkripsi CFB-->
+        <!-- END Encrypt Plaintext 3 -->
 
-        <!-- Dekripsi CFB-->
+        <!-- START Encrypt Plaintext 4 -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:cardCornerRadius="16dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingVertical="32dp"
-                android:paddingHorizontal="16dp">
-
+                android:padding="16dp"
+                android:orientation="vertical">
                 <TextView
-                    android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="@string/dekripsi_title"
-                    />
-
-                <TextView
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:layout_marginTop="16dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:justificationMode="inter_word"
-                    android:lineSpacingExtra="6dp"
-                    android:text="@string/dekripsi_ket_gambar"/>
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    app:shapeAppearanceOverlay="@style/cr6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/cfb_dekripsi"
-                    android:scaleType="fitXY"
-                    android:layout_gravity="center"
-                    />
+                    android:text="Enkripsi Antrian X4"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
+
                 <TextView
                     android:textColor="#000000"
-                    android:layout_marginTop="24dp"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:justificationMode="inter_word"
                     android:lineSpacingExtra="6dp"
-                    android:text="@string/dekripsi_materi"
-                    />
+                    android:text="Lakukan enkripsi antrian X4 menggunakan K :"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:layout_marginTop="16dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:justificationMode="inter_word"
-                    android:lineSpacingExtra="6dp"
-                    android:text="@string/dekripsi_ket_rumus"
-                    />
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_marginTop="16dp"
-                    android:padding="16dp"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:justificationMode="inter_word"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
-                    android:text="@string/dekripsi_rumus"
-                    />
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_marginTop="16dp"
                     android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="6dp"
-                    android:text="@string/keterangan_rumus"/>
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_marginTop="24dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="6dp"
-                    android:fontFamily="@font/inter_semi_bold"
-                    android:text="Langkah Dekripsi CFB"/>
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_marginTop="8dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:lineSpacingExtra="6dp"
-                    android:text="Dibawah ini merupakan langkah-langkah proses dekripsi cfb r-bit :"/>
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
                     android:lineSpacingExtra="6dp"
                     android:background="@drawable/bg_primary_light_rounded"
                     android:justificationMode="inter_word"
-                    android:text="Isi antrian pertama (X1) dengan Initialization Vector (IV) sebanyak n-blok."/>
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="X3 = 00000000 00010100 00010001 \nK  = 10101010 10101010 10101010\n     -------------------------- ⊕\n     10101010 10111110 10111011\n     &lt;------------------------- w1 \n     01010101 01111101 01110111"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="XOR MSB dengan P4"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
+                    android:layout_width="match_parent"
                     android:justificationMode="inter_word"
-                    android:text="Enkripsi antrian menggunakan kunci (k)."/>
+                    android:lineSpacingExtra="6dp"
+                    android:text="Ambil blok 8 bit paling kiri (Most Significant Byte) dan XOR dengan P4 untuk mendapatkan C4 :"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
                     android:lineSpacingExtra="6dp"
                     android:background="@drawable/bg_primary_light_rounded"
                     android:justificationMode="inter_word"
-                    android:text="Ambil blok paling kiri dari hasil enkripsi , lalu XOR-kan dengan Ciphertext (Ci) sebanyak r-bit. Ini akan menghasilkan Plaintext (Pi) sebanyak r-bit pula."/>
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="MSB = 01010101\nP4  = 00110100\n      -------- ⊕\nC4    01100001"/>
 
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
-                    android:justificationMode="inter_word"
-                    android:text="Ci kemudian digunakan kembali untuk disimpan pada blok paling kanan dari antrian."/>
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="8dp"
-                    android:padding="16dp"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
-                    android:justificationMode="inter_word"
-                    android:text="Ulangi langkah-langkah di atas sampai semua plaintext telah terenkripsi atau mencapai Cn."/>
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
-        <!-- END Dekripsi CFB-->
+        <!-- END Encrypt Plaintext 4 -->
 
-        <!-- Keamanan CFB-->
+        <!-- START Ciphertext -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:cardCornerRadius="16dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingVertical="32dp"
-                android:paddingHorizontal="16dp">
-
+                android:padding="16dp"
+                android:orientation="vertical">
                 <TextView
-                    android:textColor="#000000"
-                    android:textSize="24sp"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="@string/keamanan_title"/>
+                    android:layout_height="wrap_content"
+                    android:text="Gabungkan Ciphertext"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_marginTop="16dp"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:justificationMode="inter_word"
                     android:lineSpacingExtra="6dp"
-                    android:text="@string/keamanan_materi1"/>
+                    android:text="Gabungkan semua blok ciphertext yang telah didapatkan :"/>
 
                 <TextView
                     android:textColor="#000000"
-                    android:layout_marginTop="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="C1 = 00000000 \nC2 = 00010100 \nC3 = 00010001 \nC4 = 01100001"/>
+
+                <TextView
+                    android:textColor="#000000"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:justificationMode="inter_word"
                     android:lineSpacingExtra="6dp"
-                    android:text="@string/keamanan_materi2"/>
+                    android:text="menjadi :"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="C = 00000000000101000001000101100001"/>
 
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
-        <!-- END Keamanan CFB-->
+        <!-- END Ciphertext -->
 
+        <!-- START Conclusion -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginHorizontal="8dp"
+            app:cardCornerRadius="16dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kesimpulan"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="6dp"
+                    android:text="Setelah dilakukan proses enkripsi CFB 8 bit yang bekerja pada blok 32 bit, dapat disimpulkan bahwa :"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="6dp"
+                    android:text="\nhasil enkripsi dari : "/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="Plaintext (P) \n= UAD4 , atau \n= 01010101 01000100 01000100 00110100
+                    \n\nKey (K)\n= 10101010 10101010 10101010 (16 bit)
+                    \n\nInitial Vector (IV)\n= 00000000 00000000 00000000 (16 bit)"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="6dp"
+                    android:text="adalah : "/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="C = 00000000000101000001000101100001"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <!-- END Conclusion -->
     </LinearLayout>
 </ScrollView>

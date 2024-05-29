@@ -3,6 +3,7 @@ package com.uadev.cryptomind.views.materi
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -40,6 +41,17 @@ class OptionMateriActivity : AppCompatActivity() {
         binding.btnLatihan.setOnClickListener(){
             val intent = Intent(this, LatihanActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                // Handle klik tombol kembali di action bar
+                onBackPressed()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
         }
     }
 }

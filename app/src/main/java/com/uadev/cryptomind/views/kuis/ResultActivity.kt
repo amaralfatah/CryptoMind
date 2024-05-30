@@ -1,4 +1,4 @@
-package com.uadev.cryptomind.views
+package com.uadev.cryptomind.views.kuis
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivityResultBinding
+import com.uadev.cryptomind.views.MainActivity
 
 class ResultActivity : AppCompatActivity() {
 

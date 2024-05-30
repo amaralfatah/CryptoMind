@@ -39,16 +39,16 @@
             android:name=".views.simulasi.encrypt.Encrypt2BitActivity"
             android:exported="false" />
         <activity
-            android:name=".views.ProgramActivity"
+            android:name=".views.program.ProgramActivity"
             android:exported="false" />
         <activity
             android:name=".views.materi.MateriActivity"
             android:exported="false" />
         <activity
-            android:name=".views.ResultActivity"
+            android:name=".views.kuis.ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".views.QuizActivity"
+            android:name=".views.kuis.QuizActivity"
             android:exported="false" />
         <activity
             android:name=".views.MainActivity"

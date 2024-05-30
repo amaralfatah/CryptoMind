@@ -11,9 +11,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivityMainBinding
 import com.uadev.cryptomind.views.info.InfoActivity
-import com.uadev.cryptomind.views.materi.MateriActivity
+import com.uadev.cryptomind.views.kuis.QuizActivity
 import com.uadev.cryptomind.views.materi.OptionMateriActivity
 import com.uadev.cryptomind.views.petunjuk.PetunjukActivity
+import com.uadev.cryptomind.views.program.ProgramActivity
 import com.uadev.cryptomind.views.simulasi.OptionSimulasiActivity
 
 class MainActivity : AppCompatActivity() {

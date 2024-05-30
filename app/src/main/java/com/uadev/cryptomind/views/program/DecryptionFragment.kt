@@ -1,4 +1,4 @@
-package com.uadev.cryptomind.views
+package com.uadev.cryptomind.views.program
 import android.util.Log
 
 
@@ -12,12 +12,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.uadev.cryptomind.databinding.FragmentDecryptionBinding
-import com.uadev.cryptomind.databinding.FragmentEncryptionBinding
-import java.util.Locale
-import javax.crypto.Cipher
-import javax.crypto.spec.IvParameterSpec
-import javax.crypto.spec.SecretKeySpec
-import kotlin.math.log
 
 class DecryptionFragment : Fragment() {
     private var _binding: FragmentDecryptionBinding? = null

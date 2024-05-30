@@ -1,16 +1,15 @@
-package com.uadev.cryptomind.views
+package com.uadev.cryptomind.views.program
 
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.tabs.TabLayoutMediator
 import com.uadev.cryptomind.R
+import com.uadev.cryptomind.adapter.ViewPagerAdapter
 import com.uadev.cryptomind.databinding.ActivityProgramBinding
 
 class ProgramActivity : AppCompatActivity() {

@@ -60,4 +60,6 @@
     <string name="kuis">Kuis</string>
     <string name="program">Program</string>
     <string name="copyright">© 2024 Amar Al Fatah</string>
+    <string name="petunjuk">Petunjuk</string>
+    <string name="info">Info</string>
 </resources>

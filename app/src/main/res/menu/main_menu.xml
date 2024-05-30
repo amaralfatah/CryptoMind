@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Di dalam res/menu/main_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_petunjuk"
+        android:title="@string/petunjuk"
+        android:icon="@drawable/ic_simulasi"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_info"
+        android:title="@string/info"
+        android:icon="@drawable/ic_simulasi"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+</menu>

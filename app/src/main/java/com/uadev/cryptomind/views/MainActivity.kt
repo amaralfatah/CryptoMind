@@ -10,8 +10,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivityMainBinding
+import com.uadev.cryptomind.views.info.InfoActivity
 import com.uadev.cryptomind.views.materi.MateriActivity
 import com.uadev.cryptomind.views.materi.OptionMateriActivity
+import com.uadev.cryptomind.views.petunjuk.PetunjukActivity
 import com.uadev.cryptomind.views.simulasi.OptionSimulasiActivity
 
 class MainActivity : AppCompatActivity() {
@@ -68,7 +70,8 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.action_info -> {
-                // Tambahkan logika untuk menu pengaturan di sini
+                val intent = Intent(this, InfoActivity::class.java)
+                startActivity(intent)
                 true
             }
             else -> super.onOptionsItemSelected(item)

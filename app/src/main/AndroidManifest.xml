@@ -15,6 +15,12 @@
         android:theme="@style/Theme.BaseAppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".views.info.InfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.petunjuk.PetunjukActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.simulasi.encrypt.Encrypt8BitActivity"
             android:exported="false" />
         <activity

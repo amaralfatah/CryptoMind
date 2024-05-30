@@ -14,6 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
+        <!-- Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="4dp"/>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -231,6 +238,83 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
+            <!-- Item 5 -->
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/btnUserManual"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="165dp"-->
+<!--                android:layout_row="2"-->
+<!--                android:layout_column="0"-->
+<!--                android:layout_columnWeight="1"-->
+<!--                android:layout_margin="8dp"-->
+<!--                app:cardCornerRadius="16dp">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:background="@color/white"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="84dp"-->
+<!--                        android:layout_height="84dp"-->
+<!--                        android:contentDescription="@string/kuis"-->
+<!--                        android:src="@drawable/ic_kuis" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="16dp"-->
+<!--                        android:text="@string/kuis"-->
+<!--                        android:textColor="@color/soft_black"-->
+<!--                        android:textSize="16sp"-->
+
+<!--                        />-->
+<!--                </LinearLayout>-->
+
+<!--            </androidx.cardview.widget.CardView>-->
+
+            <!-- Item 6 -->
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/btnInfo"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="165dp"-->
+<!--                android:layout_row="2"-->
+<!--                android:layout_column="1"-->
+<!--                android:layout_columnWeight="1"-->
+<!--                android:layout_margin="8dp"-->
+<!--                app:cardCornerRadius="16dp">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:background="@color/white"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="vertical"-->
+<!--                    app:cardCornerRadius="16dp">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="84dp"-->
+<!--                        android:layout_height="84dp"-->
+<!--                        android:contentDescription="@string/program"-->
+<!--                        android:src="@drawable/ic_program" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="16dp"-->
+<!--                        android:text="@string/program"-->
+<!--                        android:textColor="@color/soft_black"-->
+<!--                        android:textSize="16sp"-->
+
+<!--                        />-->
+<!--                </LinearLayout>-->
+
+<!--            </androidx.cardview.widget.CardView>-->
 
         </GridLayout>
 

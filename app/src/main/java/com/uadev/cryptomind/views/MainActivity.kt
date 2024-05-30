@@ -2,10 +2,13 @@ package com.uadev.cryptomind.views
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivityMainBinding
 import com.uadev.cryptomind.views.materi.MateriActivity
 import com.uadev.cryptomind.views.materi.OptionMateriActivity
@@ -45,6 +48,30 @@ class MainActivity : AppCompatActivity() {
         binding.btnSimulasi.setOnClickListener {
             val intent = Intent(this, OptionSimulasiActivity::class.java)
             startActivity(intent)
+        }
+
+        setSupportActionBar(binding.toolbar)
+        // Menghapus judul dari Toolbar
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_petunjuk -> {
+                val intent = Intent(this, PetunjukActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.action_info -> {
+                // Tambahkan logika untuk menu pengaturan di sini
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

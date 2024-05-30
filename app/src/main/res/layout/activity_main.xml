@@ -25,14 +25,14 @@
                 android:textSize="20sp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="Selamat Datang"
+                android:text="@string/home_text_title"
                 android:layout_gravity="center"
                 />
 
             <TextView
                 android:id="@+id/textGrid"
-                android:text="Crypto Learner"
-                android:textSize="32sp"
+                android:text="@string/app_name"
+                android:textSize="36sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Daftar Menu"
+            android:text="@string/daftar_menu"
             android:textColor="@color/soft_black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -101,13 +101,14 @@
                     <ImageView
                         android:layout_width="84dp"
                         android:layout_height="84dp"
+                        android:contentDescription="@string/materi"
                         android:src="@drawable/ic_materi" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Materi"
+                        android:text="@string/materi"
                         android:textColor="@color/soft_black"
                         android:textSize="18sp"
 
@@ -138,13 +139,14 @@
                     <ImageView
                         android:layout_width="84dp"
                         android:layout_height="84dp"
+                        android:contentDescription="@string/simulasi"
                         android:src="@drawable/ic_simulasi" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Simulasi"
+                        android:text="@string/simulasi"
                         android:textColor="@color/soft_black"
                         android:textSize="16sp"
 
@@ -175,13 +177,14 @@
                     <ImageView
                         android:layout_width="84dp"
                         android:layout_height="84dp"
+                        android:contentDescription="@string/kuis"
                         android:src="@drawable/ic_kuis" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Kuis"
+                        android:text="@string/kuis"
                         android:textColor="@color/soft_black"
                         android:textSize="16sp"
 
@@ -213,13 +216,14 @@
                     <ImageView
                         android:layout_width="84dp"
                         android:layout_height="84dp"
+                        android:contentDescription="@string/program"
                         android:src="@drawable/ic_program" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Program"
+                        android:text="@string/program"
                         android:textColor="@color/soft_black"
                         android:textSize="16sp"
 
@@ -239,10 +243,10 @@
             app:layout_constraintBottom_toBottomOf="parent">
             <TextView
                 android:textColor="@color/soft_black"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="© 2024 Amar Al Fatah"
+                android:text="@string/copyright"
                 android:layout_gravity="center"
                 android:fontFamily="@font/inter_light"/>
         </RelativeLayout>

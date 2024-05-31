@@ -4,13 +4,12 @@ import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivityOptionMateriBinding
+import com.uadev.cryptomind.views.materi.latihan.LatihanEnkripsiActivity
+import com.uadev.cryptomind.views.materi.latihan.OptionLatihanActivity
 
 class OptionMateriActivity : AppCompatActivity() {
 
@@ -39,7 +38,7 @@ class OptionMateriActivity : AppCompatActivity() {
         }
 
         binding.btnLatihan.setOnClickListener(){
-            val intent = Intent(this, LatihanActivity::class.java)
+            val intent = Intent(this, OptionLatihanActivity::class.java)
             startActivity(intent)
         }
     }

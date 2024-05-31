@@ -1,4 +1,4 @@
-package com.uadev.cryptomind.views.materi
+package com.uadev.cryptomind.views.materi.latihan
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -8,20 +8,19 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.uadev.cryptomind.R
-import com.uadev.cryptomind.databinding.ActivityLatihanBinding
-import com.uadev.cryptomind.databinding.ActivityMateriBinding
+import com.uadev.cryptomind.databinding.ActivityLatihanEnkripsiBinding
 
-class LatihanActivity : AppCompatActivity() {
+class LatihanEnkripsiActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLatihanBinding
+    private lateinit var binding: ActivityLatihanEnkripsiBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLatihanBinding.inflate(layoutInflater)
+        binding = ActivityLatihanEnkripsiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Aktifkan action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Latihan"
+        supportActionBar?.title = "Latihan Enkripsi"
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.primary_color)))
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->

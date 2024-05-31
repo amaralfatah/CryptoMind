@@ -62,4 +62,8 @@
     <string name="copyright">© 2024 Amar Al Fatah</string>
     <string name="petunjuk">Petunjuk</string>
     <string name="info">Info</string>
+    <string name="latihan_enkripsi">Latihan Enkripsi</string>
+    <string name="latihan_dekripsi">Latihan Dekripsi</string>
+    <string name="enkripsi_dan_dekripsi">Enkripsi Dan Dekripsi</string>
+    <string name="latihan">Latihan</string>
 </resources>

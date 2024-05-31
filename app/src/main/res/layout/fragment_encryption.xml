@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="12dp"
-        android:text="Text yang akan dienkripsi"
+        android:text="@string/text_yang_akan_dienkripsi"
         android:textSize="14sp"/>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -20,13 +20,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
-        android:hint="Plain Text"
+        android:hint="@string/plain_text"
         android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditTextInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -35,14 +36,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
-        android:hint="Kunci"
+        android:hint="@string/key"
         android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditTextKey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="8"/>
+            android:fontFamily="monospace"/>
 
         <TextView
             android:id="@+id/errorKey"
@@ -58,14 +59,14 @@
         android:id="@+id/textInputLayoutIV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Initial Vector (IV)"
+        android:hint="@string/initial_vector_iv"
         android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditTextIV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="8"/>
+            android:fontFamily="monospace"/>
 
         <TextView
             android:id="@+id/errorIV"
@@ -91,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        android:text="Text yang telah dienkripsi"
+        android:text="@string/text_yang_telah_dienkripsi"
         android:textSize="14sp"/>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -102,7 +103,7 @@
         app:endIconMode="custom"
         app:endIconDrawable="@drawable/ic_copy"
         app:endIconContentDescription="Copy Text"
-        android:hint="Cipher Text"
+        android:hint="@string/cipher_text"
         android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText

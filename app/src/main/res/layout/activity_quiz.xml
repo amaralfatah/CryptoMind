@@ -26,24 +26,12 @@
             android:paddingHorizontal="16dp"
             android:paddingVertical="16dp">
 
-<!--            <ProgressBar-->
-<!--                android:id="@+id/progressBar"-->
-<!--                style="?android:attr/progressBarStyleHorizontal"-->
-<!--                android:layout_width="200dp"-->
-<!--                android:layout_height="200dp"-->
-<!--                android:layout_centerInParent="true"-->
-<!--                android:indeterminate="false"-->
-<!--                android:max="100"-->
-<!--                android:progress="100"-->
-<!--                android:progressDrawable="@drawable/progress_circle" />-->
-
-
             <TextView
                 android:id="@+id/timerTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:text="00:00"
+                android:text="@string/time"
                 android:textColor="@color/dark_grey" />
 
             <TextView
@@ -51,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:text="Soal 1"
+                android:text="@string/soal_number"
                 android:textColor="@color/dark_grey" />
 
             <TextView
@@ -59,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="44dp"
-                android:text="Question"
+                android:text="@string/question"
                 android:textSize="20sp"
                 android:fontFamily="@font/inter_semi_bold"/>
 
@@ -71,6 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="625dp"
         android:background="@drawable/bg_rounded"
+        android:contentDescription="@string/kuis"
         app:layout_constraintBottom_toBottomOf="parent">
 
     </ImageView>
@@ -85,34 +74,34 @@
             android:id="@+id/optionsRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/questionTextView"
             android:layout_marginTop="16dp"
             android:layout_marginHorizontal="24dp"
-            android:padding="16dp">
+            android:padding="16dp"
+            tools:ignore="UselessParent">
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/optionA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Option A" />
+                android:text="@string/option_a" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/optionB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Option B" />
+                android:text="@string/option_b" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/optionC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Option C" />
+                android:text="@string/option_c" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/optionD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Option D" />
+                android:text="@string/option_d" />
         </RadioGroup>
 
     </LinearLayout>
@@ -122,6 +111,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginVertical="24dp"
-        android:text="Submit"
+        android:text="@string/submit"
         app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

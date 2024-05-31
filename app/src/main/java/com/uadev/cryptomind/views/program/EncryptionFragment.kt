@@ -44,15 +44,12 @@ class EncryptionFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            var initialVector: List<Int>
-            var key: List<Int>
+            val plainText: List<Int> = inText.map { charToBinary(it).toInt(2) }
+            val key: List<Int> = inKey.map { charToBinary(it).toInt(2) }
+            val initialVector: List<Int> = inIv.map { charToBinary(it).toInt(2) }
             var register = mutableListOf<Int>()
-            var cipherText = mutableListOf<Int>()
-            val plainText: List<Int>
+            val cipherText = mutableListOf<Int>()
 
-            plainText = inText.map { charToBinary(it).toInt(2) }
-            key = inKey.map { charToBinary(it).toInt(2) }
-            initialVector = inIv.map { charToBinary(it).toInt(2) }
             register.addAll(initialVector)
 
             Log.d("ISI REGISTER", register.toString())

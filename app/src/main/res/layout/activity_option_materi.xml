@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corner"
+        android:contentDescription="@string/materi"
         android:src="@drawable/iv_text_materi_option"
         android:scaleType="centerCrop"
         android:padding="8dp"
@@ -33,16 +34,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mari Belajar"
+            android:text="@string/mari_belajar"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:fontFamily="@font/inter_semi_bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Algoritma Cipher Feedback"
-            android:textSize="16dp"
+            android:text="@string/algoritma_cipher_feedback"
+            android:textSize="16sp"
             android:textColor="@color/white"/>
 
     </LinearLayout>
@@ -52,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/btn_rounded"
-        android:text="Materi"
+        android:text="@string/materi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv" />
@@ -63,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/btn_rounded"
-        android:text="Latihan"
+        android:text="@string/latihan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnMateri" />

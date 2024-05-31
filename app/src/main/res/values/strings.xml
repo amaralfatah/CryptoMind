@@ -84,4 +84,23 @@
     <string name="ambil_blok_paling_kiri_dari_hasil_enkripsi_lalu_xor_kan_dengan_ciphertext_ci_sebanyak_r_bit_ini_akan_menghasilkan_plaintext_pi_sebanyak_r_bit_pula_dekripsi">Ambil blok paling kiri dari hasil enkripsi , lalu XOR-kan dengan Ciphertext (Ci) sebanyak r-bit. Ini akan menghasilkan Plaintext (Pi) sebanyak r-bit pula.</string>
     <string name="ci_kemudian_digunakan_kembali_untuk_disimpan_pada_blok_paling_kanan_dari_antrian">Ci kemudian digunakan kembali untuk disimpan pada blok paling kanan dari antrian.</string>
     <string name="ulangi_langkah_langkah_di_atas_sampai_semua_plaintext_telah_terenkripsi_atau_mencapai_cn">Ulangi langkah-langkah di atas sampai semua plaintext telah terenkripsi atau mencapai Cn.</string>
+    <string name="mari_belajar">Mari Belajar</string>
+    <string name="time">00:00</string>
+    <string name="soal_number">Soal 1</string>
+    <string name="question">Question</string>
+    <string name="option_a">Option A</string>
+    <string name="option_b">Option B</string>
+    <string name="option_c">Option C</string>
+    <string name="option_d">Option D</string>
+    <string name="submit">Submit</string>
+    <string name="go_to_home">Kembali Ke Home</string>
+    <string name="coba_lagi">Coba Lagi</string>
+    <string name="nilai">Nilai : 0</string>
+    <string name="text_yang_akan_didenkripsi">Text yang akan didenkripsi</string>
+    <string name="cipher_text">Cipher Text</string>
+    <string name="key">Key</string>
+    <string name="text_yang_akan_dienkripsi">Text yang akan dienkripsi</string>
+    <string name="plain_text">Plain Text</string>
+    <string name="initial_vector_iv">Initial Vector (IV)</string>
+    <string name="text_yang_telah_dienkripsi">Text yang telah dienkripsi</string>
 </resources>

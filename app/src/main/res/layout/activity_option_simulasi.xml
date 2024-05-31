@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_corner"
+        android:contentDescription="@string/simulasi"
         android:src="@drawable/iv_text_simulasi_option"
         android:scaleType="centerCrop"
         android:padding="8dp"
@@ -33,16 +34,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Belajar Simulasi"
+            android:text="@string/belajar_simulasi"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:fontFamily="@font/inter_semi_bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Algoritma Cipher Feedback"
-            android:textSize="16dp"
+            android:text="@string/algoritma_cipher_feedback"
+            android:textSize="16sp"
             android:textColor="@color/white"/>
 
     </LinearLayout>
@@ -60,8 +61,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_regular"
-            android:text="Pilih mode simulasi :"
-            android:textSize="16dp" />
+            android:text="@string/pilih_mode_simulasi"
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,7 +70,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/inter_semi_bold"
             android:text="@string/enkripsi"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,20 +82,21 @@
                 android:id="@+id/btnEn2Bit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2 Bit" />
+                android:text="@string/_2_bit" />
 
             <Button
                 android:id="@+id/btnEn4Bit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:text="4 Bit" />
+                android:text="@string/_4_bit"
+                android:enabled="false"/>
 
             <Button
                 android:id="@+id/btnEn8Bit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="8 Bit" />
+                android:text="@string/_8_bit" />
 
         </LinearLayout>
 
@@ -105,7 +107,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/inter_semi_bold"
             android:text="@string/dekripsi"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -117,20 +119,21 @@
                 android:id="@+id/btnDek2Bit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2 Bit" />
+                android:text="@string/_2_bit" />
 
             <Button
                 android:id="@+id/btnDek4Bit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="8dp"
-                android:text="4 Bit" />
+                android:text="@string/_4_bit"
+                android:enabled="false"/>
 
             <Button
                 android:id="@+id/btnDek8Bit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="8 Bit" />
+                android:text="@string/_8_bit" />
 
         </LinearLayout>
 

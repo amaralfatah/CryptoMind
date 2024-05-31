@@ -66,4 +66,22 @@
     <string name="latihan_dekripsi">Latihan Dekripsi</string>
     <string name="enkripsi_dan_dekripsi">Enkripsi Dan Dekripsi</string>
     <string name="latihan">Latihan</string>
+    <string name="pilih_mode_simulasi">Pilih mode simulasi :</string>
+    <string name="algoritma_cipher_feedback">Algoritma Cipher Feedback</string>
+    <string name="belajar_simulasi">Belajar Simulasi</string>
+    <string name="_2_bit">2 Bit</string>
+    <string name="_4_bit">4 Bit</string>
+    <string name="_8_bit">8 Bit</string>
+    <string name="isi_antrian_pertama_x1_dengan_initialization_vector_iv_sebanyak_n_blok">Isi antrian pertama (X1) dengan Initialization Vector (IV) sebanyak n-blok.</string>
+    <string name="enkripsi_antrian_menggunakan_kunci_k">Enkripsi antrian menggunakan kunci (k).</string>
+    <string name="ambil_blok_paling_kiri_dari_hasil_enkripsi_lalu_xor_kan_dengan_plaintext_pi_sebanyak_r_bit_ini_akan_menghasilkan_ciphertext_ci_sebanyak_r_bit_pula">Ambil blok paling kiri dari hasil enkripsi , lalu XOR-kan dengan plaintext (Pi) sebanyak r-bit. Ini akan menghasilkan Ciphertext (Ci) sebanyak r-bit pula.</string>
+    <string name="simpan_salinan_ci_pada_blok_paling_kanan_dari_antrian">Simpan salinan Ci pada blok paling kanan dari antrian.</string>
+    <string name="ulangi_langkah_langkah_di_atas_sampai_semua_plaintext_telah_terenkripsi_atau_mencapai_pn">Ulangi langkah-langkah di atas sampai semua plaintext telah terenkripsi atau mencapai Pn.</string>
+    <string name="langkah_dekripsi_cfb">Langkah Dekripsi CFB</string>
+    <string name="dibawah_ini_merupakan_langkah_langkah_proses_dekripsi_cfb_r_bit">Dibawah ini merupakan langkah-langkah proses dekripsi cfb r-bit :</string>
+    <string name="isi_antrian_pertama_x1_dengan_initialization_vector_iv_sebanyak_n_blok_dekripsi">Isi antrian pertama (X1) dengan Initialization Vector (IV) sebanyak n-blok.</string>
+    <string name="enkripsi_antrian_menggunakan_kunci_k_dekripsi">Enkripsi antrian menggunakan kunci (k).</string>
+    <string name="ambil_blok_paling_kiri_dari_hasil_enkripsi_lalu_xor_kan_dengan_ciphertext_ci_sebanyak_r_bit_ini_akan_menghasilkan_plaintext_pi_sebanyak_r_bit_pula_dekripsi">Ambil blok paling kiri dari hasil enkripsi , lalu XOR-kan dengan Ciphertext (Ci) sebanyak r-bit. Ini akan menghasilkan Plaintext (Pi) sebanyak r-bit pula.</string>
+    <string name="ci_kemudian_digunakan_kembali_untuk_disimpan_pada_blok_paling_kanan_dari_antrian">Ci kemudian digunakan kembali untuk disimpan pada blok paling kanan dari antrian.</string>
+    <string name="ulangi_langkah_langkah_di_atas_sampai_semua_plaintext_telah_terenkripsi_atau_mencapai_cn">Ulangi langkah-langkah di atas sampai semua plaintext telah terenkripsi atau mencapai Cn.</string>
 </resources>

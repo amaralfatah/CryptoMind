@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main"
-    tools:context=".views.materi.LatihanActivity">
+    tools:context=".views.materi.latihan.LatihanEnkripsiActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -601,7 +601,7 @@
                     android:justificationMode="inter_word"
                     android:fontFamily="monospace"
                     android:textSize="12sp"
-                    android:text="Plaintext (P) \n= UAD4 , atau \n= 01010101 01000100 01000100 00110100
+                    android:text="Plaintext (P) \n= UAD4 , atau \n= 01010101 01000001 01000100 00110100
                     \n\nKey (K)\n= 10101010 10101010 10101010 (16 bit)
                     \n\nInitial Vector (IV)\n= 00000000 00000000 00000000 (16 bit)"/>
 

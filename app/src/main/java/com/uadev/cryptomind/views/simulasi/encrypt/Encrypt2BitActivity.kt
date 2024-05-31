@@ -1,5 +1,6 @@
 package com.uadev.cryptomind.views.simulasi.encrypt
 
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
@@ -17,6 +18,7 @@ import com.uadev.cryptomind.R
 import android.util.Log
 import android.widget.Toast
 import com.uadev.cryptomind.databinding.ActivityEncrypt2BitBinding
+import com.uadev.cryptomind.views.simulasi.OptionSimulasiActivity
 
 class Encrypt2BitActivity : AppCompatActivity() {
 
@@ -112,8 +114,16 @@ class Encrypt2BitActivity : AppCompatActivity() {
         }
 
         when (step) {
-            totalSteps -> binding.nextButton.text = "Finish"
-            else -> binding.nextButton.text = "Next"
+            totalSteps -> {
+                binding.nextButton.text = getString(R.string.finish)
+                binding.nextButton.setOnClickListener {
+                    val intent = Intent(this, OptionSimulasiActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    finish()
+                }
+            }
+            else -> binding.nextButton.text = getString(R.string.next)
         }
     }
 

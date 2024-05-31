@@ -1,5 +1,6 @@
 package com.uadev.cryptomind.views.simulasi.decrypt
 
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MenuItem
@@ -17,6 +18,7 @@ import com.uadev.cryptomind.R
 import android.util.Log
 import android.widget.Toast
 import com.uadev.cryptomind.databinding.ActivityDecrypt2BitBinding
+import com.uadev.cryptomind.views.simulasi.OptionSimulasiActivity
 
 class Decrypt2BitActivity : AppCompatActivity() {
 
@@ -61,10 +63,10 @@ class Decrypt2BitActivity : AppCompatActivity() {
         binding.playPauseButton.setOnClickListener {
             if (isPlaying) {
                 binding.videoView.pause()
-                binding.playPauseButton.text = "Play"
+                binding.playPauseButton.text = getString(R.string.play)
             } else {
                 binding.videoView.start()
-                binding.playPauseButton.text = "Pause"
+                binding.playPauseButton.text = getString(R.string.pause)
             }
             isPlaying = !isPlaying
         }
@@ -112,8 +114,16 @@ class Decrypt2BitActivity : AppCompatActivity() {
         }
 
         when (step) {
-            totalSteps -> binding.nextButton.text = "Finish"
-            else -> binding.nextButton.text = "Next"
+            totalSteps -> {
+                binding.nextButton.text = getString(R.string.finish)
+                binding.nextButton.setOnClickListener {
+                    val intent = Intent(this, OptionSimulasiActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    finish()
+                }
+            }
+            else -> binding.nextButton.text = getString(R.string.next)
         }
     }
 
@@ -147,14 +157,14 @@ class Decrypt2BitActivity : AppCompatActivity() {
                     progressBar.visibility = View.GONE // Sembunyikan progress bar setelah video dimuat
                     videoView.start()
                     isPlaying = true
-                    binding.playPauseButton.text = "Pause"
+                    binding.playPauseButton.text = getString(R.string.pause)
                 }
 
                 videoView.setOnCompletionListener {
                     // Di sini Anda dapat menangani kejadian saat video selesai diputar
                     // Misalnya, mengubah teks tombol menjadi "Play" atau melakukan tindakan lain yang diinginkan.
                     isPlaying = false
-                    binding.playPauseButton.text = "Play"
+                    binding.playPauseButton.text = getString(R.string.play)
 //                    binding.playPauseButton.setBackgroundColor(ContextCompat.getColor(this, R.color.primary_color))
 //                    binding.playPauseButton.setTextColor(ContextCompat.getColor(this, R.color.white))
                 }

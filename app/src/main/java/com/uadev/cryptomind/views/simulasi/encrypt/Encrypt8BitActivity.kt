@@ -1,5 +1,6 @@
 package com.uadev.cryptomind.views.simulasi.encrypt
 
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
@@ -17,12 +18,13 @@ import com.bumptech.glide.Glide
 import com.google.firebase.storage.FirebaseStorage
 import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivityEncrypt8BitBinding
+import com.uadev.cryptomind.views.simulasi.OptionSimulasiActivity
 
 class Encrypt8BitActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEncrypt8BitBinding
 
     private var currentStep = 1
-    private val totalSteps = 15
+    private val totalSteps = 16
     private var isPlaying = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -112,8 +114,24 @@ class Encrypt8BitActivity : AppCompatActivity() {
         }
 
         when (step) {
-            totalSteps -> binding.nextButton.text = getString(R.string.finish)
-            else -> binding.nextButton.text = getString(R.string.next)
+            totalSteps -> {
+                binding.nextButton.text = getString(R.string.finish)
+                binding.nextButton.setOnClickListener {
+                    val intent = Intent(this, OptionSimulasiActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    finish()
+                }
+            }
+            else -> {
+                binding.nextButton.text = getString(R.string.next)
+                binding.nextButton.setOnClickListener {
+                    if (currentStep < totalSteps) {
+                        currentStep++
+                        updateTutorialStep(currentStep)
+                    }
+                }
+            }
         }
     }
 

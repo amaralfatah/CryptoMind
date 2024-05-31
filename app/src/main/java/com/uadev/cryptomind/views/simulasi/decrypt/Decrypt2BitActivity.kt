@@ -35,7 +35,7 @@ class Decrypt2BitActivity : AppCompatActivity() {
 
         // Aktifkan action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Simulasi CFB 2 Bit"
+        supportActionBar?.title = "Simulasi Dekripsi"
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.primary_color)))
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->

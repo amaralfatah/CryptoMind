@@ -34,7 +34,7 @@ class Encrypt8BitActivity : AppCompatActivity() {
 
         // Aktifkan action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Simulasi CFB 8 Bit"
+        supportActionBar?.title = "Simulasi Enkripsi"
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.primary_color)))
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->

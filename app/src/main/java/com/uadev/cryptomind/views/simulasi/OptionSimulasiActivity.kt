@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivityOptionSimulasiBinding
 import com.uadev.cryptomind.views.simulasi.decrypt.Decrypt2BitActivity
+import com.uadev.cryptomind.views.simulasi.decrypt.Decrypt8BitActivity
 import com.uadev.cryptomind.views.simulasi.encrypt.Encrypt2BitActivity
 import com.uadev.cryptomind.views.simulasi.encrypt.Encrypt8BitActivity
 
@@ -56,10 +57,10 @@ class OptionSimulasiActivity : AppCompatActivity() {
 //            val intent = Intent(this, Encrypt2BitActivity::class.java)
 //            startActivity(intent)
 //        }
-//        binding.btnDek8Bit.setOnClickListener {
-//            val intent = Intent(this, Encrypt2BitActivity::class.java)
-//            startActivity(intent)
-//        }
+        binding.btnDek8Bit.setOnClickListener {
+            val intent = Intent(this, Decrypt8BitActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

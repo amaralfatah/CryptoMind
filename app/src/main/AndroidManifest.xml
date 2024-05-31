@@ -15,6 +15,9 @@
         android:theme="@style/Theme.BaseAppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".views.simulasi.decrypt.Decrypt8BitActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.materi.latihan.OptionLatihanActivity"
             android:exported="false" />
         <activity

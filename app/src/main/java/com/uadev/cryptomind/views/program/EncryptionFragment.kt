@@ -1,7 +1,6 @@
 package com.uadev.cryptomind.views.program
+
 import android.util.Log
-
-
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -44,12 +43,13 @@ class EncryptionFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            val plainText: List<Int> = inText.map { charToBinary(it).toInt(2) }
-            val key: List<Int> = inKey.map { charToBinary(it).toInt(2) }
-            val initialVector: List<Int> = inIv.map { charToBinary(it).toInt(2) }
+            val plainText: List<Int> = inText.map { convertToBinaryOrDirect(it) }
+            val key: List<Int> = inKey.map { convertToBinaryOrDirect(it) }
+            val initialVector: List<Int> = inIv.map { convertToBinaryOrDirect(it) }
             var register = mutableListOf<Int>()
             val cipherText = mutableListOf<Int>()
 
+            Log.d("CEKIDOT", plainText.toString())
             register.addAll(initialVector)
 
             Log.d("ISI REGISTER", register.toString())
@@ -57,7 +57,7 @@ class EncryptionFragment : Fragment() {
 
                 val temp = mutableListOf<Int>()
 
-                for (y in key.indices){
+                for (y in key.indices) {
                     // Enkripsi IV menggunakan key yang sesuai
                     temp.add(encrypt(register[y], key[y]))
                 }
@@ -74,8 +74,7 @@ class EncryptionFragment : Fragment() {
                 // Cetak hasil
                 logEncryptionDetails(i, cipherText, register)
             }
-
-            binding.textInputEditTextEncrypted.setText(cipherText.joinToString(" ") { it.toString(2).padStart(8, '0') })
+            binding.textInputEditTextEncrypted.setText(cipherText.joinToString("") { it.toString(2).padStart(8, '0') })
             // Show toast message
             showToast("Proses Enkripsi Berhasil")
         }
@@ -124,9 +123,20 @@ class EncryptionFragment : Fragment() {
         return register
     }
 
-
     private fun charToBinary(char: Char): String {
         return char.toInt().toString(2).padStart(8, '0')
+    }
+
+    private fun isBinaryString(input: String): Boolean {
+        return input.all { it == '0' || it == '1' }
+    }
+
+    private fun convertToBinaryOrDirect(char: Char): Int {
+        return if (isBinaryString(char.toString())) {
+            char.toString().toInt(2)
+        } else {
+            charToBinary(char).toInt(2)
+        }
     }
 
     private fun logEncryptionDetails(index: Int, cipherText: List<Int>, register: MutableList<Int>) {
@@ -138,6 +148,4 @@ class EncryptionFragment : Fragment() {
             Log.d("ISI REGISTER", "\n")
         }
     }
-
-
 }

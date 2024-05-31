@@ -8,14 +8,14 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.uadev.cryptomind.R
-import com.uadev.cryptomind.databinding.ActivityLatihanEnkripsiBinding
+import com.uadev.cryptomind.databinding.ActivityLatihanDekripsiBinding
 
 class LatihanDekripsiActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLatihanEnkripsiBinding
+    private lateinit var binding: ActivityLatihanDekripsiBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLatihanEnkripsiBinding.inflate(layoutInflater)
+        binding = ActivityLatihanDekripsiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Aktifkan action bar
@@ -33,7 +33,6 @@ class LatihanDekripsiActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                // Handle klik tombol kembali di action bar
                 onBackPressed()
                 return true
             }

@@ -1,7 +1,6 @@
 package com.uadev.cryptomind.views.program
+
 import android.util.Log
-
-
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -39,53 +38,75 @@ class DecryptionFragment : Fragment() {
             }
 
             if (inIV.length != inKey.length) {
-                binding.inIV.error = "IV dan Key harus memiliki panjang karakter yang sama"
+                binding.inIV.error = "IV harus sama dengan Key"
                 return@setOnClickListener
             }
 
-            val cipherText = stringToIntList(inCipher)
-            Log.d("Dekripsi", cipherText.toString())
-            val key = inKey.map { charToBinary(it).toInt(2) }
-            Log.d("Dekripsi", key.toString())
-            val initialVector = inIV.map { charToBinary(it).toInt(2) }
-            var register: MutableList<Int> = mutableListOf()
-            var plainText = mutableListOf<Char>() // Menggunakan List<Char> untuk menyimpan karakter
+            val cipherText: List<Int>
+            try {
+                cipherText = if (isBinaryString(inCipher)) {
+                    stringToIntList(inCipher)
+                } else {
+                    inCipher.map { it.code }
+                }
+                Log.d("Dekripsi", cipherText.toString())
+            } catch (e: Exception) {
+                showToast("Input tidak valid")
+                return@setOnClickListener
+            }
 
+            val key: List<Int>
+            try {
+                key = inKey.map { charToBinary(it).toInt(2) }
+                Log.d("Dekripsi", key.toString())
+            } catch (e: Exception) {
+                showToast("Key tidak valid")
+                return@setOnClickListener
+            }
+
+            val initialVector: List<Int>
+            try {
+                initialVector = inIV.map { charToBinary(it).toInt(2) }
+            } catch (e: Exception) {
+                showToast("IV tidak valid")
+                return@setOnClickListener
+            }
+
+            var register: MutableList<Int> = mutableListOf()
             register.addAll(initialVector)
             Log.d("Dekripsi", register.toString())
 
-            for (i in cipherText.indices) {
-                val temp = mutableListOf<Int>()
-                for (y in key.indices) {
-                    temp.add(decrypt(register[y], key[y]))
+            val plainText = StringBuilder()
+
+            try {
+                for (i in cipherText.indices) {
+                    val temp = mutableListOf<Int>()
+                    for (y in key.indices) {
+                        temp.add(decrypt(register[y], key[y]))
+                    }
+                    val decryptedValue = temp[0] xor cipherText[i]
+                    plainText.append(decryptedValue.toChar())
+                    register = inputDataRegister(register, cipherText[i])
                 }
-                val decryptedValue = temp[0] xor cipherText[i]
-                plainText.add(decryptedValue.toChar())
-                register = inputDataRegister(register, cipherText[i])
+            } catch (e: Exception) {
+                showToast("Proses dekripsi gagal")
+                return@setOnClickListener
             }
 
-            // Mengubah List<Char> menjadi String sebelum menampilkannya
-            binding.outDecrypted.setText(plainText.joinToString(""))
+            // Set the decrypted text to the output view
+            binding.outDecrypted.setText(plainText.toString())
             showToast("Proses Dekripsi Berhasil")
-
-//            01111001 01100001 01111111 01101011 01001010
         }
+
         binding.layoutOutDecrypted.setEndIconOnClickListener {
             copyTextToClipboard(binding.outDecrypted.text.toString())
         }
     }
 
-
     private fun decrypt(cipherText: Int, key: Int): Int {
-        // Enkripsi menggunakan operasi XOR antara cipherText dan key
         var temp = cipherText xor key
-
-        // Geser bit hasil XOR ke kiri sebanyak 1 kali
         temp = (temp shl 1) or (temp ushr 7)
-
-        // Pastikan hanya 8 bit yang tersisa dengan memotong nilai yang lebih besar dari 255
         temp = temp and 0xFF
-
         return temp
     }
 
@@ -106,11 +127,9 @@ class DecryptionFragment : Fragment() {
     }
 
     fun inputDataRegister(register: MutableList<Int>, cipherText: Int): MutableList<Int> {
-        // Geser nilai-nilai dalam register ke kiri
         for (i in 1 until register.size) {
             register[i - 1] = register[i]
         }
-        // Atur nilai terakhir dari register menjadi nilai dari cipherText
         register[register.size - 1] = cipherText
         return register
     }
@@ -126,18 +145,24 @@ class DecryptionFragment : Fragment() {
     }
 
     fun stringToIntList(binStr: String): List<Int> {
-        // Memisahkan string pada setiap spasi
-        val binList = binStr.split(" ").map { it }
-
-        // Mengonversi setiap string biner menjadi integer dan menyimpan dalam list
-        val intList = binList.map { binaryString ->
-            binaryString.toInt(2) // Mengonversi string biner menjadi integer
+        val intList = mutableListOf<Int>()
+        try {
+            for (i in binStr.indices step 8) {
+                val byteStr = binStr.substring(i, i + 8)
+                intList.add(byteStr.toInt(2))
+            }
+        } catch (e: Exception) {
+            showToast("Format string biner tidak valid")
+            throw e
         }
-
         return intList
     }
 
     private fun charToBinary(char: Char): String {
-        return char.toInt().toString(2).padStart(8, '0')
+        return char.code.toString(2).padStart(8, '0')
+    }
+
+    private fun isBinaryString(input: String): Boolean {
+        return input.all { it == '0' || it == '1' }
     }
 }

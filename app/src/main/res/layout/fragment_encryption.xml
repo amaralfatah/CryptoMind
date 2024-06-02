@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_red_dark"
             android:visibility="gone"
-            android:text="Kunci harus terdiri dari 8 karakter dan dalam format biner"/>
+            android:text="Key harus lebih pendek dari Plaintext"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_red_dark"
             android:visibility="gone"
-            android:text="IV harus terdiri dari 8 karakter dan dalam format biner"/>
+            android:text="IV harus lebih pendek dari Plaintext dan harus sama dengan Key"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -29,23 +29,23 @@ class EncryptionFragment : Fragment() {
 
         binding.buttonEncrypt.setOnClickListener {
 
-            val inText = binding.textInputEditTextInput.text.toString()
+            val inPlain = binding.textInputEditTextInput.text.toString()
             val inKey = binding.textInputEditTextKey.text.toString()
-            val inIv = binding.textInputEditTextIV.text.toString()
+            val inIV = binding.textInputEditTextIV.text.toString()
 
-            if (inText.isEmpty() || inKey.isEmpty() || inIv.isEmpty()) {
+            if (inPlain.isEmpty() || inKey.isEmpty() || inIV.isEmpty()) {
                 showToast("Field tidak boleh kosong")
                 return@setOnClickListener
             }
 
-            if (inIv.length != inKey.length) {
-                binding.textInputEditTextIV.error = "IV dan Key harus memiliki panjang karakter yang sama"
+            if (inIV.length != inKey.length) {
+                binding.textInputEditTextIV.error = "IV harus sama dengan Key"
                 return@setOnClickListener
             }
 
-            val plainText: List<Int> = inText.map { convertToBinaryOrDirect(it) }
+            val plainText: List<Int> = inPlain.map { convertToBinaryOrDirect(it) }
             val key: List<Int> = inKey.map { convertToBinaryOrDirect(it) }
-            val initialVector: List<Int> = inIv.map { convertToBinaryOrDirect(it) }
+            val initialVector: List<Int> = inIV.map { convertToBinaryOrDirect(it) }
             var register = mutableListOf<Int>()
             val cipherText = mutableListOf<Int>()
 

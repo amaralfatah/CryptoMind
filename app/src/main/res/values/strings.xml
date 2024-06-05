@@ -103,4 +103,15 @@
     <string name="plain_text">Plain Text</string>
     <string name="initial_vector_iv">Initial Vector (IV)</string>
     <string name="text_yang_telah_dienkripsi">Text yang telah dienkripsi</string>
+    <string name="info_materi"><b>Materi</b> : Materi disusun secara terstruktur dan mudah dipahami, serta dilengkapi latihan soal yang dikemas dengan cara yang menarik.</string>
+    <string name="info_simulasi"><b>Simulasi</b> : Memungkinkan Anda untuk melihat secara langsung bagaimana algoritma CFB bekerja secara step by step.</string>
+    <string name="info_kuis"><b>Kuis</b> : Kuis ini dapat Anda gunakan sebagai tolok ukur pemahaman Anda terhadap materi yang telah dipelajari.</string>
+    <string name="info_program"><b>Program</b> : Menu ini memungkinkan Anda untuk melakukan enkripsi dan dekripsi pesan dengan mode CFB.</string>
+    <string name="info_cryptomind">Tentang CryptoMind</string>
+    <string name="info_cryptomind_is">CryptoMind adalah aplikasi pembelajaran algoritma cipher feedback (CFB) berbasis mobile yang dirancang untuk membantu Anda memahami dan menguasai algoritma ini dengan cara yang mudah dan interaktif.</string>
+    <string name="info_cfb_is">Algoritma CFB adalah salah satu metode enkripsi dalam cipher block yang digunakan untuk mengamankan pesan. Algoritma ini bekerja dengan cara menggunakan kembali hasil enkripsi sebelumnya untuk menghasilkan blok hasil enkripsi selanjutnya. CFB dikenal dengan kesederhanaan implementasinya dalam melindungi pesan.</string>
+    <string name="info_intro_menu">CryptoMind menawarkan berbagai fitur yang menjadikannya pilihan ideal untuk mempelajari algoritma CFB :</string>
+    <string name="info_dev">CryptoMind dikembangkan oleh Amar Al Fatah, seorang programmer yang bersemangat tentang algoritma kriptografi dan ingin membantu orang lain belajar tentang CFB dengan cara yang menyenangkan dan efektif. Commit pertama di GitHub dilakukan pada tanggal 15 Maret 2024, menandakan awal perjalanan CryptoMind dalam membantu para pembelajar.</string>
+    <string name="info_tujuan">Misi kami adalah menjadikan CryptoMind sebagai sumber daya utama bagi siapa saja yang ingin mempelajari algoritma CFB. Kami ingin membantu Anda memahami konsep-konsep kompleks dengan cara yang mudah dipahami dan memberikan Anda alat yang diperlukan untuk menguasai CFB dengan percaya diri.</string>
+    <string name="info_thanks">Kami ingin mengucapkan terima kasih kepada semua orang yang telah berkontribusi pada pengembangan CryptoMind. Kami harap Anda menikmati aplikasi ini dan menemukan manfaatnya dalam perjalanan belajar Anda.</string>
 </resources>

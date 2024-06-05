@@ -23,7 +23,7 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQuizBinding
     private lateinit var quizViewModel: QuizViewModel
     private lateinit var countDownTimer: CountDownTimer
-    private var timeLeftInMillis: Long = 60000 // Waktu dalam milidetik (60 detik)
+    private var timeLeftInMillis: Long = 300000 // Waktu dalam milidetik (60 detik)
     private val COUNTDOWN_INTERVAL: Long = 1000 // Interval countdown dalam milidetik (1 detik)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +58,7 @@ class QuizActivity : AppCompatActivity() {
 
         // Aktifkan action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Quiz"
+        supportActionBar?.title = "Kuis"
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.primary_color)))
     }
 

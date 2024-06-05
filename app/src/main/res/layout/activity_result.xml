@@ -1,35 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.kuis.ResultActivity"
-    android:id="@+id/main">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".views.kuis.QuizActivity"
+    android:id="@+id/action_container"
+    android:background="@drawable/bg_home">
+
+    <ImageView
+        android:id="@+id/ivbg"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginHorizontal="24dp"
+        android:background="@drawable/bg_rounded_full"
+        android:contentDescription="@string/kuis"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </ImageView>
 
     <TextView
-        android:id="@+id/scoreTextView"
+        android:id="@+id/tvNilai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nilai"
-        android:layout_centerInParent="true"
-        android:textSize="24sp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="24dp"
+        android:text="Total Score"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivbg" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/retryButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNilai">
+
+        <TextView
+            android:id="@+id/scoreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="80"
+            android:textSize="62sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/animLottie"
+            app:layout_constraintEnd_toEndOf="@id/animLottie"
+            app:layout_constraintStart_toStartOf="@id/animLottie"
+            app:layout_constraintTop_toTopOf="@id/animLottie" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animLottie"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/anim_bg_result" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/retryButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="42dp"
         android:text="@string/coba_lagi"
-        android:layout_below="@id/scoreTextView"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"/>
+        app:layout_constraintBottom_toTopOf="@+id/dashboardButton"
+        app:layout_constraintEnd_toEndOf="@+id/ivbg"
+        app:layout_constraintStart_toStartOf="@+id/ivbg" />
 
     <Button
         android:id="@+id/dashboardButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="42dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/go_to_home"
-        android:layout_below="@id/retryButton"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"/>
-</RelativeLayout>
+        app:layout_constraintBottom_toBottomOf="@+id/ivbg"
+        app:layout_constraintEnd_toEndOf="@+id/ivbg"
+        app:layout_constraintStart_toStartOf="@+id/ivbg" />
+</androidx.constraintlayout.widget.ConstraintLayout>

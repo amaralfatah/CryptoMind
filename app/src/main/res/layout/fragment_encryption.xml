@@ -16,7 +16,7 @@
         android:textSize="14sp"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutInput"
+        android:id="@+id/textInputLayoutPlaintext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
@@ -24,7 +24,7 @@
         android:background="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditTextInput"
+            android:id="@+id/textInputEditTextPlaintext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"/>

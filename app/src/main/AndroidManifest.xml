@@ -27,7 +27,7 @@
             android:name=".views.info.InfoActivity"
             android:exported="false" />
         <activity
-            android:name=".views.petunjuk.PetunjukActivity"
+            android:name=".views.bantuan.BantuanActivity"
             android:exported="false" />
         <activity
             android:name=".views.simulasi.encrypt.Encrypt8BitActivity"
@@ -58,14 +58,13 @@
             android:exported="false" />
         <activity
             android:name=".views.kuis.QuizActivity"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".views.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Design.NoActionBar">
+            android:theme="@style/Theme.Material3.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

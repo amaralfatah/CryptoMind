@@ -8,11 +8,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.uadev.cryptomind.databinding.FragmentEncryptionBinding
 
 class EncryptionFragment : Fragment() {
+
     private var _binding: FragmentEncryptionBinding? = null
     private val binding get() = _binding!!
 
@@ -29,53 +31,48 @@ class EncryptionFragment : Fragment() {
 
         binding.buttonEncrypt.setOnClickListener {
 
-            val inPlain = binding.textInputEditTextInput.text.toString()
+            val inPlain = binding.textInputEditTextPlaintext.text.toString()
             val inKey = binding.textInputEditTextKey.text.toString()
             val inIV = binding.textInputEditTextIV.text.toString()
 
             if (inPlain.isEmpty() || inKey.isEmpty() || inIV.isEmpty()) {
-                showToast("Field tidak boleh kosong")
+                showToast("Form tidak boleh kosong")
                 return@setOnClickListener
             }
+
+            validateBinaryInput(inPlain, binding.textInputEditTextPlaintext)
+            validateBinaryInput(inKey, binding.textInputEditTextKey)
+            validateBinaryInput(inIV, binding.textInputEditTextIV)
 
             if (inIV.length != inKey.length) {
                 binding.textInputEditTextIV.error = "IV harus sama dengan Key"
                 return@setOnClickListener
             }
 
-            val plainText: List<Int> = inPlain.map { convertToBinaryOrDirect(it) }
-            val key: List<Int> = inKey.map { convertToBinaryOrDirect(it) }
-            val initialVector: List<Int> = inIV.map { convertToBinaryOrDirect(it) }
-            var register = mutableListOf<Int>()
+            val plainText = processInput(inPlain)
+            val key = processInput(inKey)
+            val initialVector = processInput(inIV)
+            var register = initialVector!!.toMutableList()
             val cipherText = mutableListOf<Int>()
 
-            Log.d("CEKIDOT", plainText.toString())
-            register.addAll(initialVector)
-
-            Log.d("ISI REGISTER", register.toString())
-            for (i in plainText.indices) {
+            // START Encrypt
+            for (i in plainText!!.indices) {
 
                 val temp = mutableListOf<Int>()
 
-                for (y in key.indices) {
-                    // Enkripsi IV menggunakan key yang sesuai
+                for (y in key!!.indices) {
                     temp.add(encrypt(register[y], key[y]))
                 }
 
-                // XOR hasil enkripsi dengan PlainText
                 val encryptedValue = temp[0] xor plainText[i]
-
-                // Tambahkan hasil XOR sebagai CipherText
                 cipherText.add(encryptedValue)
-
-                // Masukkan CipherText ke LSB (Least Significant Bit) Register
                 register = inputDataRegister(register, cipherText.last())
 
-                // Cetak hasil
                 logEncryptionDetails(i, cipherText, register)
             }
+            // END Encrypt
+
             binding.textInputEditTextEncrypted.setText(cipherText.joinToString("") { it.toString(2).padStart(8, '0') })
-            // Show toast message
             showToast("Proses Enkripsi Berhasil")
         }
 
@@ -84,24 +81,44 @@ class EncryptionFragment : Fragment() {
         }
     }
 
-    private fun copyTextToClipboard(textToCopy: String) {
-        val clipboardManager = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val clipData = ClipData.newPlainText("Copied Text", textToCopy)
-        clipboardManager.setPrimaryClip(clipData)
-        showToast("Text successfully copied to clipboard")
+    private fun processInput(input: String): List<Int>? {
+        return try {
+            if (isBinaryString(input)) {
+                stringToIntList(input)
+            } else {
+                input.map { it.code }
+            }
+        } catch (e: Exception) {
+            null
+        }
     }
 
-    private fun showToast(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    private fun validateBinaryInput(input: String, editText: EditText) {
+        if (isBinaryString(input) && !isValidBinaryLength(input)) {
+            editText.error = "Bilangan biner harus terdiri dari 8 bit atau kelipatan"
+        }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun isBinaryString(input: String): Boolean {
+        return input.all { it == '0' || it == '1' }
+    }
+
+    private fun isValidBinaryLength(input: String): Boolean {
+        return input.length % 8 == 0
+    }
+
+    private fun stringToIntList(binStr: String): List<Int> {
+        return try {
+            val binList = binStr.chunked(8)
+            binList.map { binaryString -> binaryString.toInt(2) }
+        } catch (e: Exception) {
+            showToast("Format string biner tidak valid")
+            throw e
+        }
     }
 
     private fun encrypt(cipherText: Int, key: Int): Int {
-        // Enkripsi menggunakan operasi XOR antara cipherText dan key
+
         var temp = cipherText xor key
 
         // Geser bit hasil XOR ke kiri sebanyak 1 kali
@@ -114,38 +131,39 @@ class EncryptionFragment : Fragment() {
     }
 
     private fun inputDataRegister(register: MutableList<Int>, cipherText: Int): MutableList<Int> {
-        // Geser nilai-nilai dalam register ke kiri
-        for (i in 1 until register.size) {
-            register[i - 1] = register[i]
+
+        for (i in 0 until register.size - 1) {
+            register[i] = register[i + 1]
         }
-        // Atur nilai terakhir dari register menjadi nilai dari cipherText
+
         register[register.size - 1] = cipherText
+
         return register
-    }
-
-    private fun charToBinary(char: Char): String {
-        return char.toInt().toString(2).padStart(8, '0')
-    }
-
-    private fun isBinaryString(input: String): Boolean {
-        return input.all { it == '0' || it == '1' }
-    }
-
-    private fun convertToBinaryOrDirect(char: Char): Int {
-        return if (isBinaryString(char.toString())) {
-            char.toString().toInt(2)
-        } else {
-            charToBinary(char).toInt(2)
-        }
     }
 
     private fun logEncryptionDetails(index: Int, cipherText: List<Int>, register: MutableList<Int>) {
         with(register) {
-            Log.d("ISI REGISTER", "CipherText setelah diisi index $index:")
+            Log.d("ISI REGISTER", "CipherText setelah diisi index $index :")
             Log.d("ISI REGISTER", cipherText.joinToString(" ") { it.toString(2).padStart(8, '0') })
-            Log.d("ISI REGISTER", "Register after input data for index $index:")
-            Log.d("ISI REGISTER", joinToString(" ") { it.toString(2).padStart(8, '0') })
+            Log.d("ISI REGISTER", "Register setelah diisi index $index :")
+            Log.d("ISI REGISTER", register.joinToString(" ") { it.toString(2).padStart(8, '0') })
             Log.d("ISI REGISTER", "\n")
         }
+    }
+
+    private fun copyTextToClipboard(textToCopy: String) {
+        val clipboardManager = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clipData = ClipData.newPlainText("Copied Text", textToCopy)
+        clipboardManager.setPrimaryClip(clipData)
+        showToast("Ciphertext berhasil disalin")
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

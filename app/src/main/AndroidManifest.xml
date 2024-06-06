@@ -15,6 +15,9 @@
         android:theme="@style/Theme.BaseAppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".views.simulasi.encrypt.Encrypt4BitActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.simulasi.decrypt.Decrypt8BitActivity"
             android:exported="false" />
         <activity
@@ -58,13 +61,14 @@
             android:exported="false" />
         <activity
             android:name=".views.kuis.QuizActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".views.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Material3.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

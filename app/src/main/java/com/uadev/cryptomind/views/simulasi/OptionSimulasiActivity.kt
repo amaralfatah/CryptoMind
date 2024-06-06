@@ -11,6 +11,7 @@ import com.uadev.cryptomind.databinding.ActivityOptionSimulasiBinding
 import com.uadev.cryptomind.views.simulasi.decrypt.Decrypt2BitActivity
 import com.uadev.cryptomind.views.simulasi.decrypt.Decrypt8BitActivity
 import com.uadev.cryptomind.views.simulasi.encrypt.Encrypt2BitActivity
+import com.uadev.cryptomind.views.simulasi.encrypt.Encrypt4BitActivity
 import com.uadev.cryptomind.views.simulasi.encrypt.Encrypt8BitActivity
 
 class OptionSimulasiActivity : AppCompatActivity() {
@@ -39,10 +40,10 @@ class OptionSimulasiActivity : AppCompatActivity() {
             val intent = Intent(this, Encrypt2BitActivity::class.java)
             startActivity(intent)
         }
-//        binding.btnEn4Bit.setOnClickListener {
-//            val intent = Intent(this, Encrypt2BitActivity::class.java)
-//            startActivity(intent)
-//        }
+        binding.btnEn4Bit.setOnClickListener {
+            val intent = Intent(this, Encrypt4BitActivity::class.java)
+            startActivity(intent)
+        }
         binding.btnEn8Bit.setOnClickListener {
             val intent = Intent(this, Encrypt8BitActivity::class.java)
             startActivity(intent)

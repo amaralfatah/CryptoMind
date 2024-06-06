@@ -19,14 +19,6 @@ class OptionMateriActivity : AppCompatActivity() {
         binding = ActivityOptionMateriBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        enableEdgeToEdge()
-//        setContentView(R.layout.activity_option_materi)
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
-
         // Aktifkan action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Materi"

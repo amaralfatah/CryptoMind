@@ -10,10 +10,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivityMainBinding
-import com.uadev.cryptomind.views.info.InfoActivity
+import com.uadev.cryptomind.views.tentang.TentangActivity
 import com.uadev.cryptomind.views.kuis.QuizActivity
 import com.uadev.cryptomind.views.materi.OptionMateriActivity
-import com.uadev.cryptomind.views.bantuan.BantuanActivity
+import com.uadev.cryptomind.views.panduan.PanduanActivity
 import com.uadev.cryptomind.views.program.ProgramActivity
 import com.uadev.cryptomind.views.simulasi.OptionSimulasiActivity
 
@@ -65,12 +65,12 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_petunjuk -> {
-                val intent = Intent(this, BantuanActivity::class.java)
+                val intent = Intent(this, PanduanActivity::class.java)
                 startActivity(intent)
                 true
             }
             R.id.action_info -> {
-                val intent = Intent(this, InfoActivity::class.java)
+                val intent = Intent(this, TentangActivity::class.java)
                 startActivity(intent)
                 true
             }

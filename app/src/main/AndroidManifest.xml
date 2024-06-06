@@ -24,10 +24,10 @@
             android:name=".views.materi.latihan.LatihanDekripsiActivity"
             android:exported="false" />
         <activity
-            android:name=".views.info.InfoActivity"
+            android:name=".views.tentang.TentangActivity"
             android:exported="false" />
         <activity
-            android:name=".views.bantuan.BantuanActivity"
+            android:name=".views.panduan.PanduanActivity"
             android:exported="false" />
         <activity
             android:name=".views.simulasi.encrypt.Encrypt8BitActivity"

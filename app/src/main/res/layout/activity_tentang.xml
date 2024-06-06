@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".views.bantuan.BantuanActivity"
+        tools:context=".views.panduan.PanduanActivity"
         android:orientation="vertical"
         android:paddingHorizontal="16dp">
 

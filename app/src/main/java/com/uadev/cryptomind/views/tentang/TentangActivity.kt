@@ -1,4 +1,4 @@
-package com.uadev.cryptomind.views.info
+package com.uadev.cryptomind.views.tentang
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
@@ -8,24 +8,25 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.uadev.cryptomind.R
-import com.uadev.cryptomind.databinding.ActivityInfoBinding
+import com.uadev.cryptomind.databinding.ActivityTentangBinding
 
-class InfoActivity : AppCompatActivity() {
+class TentangActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityInfoBinding
+    private lateinit var binding: ActivityTentangBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityInfoBinding.inflate(layoutInflater)
+        binding = ActivityTentangBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Aktifkan action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Info"
+        supportActionBar?.title = "Tentang Kami"
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.primary_color)))
 
         setupDeveloperLink()
@@ -53,5 +54,16 @@ class InfoActivity : AppCompatActivity() {
 
         binding.tvDev.text = developerSpannableString
         binding.tvDev.movementMethod = LinkMovementMethod.getInstance()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

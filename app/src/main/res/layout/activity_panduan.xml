@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.panduan.PanduanActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".views.panduan.PanduanActivity"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="42dp"
+        android:text="Panduan Pengguna"
+        android:textSize="30sp"
+        android:fontFamily="@font/inter_bold"
+        android:layout_gravity="center"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selamat datang di aplikasi pembelajaran algoritma Cipher Feedback (CFB) berbasis mobile. Aplikasi ini dirancang untuk membantu Anda memahami dan menguasai konsep CFB melalui materi pembelajaran dan contoh soal beserta penyelesaiannya. Berikut adalah panduan penggunaan aplikasi ini:"
+        android:lineSpacingExtra="6dp"
+        android:textColor="@color/black"/>
+
+        <!-- START Materi -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Materi"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Setelah Anda membuka aplikasi, Anda akan melihat Menu Materi. Menu ini memiliki dua opsi utama yang membantu Anda dalam mempelajari dan berlatih algoritma CFB :"
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Materi"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pada halaman ini, Anda akan menemukan materi pembelajaran yang menjelaskan konsep dasar dan teori di balik algoritma Cipher Feedback (CFB). Materi ini mencakup:"
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="6dp"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="Diketahui :
+                    \n\nPlaintext (P) = UAD4
+                    \n\nKey (K)\n= 10101010 10101010 10101010 (16 bit)
+                    \n\nInitial Vector (IV)\n= 00000000 00000000 00000000 (16 bit)"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="6dp"
+                    android:text="Sebagaimana kita ketahui, Antrian (X1) diisi dengan iv. Maka :"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="Antrian ke-1 (X1) \n= 00000000 00000000 00000000"/>
+
+                <!--    Convert to biner    -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Konversi Ke Biner"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_semi_bold"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="6dp"
+                    android:text="Key dab IV sudah dalam bentuk biner, sedangkan Plaintext belum. Maka kita akan mengkonversi Plaintext ke dalam bentuk biner dengan melihat tabel ASCII :"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:padding="12dp"
+                    android:lineSpacingExtra="6dp"
+                    android:background="@drawable/bg_primary_light_rounded"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:text="U = 01010101 \nA = 01000001 \nD = 01000100 \n4 = 00110100 \n\nmaka : \nP = 01010101 01000100 01000100 00110100 \n\ndimana : \nP =    P1       P2       P3       P4"/>
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="6dp"
+                    android:text="Setelah semua yang dibutuhkan berbentuk biner maka kita siap melakukan step selanjutnya."/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <!-- END Introduction -->
+    </LinearLayout>
+</ScrollView>

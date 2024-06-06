@@ -13,8 +13,8 @@
 
     <string name="pendahuluan">Pendahuluan</string>
     <string name="materi_algoritma_cipher_feedback">Materi Algoritma Cipher Feedback</string>
-    <string name="intro">\tKeamanan informasi menjadi semakin krusial di era digital ini, di mana pesan-pesan rahasia dapat dengan mudah terpapar oleh pihak yang tidak berhak. Salah satu cara untuk melindungi pesan-pesan ini adalah dengan menggunakan algoritma kriptografi. Salah satu algoritma yang cukup populer diantaranya adalah Chiper Feedback (CFB).</string>
-    <string name="intro2">\tMari kita telusuri lebih dalam tentang algoritma ini dan bagaimana ia dapat memastikan keamanan pesan kita.</string>
+    <string name="intro">\tKeamanan informasi menjadi semakin krusial di era digital ini, di mana pesan-pesan rahasia dapat dengan mudah terpapar oleh pihak yang tidak berhak. Salah satu cara untuk melindungi pesan-pesan ini adalah dengan menggunakan algoritma kriptografi. Salah satu algoritma kriptografi dalam Cipher Block diantaranya adalah Chiper Feedback (CFB).</string>
+    <string name="intro2">\tMari kita telusuri lebih dalam tentang algoritma ini dan bagaimana ia dapat mengamankan pesan kita.</string>
     <string name="cfb_title">Apa itu Chiper Feedback (CFB)?</string>
     <string name="cfb_materi">Cipher Feedback (CFB) adalah salah satu mode operasi kriptografi blok yang digunakan untuk mengenkripsi data dalam unit-unit yang lebih kecil daripada ukuran blok kunci. Mode ini memungkinkan enkripsi data yang tidak mencapai ukuran satu blok kunci, yang berguna dalam beberapa kasus di mana data yang akan dienkripsi tidak memiliki panjang yang sesuai dengan ukuran blok yang digunakan dalam algoritma enkripsi.</string>
     <string name="cfb_title_poin">Di bawah ini adalah beberapa poin dari algoritma CFB :</string>
@@ -114,4 +114,5 @@
     <string name="info_dev">CryptoMind dikembangkan oleh Amar Al Fatah, seorang programmer yang bersemangat tentang algoritma kriptografi dan ingin membantu orang lain belajar tentang CFB dengan cara yang menyenangkan dan efektif. Commit pertama di GitHub dilakukan pada tanggal 15 Maret 2024, menandakan awal perjalanan CryptoMind dalam membantu para pembelajar.</string>
     <string name="info_tujuan">Misi kami adalah menjadikan CryptoMind sebagai sumber daya utama bagi siapa saja yang ingin mempelajari algoritma CFB. Kami ingin membantu Anda memahami konsep-konsep kompleks dengan cara yang mudah dipahami dan memberikan Anda alat yang diperlukan untuk menguasai CFB dengan percaya diri.</string>
     <string name="info_thanks">Kami ingin mengucapkan terima kasih kepada semua orang yang telah berkontribusi pada pengembangan CryptoMind. Kami harap Anda menikmati aplikasi ini dan menemukan manfaatnya dalam perjalanan belajar Anda.</string>
+    <string name="teori">Teori</string>
 </resources>

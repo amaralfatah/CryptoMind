@@ -27,7 +27,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selamat datang di aplikasi pembelajaran algoritma Cipher Feedback (CFB) berbasis mobile. Aplikasi ini dirancang untuk membantu Anda memahami dan menguasai konsep CFB melalui materi pembelajaran dan contoh soal beserta penyelesaiannya. Berikut adalah panduan penggunaan aplikasi ini:"
+        android:text="Berikut adalah panduan penggunaan aplikasi pada setiap menu yang tersedia di CryptoMind."
         android:lineSpacingExtra="6dp"
         android:textColor="@color/black"/>
 
@@ -35,7 +35,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
             app:cardCornerRadius="16dp">
 
             <LinearLayout
@@ -49,12 +50,13 @@
                     android:layout_height="wrap_content"
                     android:text="Materi"
                     android:textSize="20sp"
-                    android:textColor="@color/black"
+                    android:textColor="@color/primary_color"
                     android:fontFamily="@font/inter_semi_bold"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="Setelah Anda membuka aplikasi, Anda akan melihat Menu Materi. Menu ini memiliki dua opsi utama yang membantu Anda dalam mempelajari dan berlatih algoritma CFB :"
                     android:textColor="@color/black"
                     android:lineSpacingExtra="6dp"/>
@@ -62,94 +64,287 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Materi"
+                    android:layout_marginTop="16dp"
+                    android:text="Teori"
                     android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/inter_semi_bold"/>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="145dp"
+                        android:layout_height="300dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/materi_page"
+                        android:scaleType="fitXY"/>
+                    <ImageView
+                        android:layout_width="145dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/teori_page"
+                        android:scaleType="fitXY"/>
+                </LinearLayout>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pada halaman ini, Anda akan menemukan materi pembelajaran yang menjelaskan konsep dasar dan teori di balik algoritma Cipher Feedback (CFB). Materi ini mencakup:"
+                    android:layout_marginTop="8dp"
+                    android:text="Pada halaman ini, Anda akan menemukan materi pembelajaran yang menjelaskan konsep dasar dan teori di balik algoritma Cipher Feedback (CFB)."
                     android:textColor="@color/black"
                     android:lineSpacingExtra="6dp"/>
 
                 <TextView
-                    android:textColor="#000000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:padding="12dp"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
-                    android:justificationMode="inter_word"
-                    android:fontFamily="monospace"
-                    android:textSize="12sp"
-                    android:text="Diketahui :
-                    \n\nPlaintext (P) = UAD4
-                    \n\nKey (K)\n= 10101010 10101010 10101010 (16 bit)
-                    \n\nInitial Vector (IV)\n= 00000000 00000000 00000000 (16 bit)"/>
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:justificationMode="inter_word"
-                    android:lineSpacingExtra="6dp"
-                    android:text="Sebagaimana kita ketahui, Antrian (X1) diisi dengan iv. Maka :"/>
-
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:padding="12dp"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
-                    android:justificationMode="inter_word"
-                    android:fontFamily="monospace"
-                    android:textSize="12sp"
-                    android:text="Antrian ke-1 (X1) \n= 00000000 00000000 00000000"/>
-
-                <!--    Convert to biner    -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Konversi Ke Biner"
+                    android:layout_marginTop="16dp"
+                    android:text="Latihan"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/inter_semi_bold"/>
 
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_height="wrap_content"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:justificationMode="inter_word"
-                    android:lineSpacingExtra="6dp"
-                    android:text="Key dab IV sudah dalam bentuk biner, sedangkan Plaintext belum. Maka kita akan mengkonversi Plaintext ke dalam bentuk biner dengan melihat tabel ASCII :"/>
-
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="145dp"
+                        android:layout_height="300dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/latihan_option"
+                        android:scaleType="fitXY"/>
+                    <ImageView
+                        android:layout_width="145dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/latihan_enkripsi"
+                        android:scaleType="fitXY"/>
+                </LinearLayout>
                 <TextView
-                    android:textColor="#000000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:padding="12dp"
-                    android:lineSpacingExtra="6dp"
-                    android:background="@drawable/bg_primary_light_rounded"
-                    android:justificationMode="inter_word"
-                    android:fontFamily="monospace"
-                    android:textSize="12sp"
-                    android:text="U = 01010101 \nA = 01000001 \nD = 01000100 \n4 = 00110100 \n\nmaka : \nP = 01010101 01000100 01000100 00110100 \n\ndimana : \nP =    P1       P2       P3       P4"/>
+                    android:layout_marginTop="8dp"
+                    android:text="Pada halaman latihan terdapat 2 option, anda bisa memilih latihan enkripsi maupun latihan dekripsi untuk mempelajari contoh soal CFB 8 bit."
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="6dp"/>
 
-                <TextView
-                    android:textColor="#000000"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:justificationMode="inter_word"
-                    android:lineSpacingExtra="6dp"
-                    android:text="Setelah semua yang dibutuhkan berbentuk biner maka kita siap melakukan step selanjutnya."/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-        <!-- END Introduction -->
+        <!-- END Materi -->
+
+        <!-- START Simulasi -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            app:cardCornerRadius="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Simulasi"
+                    android:textSize="20sp"
+                    android:textColor="@color/primary_color"
+                    android:fontFamily="@font/inter_semi_bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Menu simulasi berisi berbagai alur cara kerja CFB langkah demi langkah. Pada awal menu simulasi akan ditampilkan pilihan mode simulasi yang tersedia."
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="6dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="145dp"
+                        android:layout_height="300dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/simulasi_page"
+                        android:scaleType="fitXY"/>
+                    <ImageView
+                        android:layout_width="145dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/simulasi_enkripsi_page"
+                        android:scaleType="fitXY"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Menu simulasi akan menggambarkan alur enkripsi dan dekripsi dengan berbagai bit."
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="6dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <!-- END Simulasi -->
+
+        <!-- START Kuis -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            app:cardCornerRadius="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kuis"
+                    android:textSize="20sp"
+                    android:textColor="@color/primary_color"
+                    android:fontFamily="@font/inter_semi_bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Menu kuis menyediakan berbagai soal pilihan ganda, anda dapat menyelesaikan kuis ini selama waktu mundur (timer) masih berjalan."
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="6dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="145dp"
+                        android:layout_height="300dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/kuis_page"
+                        android:scaleType="fitXY"/>
+                    <ImageView
+                        android:layout_width="145dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/kuis_result_page"
+                        android:scaleType="fitXY"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Setelah anda menyelesaikan kuis, anda akan mendapatkan feedback berupa total score dari kuis anda."
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="6dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <!-- END Kuis -->
+
+        <!-- START Program -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginHorizontal="8dp"
+            app:cardCornerRadius="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Program"
+                    android:textSize="20sp"
+                    android:textColor="@color/primary_color"
+                    android:fontFamily="@font/inter_semi_bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Menu program menyediakan fitur enkripsi dan dekripsi, anda dapat memasukan plaintext, kunci dan initial vector untuk melakukan enkripsi, begitu pula sebaliknya untuk dekripsi."
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="6dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="145dp"
+                        android:layout_height="300dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/program_en_page"
+                        android:scaleType="fitXY"/>
+                    <ImageView
+                        android:layout_width="145dp"
+                        android:layout_height="300dp"
+                        android:src="@drawable/program_dec_page"
+                        android:scaleType="fitXY"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Anda dapat juga menyalin cipher text dan plain text pada form output yang berada di paling bawah."
+                    android:textColor="@color/black"
+                    android:lineSpacingExtra="6dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <!-- END Program -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Jika anda membutuhkan bantuan lebih lanjut, anda dapat menghubungi email dibawah ini :"
+            android:lineSpacingExtra="6dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:text="amaralfatah.main@gmail.com"
+            android:lineSpacingExtra="6dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:text="Terima kasih  ^_^"
+            android:lineSpacingExtra="6dp"
+            android:textColor="@color/black"/>
     </LinearLayout>
 </ScrollView>

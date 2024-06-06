@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivityOptionMateriBinding
-import com.uadev.cryptomind.views.materi.latihan.LatihanEnkripsiActivity
 import com.uadev.cryptomind.views.materi.latihan.OptionLatihanActivity
 
 class OptionMateriActivity : AppCompatActivity() {
@@ -25,7 +24,7 @@ class OptionMateriActivity : AppCompatActivity() {
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.primary_color)))
 
         binding.btnMateri.setOnClickListener(){
-            val intent = Intent(this, MateriActivity::class.java)
+            val intent = Intent(this, TeoriActivity::class.java)
             startActivity(intent)
         }
 

@@ -8,19 +8,19 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.uadev.cryptomind.R
-import com.uadev.cryptomind.databinding.ActivityMateriBinding
+import com.uadev.cryptomind.databinding.ActivityTeoriBinding
 
-class MateriActivity : AppCompatActivity() {
+class TeoriActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMateriBinding
+    private lateinit var binding: ActivityTeoriBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMateriBinding.inflate(layoutInflater)
+        binding = ActivityTeoriBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Aktifkan action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Materi"
+        supportActionBar?.title = "Teori"
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.primary_color)))
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->

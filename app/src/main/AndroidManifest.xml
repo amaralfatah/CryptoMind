@@ -51,7 +51,7 @@
             android:name=".views.program.ProgramActivity"
             android:exported="false" />
         <activity
-            android:name=".views.materi.MateriActivity"
+            android:name=".views.materi.TeoriActivity"
             android:exported="false" />
         <activity
             android:name=".views.kuis.ResultActivity"

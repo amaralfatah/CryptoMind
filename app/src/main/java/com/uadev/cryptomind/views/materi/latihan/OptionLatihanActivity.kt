@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivityOptionLatihanBinding
-import com.uadev.cryptomind.views.materi.MateriActivity
 
 @Suppress("DEPRECATION")
 class OptionLatihanActivity : AppCompatActivity() {

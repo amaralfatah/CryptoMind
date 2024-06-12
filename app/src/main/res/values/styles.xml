@@ -44,4 +44,12 @@
         <item name="stRadius">5dp</item>
     </style>
 
+    <style name="toastNormalBot">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#1E1F22</item>
+        <item name="stColorBackground">#CBEDEDED</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stRadius">5dp</item>
+    </style>
+
 </resources>

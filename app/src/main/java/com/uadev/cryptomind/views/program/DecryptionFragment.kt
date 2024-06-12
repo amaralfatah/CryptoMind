@@ -11,7 +11,9 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.FragmentDecryptionBinding
+import io.github.muddz.styleabletoast.StyleableToast
 
 class DecryptionFragment : Fragment() {
 
@@ -36,7 +38,7 @@ class DecryptionFragment : Fragment() {
             val inIV = binding.inIV.text.toString()
 
             if (inCipher.isEmpty() || inKey.isEmpty() || inIV.isEmpty()) {
-                showToast("Field tidak boleh kosong")
+                StyleableToast.makeText(requireContext(), "Form tidak boleh kosong", Toast.LENGTH_SHORT, R.style.toastNormalBot).show();
                 return@setOnClickListener
             }
 
@@ -73,7 +75,7 @@ class DecryptionFragment : Fragment() {
             // END Decrypt
 
             binding.outDecrypted.setText(plainText.toString())
-            showToast("Proses Dekripsi Berhasil")
+            StyleableToast.makeText(requireContext(), "Dekripsi Berhasil", Toast.LENGTH_SHORT, R.style.toastNormalBot).show();
         }
 
         binding.layoutOutDecrypted.setEndIconOnClickListener {
@@ -112,7 +114,7 @@ class DecryptionFragment : Fragment() {
             val binList = binStr.chunked(8)
             binList.map { binaryString -> binaryString.toInt(2) }
         } catch (e: Exception) {
-            showToast("Format string biner tidak valid")
+            StyleableToast.makeText(requireContext(), "Bilangan biner tidak valid", Toast.LENGTH_SHORT, R.style.toastNormalBot).show();
             throw e
         }
     }
@@ -155,11 +157,7 @@ class DecryptionFragment : Fragment() {
         val clipboardManager = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clipData = ClipData.newPlainText("Copied Text", textToCopy)
         clipboardManager.setPrimaryClip(clipData)
-        showToast("Plaintext berhasil disalin")
-    }
-
-    private fun showToast(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+        StyleableToast.makeText(requireContext(), "Plaintext berhasil disalin", Toast.LENGTH_SHORT, R.style.toastNormalBot).show();
     }
 
     override fun onDestroyView() {

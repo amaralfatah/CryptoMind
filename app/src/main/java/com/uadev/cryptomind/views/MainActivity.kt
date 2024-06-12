@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Menambahkan event listener untuk button
         binding.btnKuis.setOnClickListener {
             val intent = Intent(this, QuizActivity::class.java)
             startActivity(intent)

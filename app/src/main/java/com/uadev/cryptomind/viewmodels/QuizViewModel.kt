@@ -18,7 +18,9 @@ class QuizViewModel : ViewModel() {
         firebaseDatabase = FirebaseDatabase.getInstance()
         quizzesRef = firebaseDatabase.getReference("quizzes")
 
-        quizzesRef.addListenerForSingleValueEvent(object : ValueEventListener {
+        quizzesRef.addListenerForSingleValueEvent(
+            object : ValueEventListener {
+
             override fun onDataChange(snapshot: DataSnapshot) {
                 questions.clear()
                 for (quizSnapshot in snapshot.children) {
@@ -29,7 +31,7 @@ class QuizViewModel : ViewModel() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                listener.onError(Exception("Failed to load quizzes"))
+                listener.onError(Exception("Gagal mendapatkan kuis"))
             }
         })
     }

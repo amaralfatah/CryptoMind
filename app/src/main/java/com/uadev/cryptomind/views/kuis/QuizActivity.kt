@@ -1,3 +1,5 @@
+// QuizActivity.kt
+
 package com.uadev.cryptomind.views.kuis
 
 import android.content.Intent
@@ -23,8 +25,8 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQuizBinding
     private lateinit var quizViewModel: QuizViewModel
     private lateinit var countDownTimer: CountDownTimer
-    private var timeLeftInMillis: Long = 300000 // Waktu dalam milidetik (60 detik)
-    private val COUNTDOWN_INTERVAL: Long = 1000 // Interval countdown dalam milidetik (1 detik)
+    private var timeLeftInMillis: Long = 300000 // milidetik (300 detik)
+    private val COUNTDOWN_INTERVAL: Long = 1000 // waktu mundur dalam milidetik (1 detik)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +39,7 @@ class QuizActivity : AppCompatActivity() {
             insets
         }
 
-        quizViewModel = ViewModelProvider(this)[QuizViewModel::class.java]
+        quizViewModel = ViewModelProvider(this).get(QuizViewModel::class.java)
 
         // Inisialisasi timer
         startTimer()
@@ -48,7 +50,7 @@ class QuizActivity : AppCompatActivity() {
             }
 
             override fun onError(exception: Exception) {
-                Toast.makeText(this@QuizActivity, "Failed to load quizzes", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@QuizActivity, "Gagal memuat kuis", Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -89,7 +91,6 @@ class QuizActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                // Handle klik tombol kembali di action bar
                 onBackPressed()
                 true
             }
@@ -105,10 +106,11 @@ class QuizActivity : AppCompatActivity() {
         if (currentQuiz != null) {
             binding.numberTextView.text = "Soal ${quizViewModel.getCurrentQuestionIndex() + 1}"
             binding.questionTextView.text = currentQuiz.question
-            binding.optionA.text = currentQuiz.options[0]
-            binding.optionB.text = currentQuiz.options[1]
-            binding.optionC.text = currentQuiz.options[2]
-            binding.optionD.text = currentQuiz.options[3]
+            val options = currentQuiz.options
+            binding.optionA.text = options[0]
+            binding.optionB.text = options[1]
+            binding.optionC.text = options[2]
+            binding.optionD.text = options[3]
         } else {
             finishQuiz()
         }
@@ -117,14 +119,19 @@ class QuizActivity : AppCompatActivity() {
     private fun checkAnswer() {
         val selectedOptionIndex = binding.optionsRadioGroup.indexOfChild(binding.optionsRadioGroup.findViewById<RadioButton>(binding.optionsRadioGroup.checkedRadioButtonId))
 
+        if (selectedOptionIndex == -1) {
+            Toast.makeText(this, "Silakan pilih salah satu jawaban", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val currentQuiz = quizViewModel.getCurrentQuestion()
 
         if (currentQuiz != null && selectedOptionIndex == currentQuiz.correctOptionIndex) {
-            // Correct answer
+            // Jawaban benar
             quizViewModel.increaseScore()
             Toast.makeText(this, "Jawaban benar!", Toast.LENGTH_SHORT).show()
         } else {
-            // Wrong answer
+            // Jawaban salah
             Toast.makeText(this, "Jawaban salah!", Toast.LENGTH_SHORT).show()
         }
 
@@ -143,5 +150,4 @@ class QuizActivity : AppCompatActivity() {
         super.onDestroy()
         countDownTimer.cancel()
     }
-
 }

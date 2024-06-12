@@ -134,7 +134,7 @@ class Encrypt4BitActivity : AppCompatActivity() {
     }
 
     private fun loadContent(contentPath: String, imageView: ImageView, videoView: VideoView, progressBar: ProgressBar) {
-        // Tampilkan progress bar saat memuat konten
+
         progressBar.visibility = View.VISIBLE
 
         // Referensi ke Firebase Storage
@@ -143,44 +143,38 @@ class Encrypt4BitActivity : AppCompatActivity() {
         // Dapatkan URL download dan muat konten
         storageReference.downloadUrl.addOnSuccessListener { uri ->
             if (contentPath.endsWith(".png") || contentPath.endsWith(".jpg") || contentPath.endsWith(".jpeg")) {
-                // Jika file adalah gambar, muat dengan Glide
+
                 imageView.visibility = View.VISIBLE
                 videoView.visibility = View.GONE
-                binding.playPauseButton.visibility = View.GONE // Sembunyikan tombol play/pause
+                binding.playPauseButton.visibility = View.GONE
                 Glide.with(this)
                     .load(uri)
                     .into(imageView)
-                progressBar.visibility = View.GONE // Sembunyikan progress bar setelah gambar dimuat
+                progressBar.visibility = View.GONE
             } else if (contentPath.endsWith(".mp4")) {
-                // Jika file adalah video, muat dengan VideoView
                 imageView.visibility = View.GONE
                 videoView.visibility = View.VISIBLE
-                binding.playPauseButton.visibility = View.VISIBLE // Tampilkan tombol play/pause
+                binding.playPauseButton.visibility = View.VISIBLE
 
                 videoView.setVideoURI(uri)
                 videoView.setOnPreparedListener {
 //                    it.isLooping = true
-                    progressBar.visibility = View.GONE // Sembunyikan progress bar setelah video dimuat
+                    progressBar.visibility = View.GONE
                     videoView.start()
                     isPlaying = true
                     binding.playPauseButton.text = getString(R.string.pause)
                 }
 
                 videoView.setOnCompletionListener {
-                    // Di sini Anda dapat menangani kejadian saat video selesai diputar
-                    // Misalnya, mengubah teks tombol menjadi "Play" atau melakukan tindakan lain yang diinginkan.
                     isPlaying = false
                     binding.playPauseButton.text = getString(R.string.play)
-//                    binding.playPauseButton.setBackgroundColor(ContextCompat.getColor(this, R.color.primary_color))
-//                    binding.playPauseButton.setTextColor(ContextCompat.getColor(this, R.color.white))
                 }
 
             }
         }.addOnFailureListener { exception ->
-            // Tangani kegagalan
-            Log.e("Encrypt2BitActivity", "Error getting download URL", exception)
+            Log.e("Encrypt4BitActivity", "Error getting download URL", exception)
             Toast.makeText(this, "Gagal Mendapatkan Konten", Toast.LENGTH_SHORT).show()
-            progressBar.visibility = View.GONE // Sembunyikan progress bar jika terjadi kegagalan
+            progressBar.visibility = View.GONE
         }
     }
 }

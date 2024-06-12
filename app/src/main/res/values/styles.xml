@@ -16,4 +16,32 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">16dp</item>
     </style>
+
+    <style name="toastNormal">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#1E1F22</item>
+        <item name="stColorBackground">#FFFFFF</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stGravity">top</item> top or center
+        <item name="stRadius">5dp</item>
+    </style>
+
+    <style name="toastTrue">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stColorBackground">#57955C</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stGravity">top</item> top or center
+        <item name="stRadius">5dp</item>
+    </style>
+
+    <style name="toastFalse">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stColorBackground">#C84F4F</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stGravity">top</item> top or center
+        <item name="stRadius">5dp</item>
+    </style>
+
 </resources>

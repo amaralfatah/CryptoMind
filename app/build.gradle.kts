@@ -62,5 +62,7 @@ dependencies {
 
     implementation ("com.airbnb.android:lottie:6.3.0")
 
+    implementation ("io.github.muddz:styleabletoast:2.4.0")
+
 
 }

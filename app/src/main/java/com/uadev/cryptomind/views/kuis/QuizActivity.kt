@@ -18,6 +18,7 @@ import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivityQuizBinding
 import com.uadev.cryptomind.model.Quiz
 import com.uadev.cryptomind.viewmodels.QuizViewModel
+import io.github.muddz.styleabletoast.StyleableToast
 import java.util.Locale
 
 class QuizActivity : AppCompatActivity() {
@@ -120,7 +121,8 @@ class QuizActivity : AppCompatActivity() {
         val selectedOptionIndex = binding.optionsRadioGroup.indexOfChild(binding.optionsRadioGroup.findViewById<RadioButton>(binding.optionsRadioGroup.checkedRadioButtonId))
 
         if (selectedOptionIndex == -1) {
-            Toast.makeText(this, "Silakan pilih salah satu jawaban", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Silakan pilih salah satu jawaban", Toast.LENGTH_SHORT).show()
+            StyleableToast.makeText(this, "Anda belum memilih jawaban!", Toast.LENGTH_SHORT, R.style.toastNormal).show();
             return
         }
 
@@ -129,10 +131,12 @@ class QuizActivity : AppCompatActivity() {
         if (currentQuiz != null && selectedOptionIndex == currentQuiz.correctOptionIndex) {
             // Jawaban benar
             quizViewModel.increaseScore()
-            Toast.makeText(this, "Jawaban benar!", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Jawaban benar!", Toast.LENGTH_SHORT).show()
+            StyleableToast.makeText(this, "Jawaban benar!", Toast.LENGTH_SHORT, R.style.toastTrue).show();
         } else {
             // Jawaban salah
-            Toast.makeText(this, "Jawaban salah!", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Jawaban salah!", Toast.LENGTH_SHORT).show()
+            StyleableToast.makeText(this, "Jawaban Salah!", Toast.LENGTH_SHORT, R.style.toastFalse).show();
         }
 
         quizViewModel.moveToNextQuestion()

@@ -42,9 +42,9 @@ class EncryptionFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            validateBinaryInput(inPlain, binding.textInputEditTextPlaintext)
-            validateBinaryInput(inKey, binding.textInputEditTextKey)
-            validateBinaryInput(inIV, binding.textInputEditTextIV)
+            if (!validateInputs(inKey, inIV)) {
+                return@setOnClickListener
+            }
 
             if (inIV.length != inKey.length) {
                 binding.textInputEditTextIV.error = "IV harus sama dengan Key"
@@ -54,15 +54,21 @@ class EncryptionFragment : Fragment() {
             val plainText = processInput(inPlain)
             val key = processInput(inKey)
             val initialVector = processInput(inIV)
-            var register = initialVector!!.toMutableList()
+
+            if (plainText == null || key == null || initialVector == null) {
+                StyleableToast.makeText(requireContext(), "Input tidak valid", Toast.LENGTH_SHORT, R.style.toastNormalBot).show()
+                return@setOnClickListener
+            }
+
+            var register = initialVector.toMutableList()
             val cipherText = mutableListOf<Int>()
 
             // START Encrypt
-            for (i in plainText!!.indices) {
+            for (i in plainText.indices) {
 
                 val temp = mutableListOf<Int>()
 
-                for (y in key!!.indices) {
+                for (y in key.indices) {
                     temp.add(encrypt(register[y], key[y]))
                 }
 
@@ -95,9 +101,21 @@ class EncryptionFragment : Fragment() {
         }
     }
 
-    private fun validateBinaryInput(input: String, editText: EditText) {
-        if (isBinaryString(input) && !isValidBinaryLength(input)) {
-            editText.error = "Bilangan biner harus terdiri dari 8 bit atau kelipatan"
+    private fun validateInputs(inKey: String, inIV: String): Boolean {
+        return when {
+            isBinaryString(inKey) && !isValidBinaryLength(inKey) -> {
+                binding.textInputEditTextKey.error = "Bilangan biner harus terdiri dari 8 bit atau kelipatan"
+                false
+            }
+            isBinaryString(inIV) && !isValidBinaryLength(inIV) -> {
+                binding.textInputEditTextIV.error = "Bilangan biner harus terdiri dari 8 bit atau kelipatan"
+                false
+            }
+            isBinaryString(inKey) != isBinaryString(inIV) -> {
+                StyleableToast.makeText(requireContext(), "Key dan IV harus memiliki tipe yang sama", Toast.LENGTH_SHORT, R.style.toastNormalBot).show()
+                false
+            }
+            else -> true
         }
     }
 

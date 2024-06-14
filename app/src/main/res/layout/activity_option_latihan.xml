@@ -1,72 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.materi.OptionMateriActivity"
-    android:padding="16dp">
+    tools:context=".views.materi.OptionMateriActivity">
 
-    <ImageView
-        android:id="@+id/iv"
-        android:layout_width="350dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_corner"
-        android:contentDescription="@string/latihan"
-        android:src="@drawable/iv_text_latihan_option"
-        android:scaleType="centerCrop"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:padding="16dp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="24dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/iv"
-        app:layout_constraintStart_toStartOf="@+id/iv" >
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_corner"
+            android:contentDescription="@string/latihan"
+            android:src="@drawable/iv_text_latihan_option"
+            android:scaleType="centerCrop"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/latihan"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:fontFamily="@font/inter_semi_bold"/>
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/iv"
+            app:layout_constraintStart_toStartOf="@+id/iv" >
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/latihan"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/inter_semi_bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/enkripsi_dan_dekripsi"
+                android:textSize="16sp"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnLatihanEnkripsi"
+            android:layout_width="335dp"
             android:layout_height="wrap_content"
-            android:text="@string/enkripsi_dan_dekripsi"
-            android:textSize="16sp"
-            android:textColor="@color/white"/>
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_rounded"
+            android:text="@string/latihan_enkripsi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv" />
 
-    </LinearLayout>
-    <Button
-        android:id="@+id/btnLatihanEnkripsi"
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/btn_rounded"
-        android:text="@string/latihan_enkripsi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv" />
+        <Button
+            android:id="@+id/btnLatihanDekripsi"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn_rounded"
+            android:text="@string/latihan_dekripsi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLatihanEnkripsi" />
 
-    <Button
-        android:id="@+id/btnLatihanDekripsi"
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/btn_rounded"
-        android:text="@string/latihan_dekripsi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLatihanEnkripsi" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

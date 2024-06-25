@@ -54,7 +54,7 @@
                     android:fontFamily="monospace"
                     android:textSize="12sp"
                     android:text="Diketahui :
-                    \n\nCiphertext (C) \n= 00000000000101000001000101100001
+                    \n\nCiphertext (C) \n= 00000000 00010100 00010001 01100001
                     \n\nKey (K) \n= 10101010 10101010 10101010 (16 bit)
                     \n\nInitial Vector (IV) \n= 00000000 00000000 00000000 (16 bit)"/>
 

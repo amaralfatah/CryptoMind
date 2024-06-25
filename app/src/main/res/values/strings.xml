@@ -12,15 +12,15 @@
     <string name="previous">Previous</string>
 
     <string name="pendahuluan">Pendahuluan</string>
-    <string name="materi_algoritma_cipher_feedback">Materi Algoritma Cipher Feedback</string>
-    <string name="intro">\tKeamanan informasi menjadi semakin krusial di era digital ini, di mana pesan-pesan rahasia dapat dengan mudah terpapar oleh pihak yang tidak berhak. Salah satu cara untuk melindungi pesan-pesan ini adalah dengan menggunakan algoritma kriptografi. Salah satu algoritma kriptografi dalam Cipher Block diantaranya adalah Chiper Feedback (CFB).</string>
-    <string name="intro2">\tMari kita telusuri lebih dalam tentang algoritma ini dan bagaimana ia dapat mengamankan pesan kita.</string>
-    <string name="cfb_title">Apa itu Chiper Feedback (CFB)?</string>
-    <string name="cfb_materi">Cipher Feedback (CFB) adalah salah satu mode operasi kriptografi blok yang digunakan untuk mengenkripsi data dalam unit-unit yang lebih kecil daripada ukuran blok kunci. Mode ini memungkinkan enkripsi data yang tidak mencapai ukuran satu blok kunci, yang berguna dalam beberapa kasus di mana data yang akan dienkripsi tidak memiliki panjang yang sesuai dengan ukuran blok yang digunakan dalam algoritma enkripsi.</string>
-    <string name="cfb_title_poin">Di bawah ini adalah beberapa poin dari algoritma CFB :</string>
+    <string name="materi_algoritma_cipher_feedback">Teori Algoritma Cipher Feedback</string>
+    <string name="intro">\tKeamanan informasi semakin penting di era digital ini, di mana pesan-pesan rahasia rentan terhadap akses yang tidak sah.</string>
+    <string name="intro2">\tSalah satu algoritma dalam kriptografi adalah Chiper Feedback. Mari kita telusuri lebih dalam tentang algoritma ini dan bagaimana ia dapat mengamankan pesan kita.</string>
+    <string name="cfb_title">Apa itu Chiper Feedback?</string>
+    <string name="cfb_materi">Cipher Feedback (CFB) adalah salah satu mode operasi Cipher Block yang digunakan untuk mengenkripsi data dalam unit-unit yang lebih kecil daripada ukuran blok kunci.</string>
+    <string name="cfb_title_poin">Di bawah ini adalah beberapa poin dari algoritma Cipher Feedback :</string>
     <string name="cfb_poin1">Data dienkripsi dalam unit yang lebih kecil daripada ukuran blok.</string>
-    <string name="cfb_poin2">Unit data yang dienkripsi panjangnya bisa 1 bit, 2 bit, 4-bit, 8 bit dan lain-lain.</string>
-    <string name="cfb_poin3">Bila unit yang dienkripsi adalah satu karakter setiap kalinya, maka mode CFB-nya disebut CFB 8-bit.</string>
+    <string name="cfb_poin2">Unit data yang dienkripsi panjangnya bisa 1 bit, 2 bit, 4-bit, 8 bit dan lain-lain. CFB dapat mengenkripsi data dengan panjang berapapun selama tidak melebihi panjang blok kunci.</string>
+    <string name="cfb_poin3">Dalam sistem ASCII (American Standard Code for Information Interchange), setiap huruf direpresentasikan menggunakan 8 bit.</string>
     <string name="cfb_poin4"><![CDATA[CFB r-bit mengenkripsi plainteks sebanyak r bit setiap kalinya, r <= n(n = ukuran blok).]]></string>
     <string name="cfb_poin5">Dengan kata lain, CFB r-bit meperlakukan cipher blok sama seperti pada cipher alir.</string>
     <string name="cfb_poin6">Mode CFB membutuhkan sebuah antrian (queue) yang berukuran sama dengan ukuran blok masukan.</string>
@@ -41,7 +41,7 @@
     <string name="dekripsi_rumus">Pi = Ci ⊕ MSBr(EK (Xi)) \nXi+1 = LSBn – r(Xi) || Ci</string>
 
     <string name="keamanan_title">Keamanan CFB</string>
-    <string name="keamanan_materi1">\tPada proses enkripsi, kesalahan 1-bit pada blok plaintext akan merambat pada blok-blok cipherteks yang bersangkutan dan blok-blok ciphertext selanjutnya.</string>
+    <string name="keamanan_materi1">\tPada proses enkripsi, kesalahan 1-bit akan merambat pada blok cipherteks yang bersangkutan dan blok-blok ciphertext selanjutnya.</string>
     <string name="keamanan_materi2">\tSedangkan pada proses dekripsi, kesalahan 1-bit hanya berpengaruh pada blok yang bersangkutan dan satu blok setelahnya</string>
     <string name="enkripsi_langkah_title">Langkah Enkripsi CFB</string>
     <string name="enkripsi_langkah_ket">Dibawah ini merupakan langkah-langkah proses enkripsi cfb r-bit :</string>
@@ -74,7 +74,7 @@
     <string name="_8_bit">8 Bit</string>
     <string name="isi_antrian_pertama_x1_dengan_initialization_vector_iv_sebanyak_n_blok">Isi antrian pertama (X1) dengan Initialization Vector (IV) sebanyak n-blok.</string>
     <string name="enkripsi_antrian_menggunakan_kunci_k">Enkripsi antrian menggunakan kunci (k).</string>
-    <string name="ambil_blok_paling_kiri_dari_hasil_enkripsi_lalu_xor_kan_dengan_plaintext_pi_sebanyak_r_bit_ini_akan_menghasilkan_ciphertext_ci_sebanyak_r_bit_pula">Ambil blok paling kiri dari hasil enkripsi , lalu XOR-kan dengan plaintext (Pi) sebanyak r-bit. Ini akan menghasilkan Ciphertext (Ci) sebanyak r-bit pula.</string>
+    <string name="ambil_blok_paling_kiri_dari_hasil_enkripsi_lalu_xor_kan_dengan_plaintext_pi_sebanyak_r_bit_ini_akan_menghasilkan_ciphertext_ci_sebanyak_r_bit_pula">Ambil blok paling kiri dari hasil enkripsi (MSB) , lalu XOR-kan dengan plaintext (Pi) sebanyak r-bit. Ini akan menghasilkan Ciphertext (Ci) sebanyak r-bit pula.</string>
     <string name="simpan_salinan_ci_pada_blok_paling_kanan_dari_antrian">Simpan salinan Ci pada blok paling kanan dari antrian.</string>
     <string name="ulangi_langkah_langkah_di_atas_sampai_semua_plaintext_telah_terenkripsi_atau_mencapai_pn">Ulangi langkah-langkah di atas sampai semua plaintext telah terenkripsi atau mencapai Pn.</string>
     <string name="langkah_dekripsi_cfb">Langkah Dekripsi CFB</string>

@@ -41,14 +41,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mari_belajar"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:fontFamily="@font/inter_semi_bold"/>
+                android:textSize="16sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/algoritma_cipher_feedback"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:fontFamily="@font/inter_semi_bold"
                 android:textColor="@color/white"/>
 
         </LinearLayout>

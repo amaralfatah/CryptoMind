@@ -1,5 +1,3 @@
-// QuizActivity.kt
-
 package com.uadev.cryptomind.views.kuis
 
 import android.content.Intent
@@ -7,6 +5,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.MenuItem
+import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -26,8 +25,8 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var binding: ActivityQuizBinding
     private lateinit var quizViewModel: QuizViewModel
     private lateinit var countDownTimer: CountDownTimer
-    private var timeLeftInMillis: Long = 300000 // milidetik (300 detik)
-    private val COUNTDOWN_INTERVAL: Long = 1000 // waktu mundur dalam milidetik (1 detik)
+    private var timeLeftInMillis: Long = 300000 // milliseconds (300 seconds)
+    private val COUNTDOWN_INTERVAL: Long = 1000 // countdown interval in milliseconds (1 second)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,15 +41,22 @@ class QuizActivity : AppCompatActivity() {
 
         quizViewModel = ViewModelProvider(this).get(QuizViewModel::class.java)
 
-        // Inisialisasi timer
+        // Initialize timer
         startTimer()
+
+        // Show progress bar while fetching quizzes
+        binding.loadingProgressBar.visibility = View.VISIBLE
 
         quizViewModel.fetchQuizzes(object : QuizViewModel.QuizFetchListener {
             override fun onSuccess(quizzes: List<Quiz>) {
+                // Hide progress bar once data is fetched
+                binding.loadingProgressBar.visibility = View.GONE
                 showNextQuestion()
             }
 
             override fun onError(exception: Exception) {
+                // Hide progress bar in case of error
+                binding.loadingProgressBar.visibility = View.GONE
                 Toast.makeText(this@QuizActivity, "Gagal memuat kuis", Toast.LENGTH_SHORT).show()
             }
         })
@@ -59,7 +65,7 @@ class QuizActivity : AppCompatActivity() {
             checkAnswer()
         }
 
-        // Aktifkan action bar
+        // Enable action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Kuis"
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.primary_color)))
@@ -122,21 +128,21 @@ class QuizActivity : AppCompatActivity() {
 
         if (selectedOptionIndex == -1) {
 //            Toast.makeText(this, "Silakan pilih salah satu jawaban", Toast.LENGTH_SHORT).show()
-            StyleableToast.makeText(this, "Anda belum memilih jawaban!", Toast.LENGTH_SHORT, R.style.toastNormal).show();
+            StyleableToast.makeText(this, "Anda belum memilih jawaban!", Toast.LENGTH_SHORT, R.style.toastNormal).show()
             return
         }
 
         val currentQuiz = quizViewModel.getCurrentQuestion()
 
         if (currentQuiz != null && selectedOptionIndex == currentQuiz.correctOptionIndex) {
-            // Jawaban benar
+            // Correct answer
             quizViewModel.increaseScore()
 //            Toast.makeText(this, "Jawaban benar!", Toast.LENGTH_SHORT).show()
-            StyleableToast.makeText(this, "Jawaban benar!", Toast.LENGTH_SHORT, R.style.toastTrue).show();
+            StyleableToast.makeText(this, "Jawaban benar!", Toast.LENGTH_SHORT, R.style.toastTrue).show()
         } else {
-            // Jawaban salah
+            // Wrong answer
 //            Toast.makeText(this, "Jawaban salah!", Toast.LENGTH_SHORT).show()
-            StyleableToast.makeText(this, "Jawaban Salah!", Toast.LENGTH_SHORT, R.style.toastFalse).show();
+            StyleableToast.makeText(this, "Jawaban Salah!", Toast.LENGTH_SHORT, R.style.toastFalse).show()
         }
 
         quizViewModel.moveToNextQuestion()

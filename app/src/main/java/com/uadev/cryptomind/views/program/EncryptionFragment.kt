@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.FragmentEncryptionBinding
+import com.uadev.cryptomind.utils.Utils
 import io.github.muddz.styleabletoast.StyleableToast
 
 class EncryptionFragment : Fragment() {
@@ -91,7 +92,7 @@ class EncryptionFragment : Fragment() {
 
     private fun processInput(input: String): List<Int>? {
         return try {
-            if (isBinaryString(input)) {
+            if (Utils.isBinaryString(input)) {
                 stringToIntList(input)
             } else {
                 input.map { it.code }
@@ -103,28 +104,20 @@ class EncryptionFragment : Fragment() {
 
     private fun validateInputs(inKey: String, inIV: String): Boolean {
         return when {
-            isBinaryString(inKey) && !isValidBinaryLength(inKey) -> {
+            Utils.isBinaryString(inKey) && !Utils.isValidBinaryLength(inKey) -> {
                 binding.textInputEditTextKey.error = "Bilangan biner harus terdiri dari 8 bit atau kelipatan"
                 false
             }
-            isBinaryString(inIV) && !isValidBinaryLength(inIV) -> {
+            Utils.isBinaryString(inIV) && !Utils.isValidBinaryLength(inIV) -> {
                 binding.textInputEditTextIV.error = "Bilangan biner harus terdiri dari 8 bit atau kelipatan"
                 false
             }
-            isBinaryString(inKey) != isBinaryString(inIV) -> {
+            Utils.isBinaryString(inKey) != Utils.isBinaryString(inIV) -> {
                 StyleableToast.makeText(requireContext(), "Key dan IV harus memiliki tipe yang sama", Toast.LENGTH_SHORT, R.style.toastNormalBot).show()
                 false
             }
             else -> true
         }
-    }
-
-    private fun isBinaryString(input: String): Boolean {
-        return input.all { it == '0' || it == '1' }
-    }
-
-    private fun isValidBinaryLength(input: String): Boolean {
-        return input.length % 8 == 0
     }
 
     private fun stringToIntList(binStr: String): List<Int> {

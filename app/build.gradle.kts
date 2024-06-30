@@ -48,21 +48,25 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
 
-    implementation("org.apache.commons:commons-text:1.9")
-    implementation("com.github.bumptech.glide:glide:4.13.1")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.13.1")
+    implementation(libs.commons.text)
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
 
-    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
-    implementation("com.google.firebase:firebase-storage")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.storage)
 
-    implementation ("com.airbnb.android:lottie:6.3.0")
+    implementation (libs.lottie)
 
-    implementation ("io.github.muddz:styleabletoast:2.4.0")
+    implementation (libs.styleabletoast)
+
+//    implementation (libs.flexbox)
 
 
 }

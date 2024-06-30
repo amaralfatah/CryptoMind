@@ -96,7 +96,7 @@
     <string name="go_to_home">Kembali Ke Home</string>
     <string name="coba_lagi">Coba Lagi</string>
     <string name="nilai">10</string>
-    <string name="text_yang_akan_didenkripsi">Text yang akan didenkripsi</string>
+    <string name="text_yang_akan_didekripsi">Text yang akan didenkripsi</string>
     <string name="cipher_text">Cipher Text</string>
     <string name="key">Key</string>
     <string name="text_yang_akan_dienkripsi">Text yang akan dienkripsi</string>
@@ -115,4 +115,5 @@
     <string name="info_tujuan">Misi kami adalah menjadikan CryptoMind sebagai sumber daya utama bagi siapa saja yang ingin mempelajari algoritma CFB. Kami ingin membantu Anda memahami konsep-konsep kompleks dengan cara yang mudah dipahami dan memberikan Anda alat yang diperlukan untuk menguasai CFB dengan percaya diri.</string>
     <string name="info_thanks">Kami ingin mengucapkan terima kasih kepada semua orang yang telah berkontribusi pada pengembangan CryptoMind. Kami harap Anda menikmati aplikasi ini dan menemukan manfaatnya dalam perjalanan belajar Anda.</string>
     <string name="teori">Teori</string>
+    <string name="biner_acak">11001001</string>
 </resources>

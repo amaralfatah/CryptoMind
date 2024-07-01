@@ -36,22 +36,17 @@ class InputEnkripsiFragment : Fragment() {
 
             val plain = processInput(inPlain)
             val key = processInput(inKey)
-
-            if (key == null) {
-                showErrorMessage("Key tidak valid")
-                return@setOnClickListener
-            }
-
-            val iv = MutableList(key.size) { 0 }
-
+            val iv = MutableList(key!!.size) { 0 }
             val antrian = iv.toMutableList()
-            val cipherText = mutableListOf<Int>()
+
+            val plainStr = Utils.convertIntListToBinaryStringList(plain)
+            val keyStr = Utils.convertIntListToBinaryStringList(key)
+            val antrianStr = Utils.convertIntListToBinaryStringList(antrian)
 
             val data = arrayOf<Any?>(
-                plain,
-                key,
-                antrian,
-                cipherText
+                plainStr,
+                keyStr,
+                antrianStr
             )
 
             startEncryptionActivity(data)

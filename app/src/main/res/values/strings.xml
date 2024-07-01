@@ -116,4 +116,5 @@
     <string name="info_thanks">Kami ingin mengucapkan terima kasih kepada semua orang yang telah berkontribusi pada pengembangan CryptoMind. Kami harap Anda menikmati aplikasi ini dan menemukan manfaatnya dalam perjalanan belajar Anda.</string>
     <string name="teori">Teori</string>
     <string name="biner_acak">11001001</string>
+    <string name="spasi5" />
 </resources>

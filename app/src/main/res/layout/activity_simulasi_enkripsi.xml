@@ -7,19 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".views.simulasi.dinamis.SimulasiEnkripsiActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
+    <HorizontalScrollView
+        android:id="@+id/lyScrollHorizontal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/lyAntrian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,71 +57,77 @@
                 android:text="@string/biner_acak" />
 
         </LinearLayout>
-
-
-
-        <ImageView
-            android:id="@+id/tvArrow"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:src="@drawable/ic_arrow"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyAntrian" />
-
+        
         <TextView
             android:id="@+id/tvEnkripsi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:background="@drawable/outline"
             android:text="@string/enkripsi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvArrow" />
+            app:layout_constraintTop_toBottomOf="@+id/arrowAntrian" />
 
         <TextView
             android:id="@+id/tvK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_marginEnd="6dp"
             android:layout_gravity="center"
             android:text="K"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/tvEnkripsi"
-            app:layout_constraintEnd_toStartOf="@+id/icArrowRight3"
-            app:layout_constraintTop_toBottomOf="@+id/tvArrow" />
+            app:layout_constraintEnd_toStartOf="@+id/arrowK"
+            app:layout_constraintTop_toBottomOf="@+id/arrowAntrian" />
 
         <ImageView
-            android:id="@+id/icArrowRight3"
+            android:id="@+id/arrowAntrian"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lyAntrian"
+            tools:ignore="ContentDescription" />
+        
+        <ImageView
+            android:id="@+id/arrowK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_marginEnd="6dp"
             android:src="@drawable/ic_arrow_right_long"
             app:layout_constraintBottom_toBottomOf="@+id/tvEnkripsi"
             app:layout_constraintEnd_toStartOf="@+id/tvEnkripsi"
-            app:layout_constraintTop_toBottomOf="@+id/tvArrow" />
+            app:layout_constraintTop_toBottomOf="@+id/arrowAntrian"
+            tools:ignore="ContentDescription" />
 
         <ImageView
-            android:id="@+id/tvArrow2"
+            android:id="@+id/arrowEnkripsi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:src="@drawable/ic_arrow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvEnkripsi" />
+            app:layout_constraintTop_toBottomOf="@+id/tvEnkripsi"
+            tools:ignore="ContentDescription" />
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
+            android:id="@+id/lyHasilEnkripsi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvArrow2">
+            app:layout_constraintTop_toBottomOf="@+id/arrowEnkripsi">
 
             <TextView
-                android:id="@+id/tvHasilEnkripsi1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/outline"
@@ -122,7 +135,6 @@
                 android:text="@string/biner_acak" />
 
             <TextView
-                android:id="@+id/tvHasilEnkripsi2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/outline"
@@ -130,7 +142,6 @@
                 android:text="@string/biner_acak" />
 
             <TextView
-                android:id="@+id/tvHasilEnkripsi3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/outline"
@@ -140,68 +151,79 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/icArrowBelok"
+            android:id="@+id/arrowMsb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_marginStart="16dp"
             android:src="@drawable/ic_arrow_belok"
             app:layout_constraintEnd_toEndOf="@id/tvXor"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+            app:layout_constraintStart_toStartOf="@+id/lyHasilEnkripsi"
+            app:layout_constraintTop_toBottomOf="@+id/lyHasilEnkripsi"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tvPlain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:background="@drawable/outline"
             android:fontFamily="monospace"
             android:text="@string/biner_acak"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/icArrowRight"
+            app:layout_constraintEnd_toStartOf="@+id/arrowPlain"
             app:layout_constraintTop_toTopOf="@+id/tvXor" />
 
         <ImageView
-            android:id="@+id/icArrowRight"
+            android:id="@+id/arrowPlain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:src="@drawable/ic_arrow_right"
             app:layout_constraintBottom_toBottomOf="@+id/tvXor"
             app:layout_constraintEnd_toStartOf="@+id/tvXor"
-            app:layout_constraintTop_toTopOf="@+id/tvXor" />
+            app:layout_constraintTop_toTopOf="@+id/tvXor"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tvXor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="⊕"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/icArrowBelok" />
+            app:layout_constraintTop_toBottomOf="@+id/arrowMsb" />
 
         <ImageView
-            android:id="@+id/icArrowRight2"
+            android:id="@+id/arrowXor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:src="@drawable/ic_arrow_right"
             app:layout_constraintBottom_toBottomOf="@+id/tvXor"
             app:layout_constraintStart_toEndOf="@id/tvXor"
-            app:layout_constraintTop_toTopOf="@+id/tvXor" />
+            app:layout_constraintTop_toTopOf="@+id/tvXor"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tvCipher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:background="@drawable/outline"
             android:fontFamily="monospace"
             android:text="@string/biner_acak"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/icArrowRight2"
+            app:layout_constraintStart_toEndOf="@id/arrowXor"
             app:layout_constraintTop_toTopOf="@+id/tvXor" />
 
         <ImageView
+            android:id="@+id/arrowCipher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:src="@drawable/ic_arrow_up"
             app:layout_constraintBottom_toTopOf="@+id/tvCipher"
             app:layout_constraintEnd_toEndOf="@+id/tvCipher"
@@ -210,12 +232,15 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </HorizontalScrollView>
+
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
+        android:background="@color/ic_kuis"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toBottomOf="@+id/lyScrollHorizontal">
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -225,8 +250,10 @@
 
             <!--ANTRIAN CALCULATE-->
             <LinearLayout
+                android:id="@+id/wrapCalcAntrian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -237,12 +264,11 @@
 
                 <LinearLayout
                     android:id="@+id/lyCalcAntrian"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/tvCalcAntrian1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -250,7 +276,6 @@
                         android:text="@string/biner_acak" />
 
                     <TextView
-                        android:id="@+id/tvCalcAntrian2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -258,7 +283,6 @@
                         android:text="@string/biner_acak" />
 
                     <TextView
-                        android:id="@+id/tvCalcAntrian3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -270,8 +294,10 @@
 
             <!--KEY CALCULATE-->
             <LinearLayout
+                android:id="@+id/wrapCalcKey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -282,7 +308,7 @@
 
                 <LinearLayout
                     android:id="@+id/lyCalcKey"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -313,10 +339,12 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!--GARIS CALCULATE-->
+            <!--GARIS XOR-->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/garisXor"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -330,69 +358,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:fontFamily="monospace"
-                    android:text="---------------------------------- ⊕" />
+                    android:text="------------------------- ⊕" />
             </LinearLayout>
 
-            <!--HASIL CALCULATE-->
+            <!--XOR CALCULATE-->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/wrapCalcXorEnkripsi"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:text="     " />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:fontFamily="monospace"
-                    android:text="@string/biner_acak" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:fontFamily="monospace"
-                    android:text="@string/biner_acak" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:fontFamily="monospace"
-                    android:text="@string/biner_acak" />
-
-                <!--            </com.google.android.flexbox.FlexboxLayout>-->
-            </LinearLayout>
-
-            <!--GARIS CALCULATE-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:text="     " />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:fontFamily="monospace"
-                    android:text="&lt;----------------------------------" />
-            </LinearLayout>
-
-            <!--GESER CALCULATE-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -402,8 +376,74 @@
                     android:text="     " />
 
                 <LinearLayout
-                    android:id="@+id/lyCalcGeser"
-                    android:layout_width="match_parent"
+                    android:id="@+id/lyCalcXorEnkripsi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="monospace"
+                        android:text="@string/biner_acak" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="monospace"
+                        android:text="@string/biner_acak" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="monospace"
+                        android:text="@string/biner_acak" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--GARIS GESER-->
+            <LinearLayout
+                android:id="@+id/garisGeser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="     " />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="monospace"
+                    android:text="&lt;------------------------" />
+            </LinearLayout>
+
+            <!--HASIL ENKRIPSI-->
+            <LinearLayout
+                android:id="@+id/wrapCalcHasilEnkripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:text="     " />
+
+                <LinearLayout
+                    android:id="@+id/lyCalcHasilEnkripsi"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -433,9 +473,11 @@
 
             <!--MSB CALCULATE-->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/wrapCalcMsb"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -444,26 +486,22 @@
                     android:fontFamily="monospace"
                     android:text="MSB =" />
 
-                <LinearLayout
-                    android:id="@+id/lyCalcMsb"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tvCalcMsb"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="monospace"
+                    android:text="@string/biner_acak" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:fontFamily="monospace"
-                        android:text="@string/biner_acak" />
-
-                </LinearLayout>
             </LinearLayout>
 
-            <!--MSB CALCULATE-->
+            <!--PLAIN CALCULATE-->
             <LinearLayout
+                android:id="@+id/wrapCalcPlain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -472,26 +510,22 @@
                     android:fontFamily="monospace"
                     android:text="P1  =" />
 
-                <LinearLayout
-                    android:id="@+id/lyCalcPlain"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tvCalcPlain"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="monospace"
+                    android:text="@string/biner_acak" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:fontFamily="monospace"
-                        android:text="@string/biner_acak" />
-
-                </LinearLayout>
             </LinearLayout>
 
             <!--GARIS CALCULATE-->
             <LinearLayout
+                android:id="@+id/garisXorPlain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -508,10 +542,12 @@
                     android:text="--------- ⊕" />
             </LinearLayout>
 
-            <!--MSB CALCULATE-->
+            <!--CIPHER CALCULATE-->
             <LinearLayout
+                android:id="@+id/wrapCalcCipher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView

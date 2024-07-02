@@ -11,226 +11,235 @@
         android:id="@+id/lyScrollHorizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:id="@+id/lyAntrian"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tvAntrian1"
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/outline"
-                android:fontFamily="monospace"
-                android:text="@string/biner_acak" />
+                android:fontFamily="@font/inter_bold"
+                android:text="Simulasi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/lyAntrian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                <TextView
+                    android:id="@+id/tvAntrian1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline"
+                    android:fontFamily="monospace"
+                    android:text="@string/biner_acak" />
+
+                <TextView
+                    android:id="@+id/tvAntrian2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline"
+                    android:fontFamily="monospace"
+                    android:text="@string/biner_acak" />
+
+                <TextView
+                    android:id="@+id/tvAntrian3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline"
+                    android:fontFamily="monospace"
+                    android:text="@string/biner_acak" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tvAntrian2"
+                android:id="@+id/tvEnkripsi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:background="@drawable/outline"
-                android:fontFamily="monospace"
-                android:text="@string/biner_acak" />
+                android:text="@string/enkripsi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/arrowAntrian" />
 
             <TextView
-                android:id="@+id/tvAntrian3"
+                android:id="@+id/tvK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/outline"
-                android:fontFamily="monospace"
-                android:text="@string/biner_acak" />
+                android:visibility="gone"
+                android:layout_marginEnd="6dp"
+                android:layout_gravity="center"
+                android:text="K"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tvEnkripsi"
+                app:layout_constraintEnd_toStartOf="@+id/arrowK"
+                app:layout_constraintTop_toBottomOf="@+id/arrowAntrian" />
 
-        </LinearLayout>
-        
-        <TextView
-            android:id="@+id/tvEnkripsi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:background="@drawable/outline"
-            android:text="@string/enkripsi"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/arrowAntrian" />
+            <ImageView
+                android:id="@+id/arrowAntrian"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                android:src="@drawable/ic_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lyAntrian"
+                tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/tvK"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_marginEnd="6dp"
-            android:layout_gravity="center"
-            android:text="K"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvEnkripsi"
-            app:layout_constraintEnd_toStartOf="@+id/arrowK"
-            app:layout_constraintTop_toBottomOf="@+id/arrowAntrian" />
+            <ImageView
+                android:id="@+id/arrowK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/ic_arrow_right_long"
+                app:layout_constraintBottom_toBottomOf="@+id/tvEnkripsi"
+                app:layout_constraintEnd_toStartOf="@+id/tvEnkripsi"
+                app:layout_constraintTop_toBottomOf="@+id/arrowAntrian"
+                tools:ignore="ContentDescription" />
 
-        <ImageView
-            android:id="@+id/arrowAntrian"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:visibility="gone"
-            android:src="@drawable/ic_arrow"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lyAntrian"
-            tools:ignore="ContentDescription" />
-        
-        <ImageView
-            android:id="@+id/arrowK"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_marginEnd="6dp"
-            android:src="@drawable/ic_arrow_right_long"
-            app:layout_constraintBottom_toBottomOf="@+id/tvEnkripsi"
-            app:layout_constraintEnd_toStartOf="@+id/tvEnkripsi"
-            app:layout_constraintTop_toBottomOf="@+id/arrowAntrian"
-            tools:ignore="ContentDescription" />
+            <ImageView
+                android:id="@+id/arrowEnkripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:src="@drawable/ic_arrow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvEnkripsi"
+                tools:ignore="ContentDescription" />
 
-        <ImageView
-            android:id="@+id/arrowEnkripsi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:src="@drawable/ic_arrow"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvEnkripsi"
-            tools:ignore="ContentDescription" />
+            <LinearLayout
+                android:id="@+id/lyHasilEnkripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/arrowEnkripsi">
 
-        <LinearLayout
-            android:id="@+id/lyHasilEnkripsi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/arrowEnkripsi">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline"
+                    android:fontFamily="monospace"
+                    android:text="@string/biner_acak" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline"
+                    android:fontFamily="monospace"
+                    android:text="@string/biner_acak" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/outline"
+                    android:fontFamily="monospace"
+                    android:text="@string/biner_acak" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/arrowMsb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_arrow_belok"
+                app:layout_constraintEnd_toEndOf="@id/tvXor"
+                app:layout_constraintStart_toStartOf="@+id/lyHasilEnkripsi"
+                app:layout_constraintTop_toBottomOf="@+id/lyHasilEnkripsi"
+                tools:ignore="ContentDescription" />
 
             <TextView
+                android:id="@+id/tvPlain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:background="@drawable/outline"
                 android:fontFamily="monospace"
-                android:text="@string/biner_acak" />
+                android:text="@string/biner_acak"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/arrowPlain"
+                app:layout_constraintTop_toTopOf="@+id/tvXor" />
+
+            <ImageView
+                android:id="@+id/arrowPlain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:src="@drawable/ic_arrow_right"
+                app:layout_constraintBottom_toBottomOf="@+id/tvXor"
+                app:layout_constraintEnd_toStartOf="@+id/tvXor"
+                app:layout_constraintTop_toTopOf="@+id/tvXor"
+                tools:ignore="ContentDescription" />
 
             <TextView
+                android:id="@+id/tvXor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/outline"
-                android:fontFamily="monospace"
-                android:text="@string/biner_acak" />
+                android:visibility="gone"
+                android:text="⊕"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/arrowMsb" />
+
+            <ImageView
+                android:id="@+id/arrowXor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:src="@drawable/ic_arrow_right"
+                app:layout_constraintBottom_toBottomOf="@+id/tvXor"
+                app:layout_constraintStart_toEndOf="@id/tvXor"
+                app:layout_constraintTop_toTopOf="@+id/tvXor"
+                tools:ignore="ContentDescription" />
 
             <TextView
+                android:id="@+id/tvCipher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:background="@drawable/outline"
                 android:fontFamily="monospace"
-                android:text="@string/biner_acak" />
+                android:text="@string/biner_acak"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/arrowXor"
+                app:layout_constraintTop_toTopOf="@+id/tvXor" />
 
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/arrowCipher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:src="@drawable/ic_arrow_up"
+                app:layout_constraintBottom_toTopOf="@+id/tvCipher"
+                app:layout_constraintEnd_toEndOf="@+id/tvCipher"
+                app:layout_constraintStart_toStartOf="@+id/tvCipher"
+                app:layout_constraintTop_toBottomOf="@+id/lyAntrian" />
 
-        <ImageView
-            android:id="@+id/arrowMsb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_marginStart="16dp"
-            android:src="@drawable/ic_arrow_belok"
-            app:layout_constraintEnd_toEndOf="@id/tvXor"
-            app:layout_constraintStart_toStartOf="@+id/lyHasilEnkripsi"
-            app:layout_constraintTop_toBottomOf="@+id/lyHasilEnkripsi"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/tvPlain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:background="@drawable/outline"
-            android:fontFamily="monospace"
-            android:text="@string/biner_acak"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/arrowPlain"
-            app:layout_constraintTop_toTopOf="@+id/tvXor" />
-
-        <ImageView
-            android:id="@+id/arrowPlain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:src="@drawable/ic_arrow_right"
-            app:layout_constraintBottom_toBottomOf="@+id/tvXor"
-            app:layout_constraintEnd_toStartOf="@+id/tvXor"
-            app:layout_constraintTop_toTopOf="@+id/tvXor"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/tvXor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:text="⊕"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/arrowMsb" />
-
-        <ImageView
-            android:id="@+id/arrowXor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:src="@drawable/ic_arrow_right"
-            app:layout_constraintBottom_toBottomOf="@+id/tvXor"
-            app:layout_constraintStart_toEndOf="@id/tvXor"
-            app:layout_constraintTop_toTopOf="@+id/tvXor"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/tvCipher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:background="@drawable/outline"
-            android:fontFamily="monospace"
-            android:text="@string/biner_acak"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/arrowXor"
-            app:layout_constraintTop_toTopOf="@+id/tvXor" />
-
-        <ImageView
-            android:id="@+id/arrowCipher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:src="@drawable/ic_arrow_up"
-            app:layout_constraintBottom_toTopOf="@+id/tvCipher"
-            app:layout_constraintEnd_toEndOf="@+id/tvCipher"
-            app:layout_constraintStart_toStartOf="@+id/tvCipher"
-            app:layout_constraintTop_toBottomOf="@+id/lyAntrian" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </HorizontalScrollView>
 
@@ -238,7 +247,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:background="@color/ic_kuis"
+        android:background="@color/secondary_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lyScrollHorizontal">
 
@@ -247,6 +256,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perhitungan"
+                android:fontFamily="@font/inter_bold"/>
 
             <!--ANTRIAN CALCULATE-->
             <LinearLayout
@@ -354,11 +369,19 @@
                     android:text="     " />
 
                 <TextView
+                    android:id="@+id/dashGarisXor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:fontFamily="monospace"
-                    android:text="------------------------- ⊕" />
+                    android:text="-------------------------" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="monospace"
+                    android:text="⊕" />
             </LinearLayout>
 
             <!--XOR CALCULATE-->
@@ -424,7 +447,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:fontFamily="monospace"
-                    android:text="&lt;------------------------" />
+                    android:text="&lt;" />
+
+                <TextView
+                    android:id="@+id/dashGarisGeser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="monospace"
+                    android:text="-------------------------" />
+
             </LinearLayout>
 
             <!--HASIL ENKRIPSI-->
@@ -556,20 +588,14 @@
                     android:fontFamily="monospace"
                     android:text="C1  =" />
 
-                <LinearLayout
-                    android:id="@+id/lyCalcCipher"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tvCalcCipher"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:fontFamily="monospace"
-                        android:text="@string/biner_acak" />
-
-                </LinearLayout>
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="monospace"
+                    android:text="@string/biner_acak" />
+                
             </LinearLayout>
 
 

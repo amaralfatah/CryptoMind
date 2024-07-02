@@ -20,7 +20,9 @@ class SimulasiEnkripsiActivity : AppCompatActivity() {
     private var plaintext: List<String> = emptyList()
     private var key: List<String> = emptyList()
     private var antrian: MutableList<String> = mutableListOf()
+    private var ciphertext: MutableList<String> = mutableListOf()
 
+//    apakah ada cara yang lebih baik untuk membuatan semua komponen ditampilkan  secara berurutan seperti video animasi , dilengkapi dengan tombol prev, play/pause dan next:
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySimulasiEnkripsiBinding.inflate(layoutInflater)
@@ -33,10 +35,12 @@ class SimulasiEnkripsiActivity : AppCompatActivity() {
         key = (datas[1] as List<*>).filterIsInstance<String>()
         antrian.addAll((datas[2] as List<*>).filterIsInstance<String>())
 
-        // SIMULASI --------------------------------------
-        val duration = 2000L
+        // LIKE VIDEO ANIMASI SIMULASI --------------------------------------
+        val duration = 500L
         val handler = Handler()
         var cumulativeDelay = 0L
+
+        buildDashes()
 
         handler.postDelayed({
             binding.lyAntrian.visibility = View.VISIBLE
@@ -56,10 +60,6 @@ class SimulasiEnkripsiActivity : AppCompatActivity() {
 
         handler.postDelayed({
             binding.tvK.visibility = View.VISIBLE
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
             binding.arrowK.visibility = View.VISIBLE
         }, cumulativeDelay)
         cumulativeDelay += duration
@@ -76,19 +76,21 @@ class SimulasiEnkripsiActivity : AppCompatActivity() {
         }, cumulativeDelay)
         cumulativeDelay += duration
 
+        var hasilXorEnkripsiX1: MutableList<String> = mutableListOf()
         handler.postDelayed({
-            val hasilXorEnkripsi = Utils.calculateXorString(antrian, key)
+            hasilXorEnkripsiX1 = Utils.calculateXorString(antrian, key)
             binding.garisXor.visibility = View.VISIBLE
             binding.wrapCalcXorEnkripsi.visibility = View.VISIBLE
-            populateLinearLayout(binding.lyCalcXorEnkripsi, hasilXorEnkripsi)
+            populateLinearLayout(binding.lyCalcXorEnkripsi, hasilXorEnkripsiX1)
         }, cumulativeDelay)
         cumulativeDelay += duration
 
-        val hasilEnkripsi = Utils.enkripsi(antrian, key)
+        var hasilGeserEnkripsiX1: MutableList<String> = mutableListOf()
         handler.postDelayed({
+            hasilGeserEnkripsiX1 = Utils.shiftStringLeft(hasilXorEnkripsiX1)
             binding.garisGeser.visibility = View.VISIBLE
             binding.wrapCalcHasilEnkripsi.visibility = View.VISIBLE
-            populateLinearLayout(binding.lyCalcHasilEnkripsi, hasilEnkripsi)
+            populateLinearLayout(binding.lyCalcHasilEnkripsi, hasilGeserEnkripsiX1)
         }, cumulativeDelay)
         cumulativeDelay += duration
 
@@ -99,17 +101,81 @@ class SimulasiEnkripsiActivity : AppCompatActivity() {
 
         handler.postDelayed({
             binding.lyHasilEnkripsi.visibility = View.VISIBLE
-            populateLinearLayout(binding.lyHasilEnkripsi, hasilEnkripsi, true)
+            populateLinearLayout(binding.lyHasilEnkripsi, hasilGeserEnkripsiX1, true)
         }, cumulativeDelay)
         cumulativeDelay += duration
 
-        plaintext.firstOrNull()?.let { plain ->
-            binding.tvPlain.text = plain.padStart(8, '0')
-        }
+        handler.postDelayed({
+            binding.arrowMsb.visibility = View.VISIBLE
+        }, cumulativeDelay)
+        cumulativeDelay += duration
+
+        handler.postDelayed({
+            binding.tvXor.visibility = View.VISIBLE
+        }, cumulativeDelay)
+        cumulativeDelay += duration
+
+        handler.postDelayed({
+            binding.arrowPlain.visibility = View.VISIBLE
+            binding.tvPlain.visibility = View.VISIBLE
+            binding.tvPlain.text = plaintext[0]
+        }, cumulativeDelay)
+        cumulativeDelay += duration
+
+        handler.postDelayed({
+            binding.wrapCalcMsb.visibility = View.VISIBLE
+            binding.tvCalcMsb.text = hasilGeserEnkripsiX1[0]
+        }, cumulativeDelay)
+        cumulativeDelay += duration
+
+        handler.postDelayed({
+            binding.wrapCalcPlain.visibility = View.VISIBLE
+            binding.tvCalcPlain.text = plaintext[0]
+        }, cumulativeDelay)
+        cumulativeDelay += duration
+
+        handler.postDelayed({
+            binding.garisXorPlain.visibility = View.VISIBLE
+        }, cumulativeDelay)
+        cumulativeDelay += duration
 
 
-        Log.d("CMIND", hasilEnkripsi.joinToString(" "))
+        handler.postDelayed({
+            Log.d("CMIND-msb", hasilGeserEnkripsiX1.joinToString(" "))
+            Log.d("CMIND-plain", plaintext.joinToString(" "))
+            ciphertext.add(Utils.calculateXorOneString(hasilGeserEnkripsiX1[0], plaintext[0]))
+            binding.wrapCalcCipher.visibility = View.VISIBLE
+            binding.tvCalcCipher.text = ciphertext[0]
+            Log.d("CMIND-cipher", ciphertext.joinToString(" "))
+        }, cumulativeDelay)
+        cumulativeDelay += duration
 
+        handler.postDelayed({
+            binding.arrowXor.visibility = View.VISIBLE
+        }, cumulativeDelay)
+        cumulativeDelay += duration
+
+        handler.postDelayed({
+            binding.tvCipher.visibility = View.VISIBLE
+            binding.tvCipher.text = ciphertext[0]
+        }, cumulativeDelay)
+        cumulativeDelay += duration
+
+        handler.postDelayed({
+            binding.arrowCipher.visibility = View.VISIBLE
+        }, cumulativeDelay)
+        cumulativeDelay += duration
+
+        handler.postDelayed({
+            binding.arrowCipher.visibility = View.VISIBLE
+        }, cumulativeDelay)
+        cumulativeDelay += duration
+
+        handler.postDelayed({
+            antrian = Utils.shiftArrayLeftAndAddNew(antrian, ciphertext[0])
+            populateLinearLayout(binding.lyAntrian, antrian, true)
+        }, cumulativeDelay)
+        cumulativeDelay += duration
     }
 
     private fun populateLinearLayout(linearLayout: LinearLayout, dataList: List<String>, addOutline: Boolean = false) {
@@ -136,4 +202,13 @@ class SimulasiEnkripsiActivity : AppCompatActivity() {
         }
     }
 
+    private fun buildDashes(){
+        val dashes = StringBuilder()
+        for (i in antrian.indices) {
+            dashes.append("--------")
+        }
+
+        binding.dashGarisXor.text = dashes
+        binding.dashGarisGeser.text = dashes
+    }
 }

@@ -16,6 +16,7 @@ import com.uadev.cryptomind.views.materi.OptionMateriActivity
 import com.uadev.cryptomind.views.panduan.PanduanActivity
 import com.uadev.cryptomind.views.program.ProgramActivity
 import com.uadev.cryptomind.views.simulasi.OptionSimulasiActivity
+import com.uadev.cryptomind.views.simulasi.dinamis.SimulasiActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnSimulasi.setOnClickListener {
-            val intent = Intent(this, OptionSimulasiActivity::class.java)
+            val intent = Intent(this, SimulasiActivity::class.java)
             startActivity(intent)
         }
 

@@ -59,6 +59,15 @@
                 android:textColor="@android:color/holo_red_dark"
                 android:visibility="gone" />
 
+            <TextView
+                android:id="@+id/note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Initial Vector berbentuk biner '00000000' dan disesuaikan dengan panjang key"
+                android:textSize="12sp"
+                android:textColor="@android:color/secondary_text_light"/>
+
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>

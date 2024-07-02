@@ -6,6 +6,7 @@
     <color name="accent_color">#ff6700</color>
     <color name="secondary_color">#c0c0c0</color>
     <color name="primary_variant_color">#FF0271AC</color>
+    <color name="thin_primary">#B2E3FF</color>
 
     <color name="black">#FF000000</color>
     <color name="soft_black">#3E3E3F</color>

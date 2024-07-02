@@ -20,11 +20,9 @@
             android:theme="@style/Theme.BaseAppTheme" />
         <activity
             android:name=".views.simulasi.dinamis.SimulasiEnkripsiActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".views.simulasi.dinamis.InputSimulasiActivity" -->
-        <!-- android:exported="false" /> -->
+            android:exported="false" />
         <activity
-            android:name=".views.simulasi.dinamis.SimulasiEncryptionActivity"
+            android:name=".views.simulasi.dinamis.SimulasiActivity"
             android:exported="false" />
         <activity
             android:name=".views.simulasi.encrypt.Encrypt4BitActivity"
@@ -75,7 +73,7 @@
             android:name=".views.kuis.QuizActivity"
             android:exported="false" />
         <activity
-            android:name=".views.simulasi.dinamis.SimulasiActivity"
+            android:name=".views.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Material3.Light.NoActionBar">
             <intent-filter>

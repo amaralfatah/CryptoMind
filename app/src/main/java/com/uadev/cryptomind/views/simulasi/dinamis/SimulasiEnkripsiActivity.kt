@@ -4,7 +4,9 @@ import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -13,11 +15,13 @@ import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivitySimulasiEnkripsiBinding
 import com.uadev.cryptomind.utils.Utils
 import android.os.Handler
-import android.view.MenuItem
 
 class SimulasiEnkripsiActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySimulasiEnkripsiBinding
+    private lateinit var btnPrev: Button
+    private lateinit var btnPlayPause: Button
+    private lateinit var btnNext: Button
 
     private var plaintext: List<String> = emptyList()
     private var key: List<String> = emptyList()
@@ -31,7 +35,10 @@ class SimulasiEnkripsiActivity : AppCompatActivity() {
     private var hasilXorEnkripsi: MutableList<String> = mutableListOf()
     private var hasilGeserEnkripsi: MutableList<String> = mutableListOf()
 
-//    apakah ada cara yang lebih baik untuk membuatan semua komponen ditampilkan  secara berurutan seperti video animasi , dilengkapi dengan tombol prev, play/pause dan next:
+    private var currentStep = 0
+    private var isPlaying = false
+    private val stepActions = mutableListOf<Runnable>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySimulasiEnkripsiBinding.inflate(layoutInflater)
@@ -43,29 +50,174 @@ class SimulasiEnkripsiActivity : AppCompatActivity() {
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.primary_color)))
 
         val datas = intent.getSerializableExtra("DATA_ENKRIPSI") as Array<*>
-
         plaintext = (datas[0] as List<*>).filterIsInstance<String>()
         key = (datas[1] as List<*>).filterIsInstance<String>()
         antrian.addAll((datas[2] as List<*>).filterIsInstance<String>())
 
-        // LIKE VIDEO ANIMASI SIMULASI --------------------------------------
+        // Initialize buttons
+        btnPrev = findViewById(R.id.btnPrev)
+        btnPlayPause = findViewById(R.id.btnPlayPause)
+        btnNext = findViewById(R.id.btnNext)
+
+        btnPrev.setOnClickListener { prevStep() }
+        btnPlayPause.setOnClickListener { togglePlayPause() }
+        btnNext.setOnClickListener { nextStep() }
+
+        btnPrev.visibility = View.GONE // Sembunyikan tombol prev di awal
 
         buildDashes()
+        prepareSimulationSteps()
+    }
+
+    private fun prepareSimulationSteps() {
         for (i in plaintext.indices) {
-//            Log.d("CMIND", "Iterasi ke-$i")
-            handler.postDelayed({
-                simulasi(i)
-                Log.d("CMIND", "Iterasi ke-$i == ${plaintext.size}")
-            }, cumulativeDelay)
-            cumulativeDelay += duration
+            addSimulationStep {
+                resetViews()
+                binding.tvTitle.text = "Mencari Ciphertext C${ciphertext.size + 1}"
+            }
+            addSimulationStep { binding.lyAntrian.visibility = View.VISIBLE; populateLinearLayout(binding.lyAntrian, antrian, true) }
+            addSimulationStep { binding.arrowAntrian.visibility = View.VISIBLE }
+            addSimulationStep { binding.tvEnkripsi.visibility = View.VISIBLE }
+            addSimulationStep { binding.tvK.visibility = View.VISIBLE; binding.arrowK.visibility = View.VISIBLE }
+            addSimulationStep { binding.wrapCalcAntrian.visibility = View.VISIBLE; populateLinearLayout(binding.lyCalcAntrian, antrian) }
+            addSimulationStep { binding.wrapCalcKey.visibility = View.VISIBLE; populateLinearLayout(binding.lyCalcKey, key) }
+            addSimulationStep {
+                hasilXorEnkripsi = Utils.calculateXorString(antrian, key)
+                binding.garisXor.visibility = View.VISIBLE
+                binding.wrapCalcXorEnkripsi.visibility = View.VISIBLE
+                populateLinearLayout(binding.lyCalcXorEnkripsi, hasilXorEnkripsi)
+            }
+            addSimulationStep {
+                hasilGeserEnkripsi = Utils.shiftStringLeft(hasilXorEnkripsi)
+                binding.garisGeser.visibility = View.VISIBLE
+                binding.wrapCalcHasilEnkripsi.visibility = View.VISIBLE
+                populateLinearLayout(binding.lyCalcHasilEnkripsi, hasilGeserEnkripsi)
+            }
+            addSimulationStep { binding.arrowEnkripsi.visibility = View.VISIBLE }
+            addSimulationStep { binding.lyHasilEnkripsi.visibility = View.VISIBLE; populateLinearLayout(binding.lyHasilEnkripsi, hasilGeserEnkripsi, true) }
+            addSimulationStep { binding.arrowMsb.visibility = View.VISIBLE }
+            addSimulationStep { binding.tvXor.visibility = View.VISIBLE }
+            addSimulationStep { binding.arrowPlain.visibility = View.VISIBLE; binding.tvPlain.visibility = View.VISIBLE; binding.tvPlain.text = plaintext[i] }
+            addSimulationStep { binding.wrapCalcMsb.visibility = View.VISIBLE; binding.tvCalcMsb.text = hasilGeserEnkripsi[0] }
+            addSimulationStep { binding.wrapCalcPlain.visibility = View.VISIBLE; binding.tvCalcPlain.text = plaintext[i] }
+            addSimulationStep { binding.garisXorPlain.visibility = View.VISIBLE }
+            addSimulationStep {
+                ciphertext.add(Utils.calculateXorOneString(hasilGeserEnkripsi[0], plaintext[i]))
+                binding.wrapCalcCipher.visibility = View.VISIBLE
+                binding.tvCalcCipher.text = ciphertext[i]
+            }
+            addSimulationStep { binding.arrowXor.visibility = View.VISIBLE }
+            addSimulationStep { binding.tvCipher.visibility = View.VISIBLE; binding.tvCipher.text = ciphertext[i] }
+            addSimulationStep { binding.arrowCipher.visibility = View.VISIBLE }
+            addSimulationStep {
+                antrian = Utils.shiftArrayLeftAndAddNew(antrian, ciphertext[i])
+                populateLinearLayout(binding.lyAntrian, antrian, true)
+            }
         }
-
-        binding.btnSelesai.setOnClickListener(){
-            onBackPressed()
+        addSimulationStep { // Step terakhir untuk tombol selesai
+            btnNext.text = "Finish"
+            btnNext.setOnClickListener {
+                onBackPressed()
+            }
         }
+    }
 
-    Log.d("CMIND","${plaintext.size}")
+    private fun addSimulationStep(action: () -> Unit) {
+        stepActions.add(Runnable { action() })
+    }
 
+    private fun executeCurrentStep() {
+        if (currentStep < stepActions.size) {
+            stepActions[currentStep].run()
+            currentStep++
+            updateButtonVisibility()
+        }
+    }
+
+    private fun prevStep() {
+        if (currentStep > 1) { // Ubah dari > 0 menjadi > 1 agar menghindari melampaui batas awal
+            currentStep--
+            resetViews()
+            for (i in 0 until currentStep) {
+                stepActions[i].run()
+            }
+            updateButtonVisibility()
+        }
+    }
+
+    private fun nextStep() {
+        if (currentStep < stepActions.size) {
+            executeCurrentStep()
+        }
+    }
+
+    private fun togglePlayPause() {
+        if (isPlaying) {
+            handler.removeCallbacksAndMessages(null)
+            btnPlayPause.text = "Play"
+        } else {
+            playSimulation()
+            btnPlayPause.text = "Pause"
+        }
+        isPlaying = !isPlaying
+    }
+
+    private fun playSimulation() {
+        if (currentStep < stepActions.size) {
+            executeCurrentStep()
+            handler.postDelayed({ playSimulation() }, duration)
+        }
+    }
+
+    private fun resetViews() {
+        binding.arrowAntrian.visibility = View.GONE
+        binding.tvEnkripsi.visibility = View.GONE
+        binding.tvK.visibility = View.GONE
+        binding.arrowK.visibility = View.GONE
+        binding.wrapCalcAntrian.visibility = View.GONE
+        binding.wrapCalcKey.visibility = View.GONE
+        binding.garisXor.visibility = View.GONE
+        binding.wrapCalcXorEnkripsi.visibility = View.GONE
+        binding.garisGeser.visibility = View.GONE
+        binding.wrapCalcHasilEnkripsi.visibility = View.GONE
+        binding.arrowEnkripsi.visibility = View.GONE
+        binding.lyHasilEnkripsi.visibility = View.GONE
+        binding.arrowMsb.visibility = View.GONE
+        binding.tvXor.visibility = View.GONE
+        binding.arrowPlain.visibility = View.GONE
+        binding.tvPlain.visibility = View.GONE
+        binding.wrapCalcMsb.visibility = View.GONE
+        binding.wrapCalcPlain.visibility = View.GONE
+        binding.garisXorPlain.visibility = View.GONE
+        binding.wrapCalcCipher.visibility = View.GONE
+        binding.arrowXor.visibility = View.GONE
+        binding.tvCipher.visibility = View.GONE
+        binding.arrowCipher.visibility = View.GONE
+    }
+
+    private fun updateButtonVisibility() {
+        btnPrev.visibility = if (currentStep > 0) View.VISIBLE else View.GONE
+        if (currentStep == stepActions.size) {
+            btnNext.text = "Finish"
+            btnNext.setOnClickListener {
+                onBackPressed()
+            }
+        } else {
+            btnNext.text = "Next"
+            btnNext.setOnClickListener {
+                nextStep()
+            }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun populateLinearLayout(linearLayout: LinearLayout, dataList: List<String>, addOutline: Boolean = false) {
@@ -100,200 +252,5 @@ class SimulasiEnkripsiActivity : AppCompatActivity() {
 
         binding.dashGarisXor.text = dashes
         binding.dashGarisGeser.text = dashes
-    }
-
-    private fun simulasi(i: Int){
-
-        handler.postDelayed({
-            resetViews()
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.tvTitle.text = "Mencari Ciphertext C${ciphertext.size+1}"
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.lyAntrian.visibility = View.VISIBLE
-            populateLinearLayout(binding.lyAntrian, antrian, true)
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.arrowAntrian.visibility = View.VISIBLE
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.tvEnkripsi.visibility = View.VISIBLE
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.tvK.visibility = View.VISIBLE
-            binding.arrowK.visibility = View.VISIBLE
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.wrapCalcAntrian.visibility = View.VISIBLE
-            populateLinearLayout(binding.lyCalcAntrian, antrian)
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.wrapCalcKey.visibility = View.VISIBLE
-            populateLinearLayout(binding.lyCalcKey, key)
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            hasilXorEnkripsi = Utils.calculateXorString(antrian, key)
-
-            binding.garisXor.visibility = View.VISIBLE
-            binding.wrapCalcXorEnkripsi.visibility = View.VISIBLE
-            populateLinearLayout(binding.lyCalcXorEnkripsi, hasilXorEnkripsi)
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            hasilGeserEnkripsi = Utils.shiftStringLeft(hasilXorEnkripsi)
-
-            binding.garisGeser.visibility = View.VISIBLE
-            binding.wrapCalcHasilEnkripsi.visibility = View.VISIBLE
-            populateLinearLayout(binding.lyCalcHasilEnkripsi, hasilGeserEnkripsi)
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.arrowEnkripsi.visibility = View.VISIBLE
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.lyHasilEnkripsi.visibility = View.VISIBLE
-            populateLinearLayout(binding.lyHasilEnkripsi, hasilGeserEnkripsi, true)
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.arrowMsb.visibility = View.VISIBLE
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.tvXor.visibility = View.VISIBLE
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.arrowPlain.visibility = View.VISIBLE
-            binding.tvPlain.visibility = View.VISIBLE
-            binding.tvPlain.text = plaintext[i]
-//            Log.d("CMIND", "plaintext simulasi ke-$i")
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.wrapCalcMsb.visibility = View.VISIBLE
-            binding.tvCalcMsb.text = hasilGeserEnkripsi[0]
-//            Log.d("CMIND", "msb calc ke-$i")
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.wrapCalcPlain.visibility = View.VISIBLE
-            binding.tvCalcPlain.text = plaintext[i]
-//            Log.d("CMIND", "plaintext calc ke-$i")
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.garisXorPlain.visibility = View.VISIBLE
-//            Log.d("CMIND", "garis xor ke-$i")
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            ciphertext.add(Utils.calculateXorOneString(hasilGeserEnkripsi[0], plaintext[i]))
-
-            binding.wrapCalcCipher.visibility = View.VISIBLE
-            binding.tvCalcCipher.text = ciphertext[i]
-//            Log.d("CMIND", "MSB xor Plaintext ke-$i")
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.arrowXor.visibility = View.VISIBLE
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.tvCipher.visibility = View.VISIBLE
-            binding.tvCipher.text = ciphertext[i]
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.arrowCipher.visibility = View.VISIBLE
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            binding.arrowCipher.visibility = View.VISIBLE
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            antrian = Utils.shiftArrayLeftAndAddNew(antrian, ciphertext[i])
-
-            populateLinearLayout(binding.lyAntrian, antrian, true)
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-
-        handler.postDelayed({
-            if (i == plaintext.size - 1){
-                binding.btnSelesai.visibility = View.VISIBLE
-            }
-        }, cumulativeDelay)
-        cumulativeDelay += duration
-    }
-    private fun resetViews() {
-//        binding.lyAntrian.visibility = View.GONE
-        binding.arrowAntrian.visibility = View.GONE
-        binding.tvEnkripsi.visibility = View.GONE
-        binding.tvK.visibility = View.GONE
-        binding.arrowK.visibility = View.GONE
-        binding.wrapCalcAntrian.visibility = View.GONE
-        binding.wrapCalcKey.visibility = View.GONE
-        binding.garisXor.visibility = View.GONE
-        binding.wrapCalcXorEnkripsi.visibility = View.GONE
-        binding.garisGeser.visibility = View.GONE
-        binding.wrapCalcHasilEnkripsi.visibility = View.GONE
-        binding.arrowEnkripsi.visibility = View.GONE
-        binding.lyHasilEnkripsi.visibility = View.GONE
-        binding.arrowMsb.visibility = View.GONE
-        binding.tvXor.visibility = View.GONE
-        binding.arrowPlain.visibility = View.GONE
-        binding.tvPlain.visibility = View.GONE
-        binding.wrapCalcMsb.visibility = View.GONE
-        binding.wrapCalcPlain.visibility = View.GONE
-        binding.garisXorPlain.visibility = View.GONE
-        binding.wrapCalcCipher.visibility = View.GONE
-        binding.arrowXor.visibility = View.GONE
-        binding.tvCipher.visibility = View.GONE
-        binding.arrowCipher.visibility = View.GONE
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                onBackPressed()
-                true
-            }
-
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 }

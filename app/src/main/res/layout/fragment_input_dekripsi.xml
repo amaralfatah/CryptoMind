@@ -13,7 +13,7 @@
         android:padding="16dp">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textViewUnencryptedTitle"
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -22,15 +22,15 @@
             android:textSize="14sp" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/lyCipherText"
+            android:id="@+id/lyPlaintext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"
             android:background="@color/white"
-            android:hint="@string/plain_text">
+            android:hint="@string/cipher_text">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tiCipherText"
+                android:id="@+id/etPlaintext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace" />
@@ -38,7 +38,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutKey"
+            android:id="@+id/lyKey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"
@@ -46,7 +46,7 @@
             android:hint="@string/key">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextKey"
+                android:id="@+id/etKey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace" />
@@ -59,36 +59,21 @@
                 android:textColor="@android:color/holo_red_dark"
                 android:visibility="gone" />
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutIV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:hint="@string/initial_vector_iv">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditTextIV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace" />
-
             <TextView
-                android:id="@+id/errorIV"
+                android:id="@+id/note"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="IV harus lebih pendek dari Plaintext dan harus sama dengan Key"
-                android:textColor="@android:color/holo_red_dark"
-                android:visibility="gone" />
+                android:layout_marginTop="6dp"
+                android:text="Initial Vector berbentuk biner '00000000' dan disesuaikan dengan panjang key"
+                android:textSize="12sp"
+                android:textColor="@android:color/secondary_text_light"/>
 
         </com.google.android.material.textfield.TextInputLayout>
-
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/submitButton"
+        android:id="@+id/btnSimulasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"

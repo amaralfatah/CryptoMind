@@ -34,6 +34,105 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
+                android:id="@+id/lyDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+                <LinearLayout
+                    android:id="@+id/wrapDescPlain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvDescPlain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="P =" />
+
+                    <LinearLayout
+                        android:id="@+id/lyDescPlain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="monospace"
+                            android:text="@string/biner_acak" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="monospace"
+                            android:text="@string/biner_acak" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="monospace"
+                            android:text="@string/biner_acak" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/wrapDescCipher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvDescCipher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="C =" />
+
+                    <LinearLayout
+                        android:id="@+id/lyDescCipher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+<!--                        TV-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="monospace"
+                            android:text="@string/biner_acak" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="monospace"
+                            android:text="@string/biner_acak" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="monospace"
+                            android:text="@string/biner_acak" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/lyAntrian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,7 +141,7 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+                app:layout_constraintTop_toBottomOf="@+id/lyDesc">
 
                 <TextView
                     android:id="@+id/tvAntrian1"
@@ -173,6 +272,16 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:fontFamily="monospace"
+                android:text="MSB"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/arrowMsb"
+                app:layout_constraintTop_toTopOf="@+id/arrowMsb" />
+
+            <TextView
                 android:id="@+id/tvPlain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -180,7 +289,7 @@
                 android:fontFamily="monospace"
                 android:text="@string/biner_acak"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/tvXor"
                 app:layout_constraintEnd_toStartOf="@+id/arrowPlain"
                 app:layout_constraintTop_toTopOf="@+id/tvXor" />
 
@@ -225,7 +334,7 @@
                 android:fontFamily="monospace"
                 android:text="@string/biner_acak"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/tvXor"
                 app:layout_constraintStart_toEndOf="@id/arrowXor"
                 app:layout_constraintTop_toTopOf="@+id/tvXor" />
 
@@ -239,6 +348,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/tvCipher"
                 app:layout_constraintStart_toStartOf="@+id/tvCipher"
                 app:layout_constraintTop_toBottomOf="@+id/lyAntrian" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -280,6 +390,7 @@
                     android:visibility="gone">
 
                     <TextView
+                        android:id="@+id/tvWrapXN"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
@@ -545,6 +656,7 @@
                     android:visibility="gone">
 
                     <TextView
+                        android:id="@+id/tvWrapPN"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
@@ -591,6 +703,7 @@
                     android:visibility="gone">
 
                     <TextView
+                        android:id="@+id/tvWrapCN"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="monospace"
@@ -611,22 +724,11 @@
 
         </HorizontalScrollView>
 
-<!--        <Button-->
-<!--            android:id="@+id/btnSelesai"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="16dp"-->
-<!--            android:visibility="gone"-->
-<!--            android:text="Selesai"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent" />-->
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/controlPanel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal"
             android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="parent">
 
@@ -634,23 +736,51 @@
                 android:id="@+id/btnPrev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Prev" />
+                android:text="@string/mundur"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <Button
                 android:id="@+id/btnPlayPause"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:text="Play" />
+                android:layout_marginStart="4dp"
+                android:text="@string/putar"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/btnPrev"
+                app:layout_constraintEnd_toStartOf="@id/btnRepeat"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <Button
+                android:id="@+id/btnRepeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ulangi"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/btnPlayPause"
+                app:layout_constraintEnd_toStartOf="@id/btnNext"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <Button
                 android:id="@+id/btnNext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:text="Next" />
+                android:text="@string/maju"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

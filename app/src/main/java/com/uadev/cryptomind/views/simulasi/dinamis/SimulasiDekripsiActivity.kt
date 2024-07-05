@@ -15,19 +15,25 @@ import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.ActivitySimulasiDekripsiBinding
 import com.uadev.cryptomind.utils.Utils
 import android.os.Handler
+import android.os.Looper
+import com.uadev.cryptomind.databinding.ActivitySimulasiEnkripsiBinding
 
 class SimulasiDekripsiActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySimulasiDekripsiBinding
 
-    private var plaintext: List<String> = emptyList()
+    private lateinit var datas: Array<*>
+    private var ciphertext: List<String> = emptyList()
     private var key: List<String> = emptyList()
     private var antrian: MutableList<String> = mutableListOf()
-    private var ciphertext: MutableList<String> = mutableListOf()
+    private var plaintext: MutableList<String> = mutableListOf()
+
+    private lateinit var initialCiphertext: List<String>
+    private lateinit var initialKey: List<String>
+    private lateinit var initialAntrian: MutableList<String>
 
     private val duration = 500L
-    private val handler = Handler()
-    private var cumulativeDelay = 0L
+    private val handler = Handler(Looper.getMainLooper())
 
     private var hasilXorEnkripsi: MutableList<String> = mutableListOf()
     private var hasilGeserEnkripsi: MutableList<String> = mutableListOf()
@@ -41,81 +47,149 @@ class SimulasiDekripsiActivity : AppCompatActivity() {
         binding = ActivitySimulasiDekripsiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Enable action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Simulasi Dekripsi"
-        supportActionBar?.setBackgroundDrawable(ColorDrawable(
-            ContextCompat.getColor(this, R.color.primary_color)))
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.primary_color)))
 
-        val datas = intent.getSerializableExtra("DATA_ENKRIPSI") as Array<*>
-        plaintext = (datas[0] as List<*>).filterIsInstance<String>()
+        // Retrieve data from intent
+        datas = intent.getSerializableExtra("DATA_ENKRIPSI") as Array<*>
+        ciphertext = (datas[0] as List<*>).filterIsInstance<String>()
         key = (datas[1] as List<*>).filterIsInstance<String>()
         antrian.addAll((datas[2] as List<*>).filterIsInstance<String>())
 
+        // Simpan nilai awal
+        initialCiphertext = ciphertext
+        initialKey = key
+        initialAntrian = antrian.toMutableList()
+
+        // Initialize buttons
+        binding.btnPlayPause.visibility = View.VISIBLE
+        binding.btnRepeat.visibility = View.GONE
+
         binding.btnPrev.setOnClickListener { prevStep() }
         binding.btnPlayPause.setOnClickListener { togglePlayPause() }
+        binding.btnRepeat.setOnClickListener { repeatSimulation() }
         binding.btnNext.setOnClickListener { nextStep() }
 
-        binding.btnPrev.visibility = View.GONE // Sembunyikan tombol prev di awal
+        binding.btnPrev.isEnabled = false
+
+        populateLinearLayout(binding.lyDescPlain, plaintext)
+        populateLinearLayout(binding.lyDescCipher, ciphertext)
 
         buildDashes()
         prepareSimulationSteps()
     }
 
+    private fun addSimulationStep(action: () -> Unit) {
+        stepActions.add(Runnable { action() })
+    }
+
     private fun prepareSimulationSteps() {
-        for (i in plaintext.indices) {
+        for (i in ciphertext.indices) {
             addSimulationStep {
                 resetViews()
-                binding.tvTitle.text = "Mencari Ciphertext C${ciphertext.size + 1}"
+                binding.tvTitle.text = "Mencari Plaintext P${plaintext.size + 1}"
+
+                populateLinearLayout(binding.lyDescPlain, plaintext)
+                populateLinearLayout(binding.lyDescCipher, ciphertext)
             }
-            addSimulationStep { binding.lyAntrian.visibility = View.VISIBLE; populateLinearLayout(binding.lyAntrian, antrian, true) }
-            addSimulationStep { binding.arrowAntrian.visibility = View.VISIBLE }
-            addSimulationStep { binding.tvEnkripsi.visibility = View.VISIBLE }
-            addSimulationStep { binding.tvK.visibility = View.VISIBLE; binding.arrowK.visibility = View.VISIBLE }
-            addSimulationStep { binding.wrapCalcAntrian.visibility = View.VISIBLE; populateLinearLayout(binding.lyCalcAntrian, antrian) }
-            addSimulationStep { binding.wrapCalcKey.visibility = View.VISIBLE; populateLinearLayout(binding.lyCalcKey, key) }
             addSimulationStep {
+                binding.lyAntrian.visibility = View.VISIBLE
+                populateLinearLayout(binding.lyAntrian, antrian, true)
+            }
+            addSimulationStep {
+                binding.arrowAntrian.visibility = View.VISIBLE
+            }
+            addSimulationStep {
+                binding.tvEnkripsi.visibility = View.VISIBLE
+            }
+            addSimulationStep {
+                binding.tvK.visibility = View.VISIBLE
+                binding.arrowK.visibility = View.VISIBLE
+            }
+            addSimulationStep {
+                binding.wrapCalcAntrian.visibility = View.VISIBLE
+                binding.tvWrapXN.text = "X${i+1}  ="
+                populateLinearLayout(binding.lyCalcAntrian, antrian)
+            }
+            addSimulationStep {
+                binding.wrapCalcKey.visibility = View.VISIBLE
+                populateLinearLayout(binding.lyCalcKey, key)
+            }
+            addSimulationStep {
+                // lOGIC 1
                 hasilXorEnkripsi = Utils.calculateXorString(antrian, key)
                 binding.garisXor.visibility = View.VISIBLE
                 binding.wrapCalcXorEnkripsi.visibility = View.VISIBLE
                 populateLinearLayout(binding.lyCalcXorEnkripsi, hasilXorEnkripsi)
             }
             addSimulationStep {
+                // LOGIC 2
                 hasilGeserEnkripsi = Utils.shiftStringLeft(hasilXorEnkripsi)
                 binding.garisGeser.visibility = View.VISIBLE
                 binding.wrapCalcHasilEnkripsi.visibility = View.VISIBLE
                 populateLinearLayout(binding.lyCalcHasilEnkripsi, hasilGeserEnkripsi)
             }
-            addSimulationStep { binding.arrowEnkripsi.visibility = View.VISIBLE }
-            addSimulationStep { binding.lyHasilEnkripsi.visibility = View.VISIBLE; populateLinearLayout(binding.lyHasilEnkripsi, hasilGeserEnkripsi, true) }
-            addSimulationStep { binding.arrowMsb.visibility = View.VISIBLE }
-            addSimulationStep { binding.tvXor.visibility = View.VISIBLE }
-            addSimulationStep { binding.arrowPlain.visibility = View.VISIBLE; binding.tvPlain.visibility = View.VISIBLE; binding.tvPlain.text = plaintext[i] }
-            addSimulationStep { binding.wrapCalcMsb.visibility = View.VISIBLE; binding.tvCalcMsb.text = hasilGeserEnkripsi[0] }
-            addSimulationStep { binding.wrapCalcPlain.visibility = View.VISIBLE; binding.tvCalcPlain.text = plaintext[i] }
-            addSimulationStep { binding.garisXorPlain.visibility = View.VISIBLE }
             addSimulationStep {
-                ciphertext.add(Utils.calculateXorOneString(hasilGeserEnkripsi[0], plaintext[i]))
+                binding.arrowEnkripsi.visibility = View.VISIBLE
+            }
+            addSimulationStep {
+                binding.lyHasilEnkripsi.visibility = View.VISIBLE
+                populateLinearLayout(binding.lyHasilEnkripsi, hasilGeserEnkripsi, true)
+            }
+            addSimulationStep {
+                binding.arrowMsb.visibility = View.VISIBLE
+                binding.tvMsb.visibility = View.VISIBLE
+            }
+            addSimulationStep {
+                binding.tvXor.visibility = View.VISIBLE
+            }
+            addSimulationStep {
+                binding.arrowPlain.visibility = View.VISIBLE
+                binding.tvCipher.visibility = View.VISIBLE
+                binding.tvCipher.text = ciphertext[i]
+            }
+            addSimulationStep {
+                binding.wrapCalcMsb.visibility = View.VISIBLE
+                binding.tvCalcMsb.text = hasilGeserEnkripsi[0]
+            }
+            addSimulationStep {
+                // LOGIC 3
+                plaintext.add(Utils.calculateXorOneString(hasilGeserEnkripsi[0], ciphertext[i]))
                 binding.wrapCalcCipher.visibility = View.VISIBLE
+                binding.tvWrapCN.text = "C${i+1}  ="
                 binding.tvCalcCipher.text = ciphertext[i]
             }
-            addSimulationStep { binding.arrowXor.visibility = View.VISIBLE }
-            addSimulationStep { binding.tvCipher.visibility = View.VISIBLE; binding.tvCipher.text = ciphertext[i] }
-            addSimulationStep { binding.arrowCipher.visibility = View.VISIBLE }
             addSimulationStep {
-                antrian = Utils.shiftArrayLeftAndAddNew(antrian, ciphertext[i])
-                populateLinearLayout(binding.lyAntrian, antrian, true)
+                binding.garisXorCipher.visibility = View.VISIBLE
             }
-        }
-        addSimulationStep { // Step terakhir untuk tombol selesai
-            binding.btnNext.text = "Finish"
-            binding.btnNext.setOnClickListener {
-                onBackPressed()
+            addSimulationStep {
+                binding.wrapCalcPlain.visibility = View.VISIBLE
+                binding.tvWrapPN.text = "P${i+1}  ="
+                binding.tvCalcPlain.text = plaintext[i]
             }
-        }
-    }
+            addSimulationStep {
+                binding.arrowXor.visibility = View.VISIBLE
+            }
+            addSimulationStep {
+                binding.tvPlain.visibility = View.VISIBLE
+                binding.tvPlain.text = plaintext[i]
+                Log.d("CMIND-code", "populateLinearLayout for lyDescCipher")
+                populateLinearLayout(binding.lyDescPlain, plaintext)
+            }
+            if (i < ciphertext.size - 1) {
+                Log.d("CMIND-code", "HAYOLO $i")
 
-    private fun addSimulationStep(action: () -> Unit) {
-        stepActions.add(Runnable { action() })
+                addSimulationStep {
+                    binding.arrowCipher.visibility = View.VISIBLE
+                }
+                addSimulationStep {
+                    antrian = Utils.shiftArrayLeftAndAddNew(antrian, ciphertext[i])
+                    populateLinearLayout(binding.lyAntrian, antrian, true)
+                }
+            }
+        }
     }
 
     private fun executeCurrentStep() {
@@ -127,12 +201,15 @@ class SimulasiDekripsiActivity : AppCompatActivity() {
     }
 
     private fun prevStep() {
-        if (currentStep > 1) { // Ubah dari > 0 menjadi > 1 agar menghindari melampaui batas awal
+        if (currentStep > 1) {
             currentStep--
             resetViews()
+            resetData()
+
             for (i in 0 until currentStep) {
                 stepActions[i].run()
             }
+
             updateButtonVisibility()
         }
     }
@@ -144,24 +221,45 @@ class SimulasiDekripsiActivity : AppCompatActivity() {
     }
 
     private fun togglePlayPause() {
-        if (isPlaying) {
-            handler.removeCallbacksAndMessages(null)
-            binding.btnPlayPause.text = "Play"
-        } else {
-            playSimulation()
-            binding.btnPlayPause.text = "Pause"
-        }
         isPlaying = !isPlaying
+        if (isPlaying) {
+            binding.btnPlayPause.text = getString(R.string.jeda)
+            // Show pause icon and hide repeat icon
+            binding.btnPlayPause.visibility = View.VISIBLE
+            binding.btnRepeat.visibility = View.GONE
+            playSimulation()
+        } else {
+            binding.btnPlayPause.text = getString(R.string.putar)
+            // Show play icon and show repeat icon
+            binding.btnPlayPause.visibility = View.VISIBLE
+            binding.btnRepeat.visibility = View.VISIBLE
+            pauseSimulation()
+        }
     }
 
+
     private fun playSimulation() {
-        if (currentStep < stepActions.size) {
-            executeCurrentStep()
-            handler.postDelayed({ playSimulation() }, duration)
-        }
+        handler.postDelayed({
+            nextStep()
+            if (isPlaying && currentStep < stepActions.size) {
+                playSimulation()
+            }
+        }, duration)
+    }
+
+    private fun pauseSimulation() {
+        handler.removeCallbacksAndMessages(null)
+    }
+
+    private fun resetData() {
+        ciphertext = initialCiphertext
+        key = initialKey
+        antrian = initialAntrian.toMutableList()
+        plaintext.clear()
     }
 
     private fun resetViews() {
+        binding.tvTitle.text = ""
         binding.arrowAntrian.visibility = View.GONE
         binding.tvEnkripsi.visibility = View.GONE
         binding.tvK.visibility = View.GONE
@@ -177,40 +275,48 @@ class SimulasiDekripsiActivity : AppCompatActivity() {
         binding.arrowMsb.visibility = View.GONE
         binding.tvXor.visibility = View.GONE
         binding.arrowPlain.visibility = View.GONE
-        binding.tvPlain.visibility = View.GONE
+        binding.tvCipher.visibility = View.GONE
         binding.wrapCalcMsb.visibility = View.GONE
         binding.wrapCalcPlain.visibility = View.GONE
-        binding.garisXorPlain.visibility = View.GONE
+        binding.garisXorCipher.visibility = View.GONE
         binding.wrapCalcCipher.visibility = View.GONE
         binding.arrowXor.visibility = View.GONE
-        binding.tvCipher.visibility = View.GONE
+        binding.tvPlain.visibility = View.GONE
         binding.arrowCipher.visibility = View.GONE
+        binding.tvMsb.visibility = View.GONE
+    }
+
+    private fun resetSimulation() {
+        currentStep = 0
+        resetData()
+        resetViews()
+        prepareSimulationSteps()
+        updateButtonVisibility()
+        stepActions[currentStep].run()
     }
 
     private fun updateButtonVisibility() {
-        binding.btnPrev.visibility = if (currentStep > 0) View.VISIBLE else View.GONE
+        binding.btnPrev.isEnabled = currentStep > 1
         if (currentStep == stepActions.size) {
-            binding.btnNext.text = "Finish"
+            binding.btnNext.text = getString(R.string.selesai)
             binding.btnNext.setOnClickListener {
+                resetSimulation()
                 onBackPressed()
             }
+            // Show repeat button and hide play/pause button
+            binding.btnRepeat.visibility = View.VISIBLE
+            binding.btnPlayPause.visibility = View.GONE
         } else {
-            binding.btnNext.text = "Next"
+            binding.btnNext.text = getString(R.string.maju)
             binding.btnNext.setOnClickListener {
                 nextStep()
             }
+            // Show play/pause button and hide repeat button
+            binding.btnPlayPause.visibility = View.VISIBLE
+            binding.btnRepeat.visibility = View.GONE
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                onBackPressed()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
 
     private fun populateLinearLayout(linearLayout: LinearLayout, dataList: List<String>, addOutline: Boolean = false) {
         linearLayout.removeAllViews()
@@ -245,4 +351,29 @@ class SimulasiDekripsiActivity : AppCompatActivity() {
         binding.dashGarisXor.text = dashes
         binding.dashGarisGeser.text = dashes
     }
+
+    private fun repeatSimulation() {
+        currentStep = 0
+        resetData()
+        resetViews()
+        prepareSimulationSteps()
+        updateButtonVisibility()
+        stepActions[currentStep].run()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacksAndMessages(null)
+    }
+
 }

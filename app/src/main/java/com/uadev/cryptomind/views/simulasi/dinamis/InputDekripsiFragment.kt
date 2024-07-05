@@ -26,32 +26,32 @@ class InputDekripsiFragment : Fragment() {
         val view = binding.root
 
         binding.btnSimulasi.setOnClickListener {
-            val inPlain = binding.etPlaintext.text.toString()
+            val inCipher = binding.etPlaintext.text.toString()
             val inKey = binding.etKey.text.toString()
 
-            if (inPlain.isEmpty() || inKey.isEmpty()) {
+            if (inCipher.isEmpty() || inKey.isEmpty()) {
                 showErrorMessage("Form tidak boleh kosong")
                 return@setOnClickListener
             }
 
-            val plain = processInput(inPlain)
+            val cipher = processInput(inCipher)
             val key = processInput(inKey)
             val iv = MutableList(key!!.size) { 0 }
             val antrian = iv.toMutableList()
 
-            val plainStr = Utils.convertIntListToBinaryStringList(plain)
+            val cipherStr = Utils.convertIntListToBinaryStringList(cipher)
             val keyStr = Utils.convertIntListToBinaryStringList(key)
             val antrianStr = Utils.convertIntListToBinaryStringList(antrian)
 
             val data = arrayOf<Any?>(
-                plainStr,
+                cipherStr,
                 keyStr,
                 antrianStr
             )
 
             startEncryptionActivity(data)
 
-            logData(plain, key, iv, antrian)
+            logData(cipher, key, iv, antrian)
         }
 
         return view
@@ -79,14 +79,14 @@ class InputDekripsiFragment : Fragment() {
     }
 
     private fun startEncryptionActivity(data: Array<Any?>) {
-        val intent = Intent(activity, SimulasiEnkripsiActivity::class.java)
+        val intent = Intent(activity, SimulasiDekripsiActivity::class.java)
         intent.putExtra("DATA_ENKRIPSI", data)
         startActivity(intent)
     }
 
-    private fun logData(plain: List<Int>?, key: List<Int>?, iv: List<Int>, antrian: MutableList<Int>) {
+    private fun logData(cipher: List<Int>?, key: List<Int>?, iv: List<Int>, antrian: MutableList<Int>) {
         val logMessage = buildString {
-            plain?.let { appendLine("Plain: $it") }
+            cipher?.let { appendLine("Plain: $it") }
             key?.let { appendLine("Key: $it") }
             appendLine("initialCCC: $iv")
             appendLine("antrian: $antrian")

@@ -45,38 +45,47 @@
             android:layout_height="wrap_content"
             android:fontFamily="monospace"/>
 
+<!--        <TextView-->
+<!--            android:id="@+id/errorKey"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@android:color/holo_red_dark"-->
+<!--            android:visibility="gone"-->
+<!--            android:text="Key harus lebih pendek dari Plaintext"/>-->
+
         <TextView
-            android:id="@+id/errorKey"
+            android:id="@+id/note"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/holo_red_dark"
-            android:visibility="gone"
-            android:text="Key harus lebih pendek dari Plaintext"/>
+            android:layout_marginTop="6dp"
+            android:text="Initial Vector berbentuk biner '00000000' per unit dan disesuaikan dengan panjang key"
+            android:textSize="12sp"
+            android:textColor="@android:color/secondary_text_light"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutIV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/initial_vector_iv"
-        android:background="@color/white">
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/textInputLayoutIV"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="@string/initial_vector_iv"-->
+<!--        android:background="@color/white">-->
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditTextIV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"/>
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/textInputEditTextIV"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="monospace"/>-->
 
-        <TextView
-            android:id="@+id/errorIV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/holo_red_dark"
-            android:visibility="gone"
-            android:text="IV harus lebih pendek dari Plaintext dan harus sama dengan Key"/>
+<!--        <TextView-->
+<!--            android:id="@+id/errorIV"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@android:color/holo_red_dark"-->
+<!--            android:visibility="gone"-->
+<!--            android:text="IV harus lebih pendek dari Plaintext dan harus sama dengan Key"/>-->
 
-    </com.google.android.material.textfield.TextInputLayout>
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
     <Button
         android:id="@+id/buttonEncrypt"

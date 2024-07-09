@@ -11,6 +11,8 @@ import android.widget.Toast
 import com.uadev.cryptomind.R
 import com.uadev.cryptomind.databinding.FragmentInputDekripsiBinding
 import com.uadev.cryptomind.utils.Utils
+import com.uadev.cryptomind.utils.Utils.generateIV
+import com.uadev.cryptomind.utils.Utils.logData
 import io.github.muddz.styleabletoast.StyleableToast
 
 class InputDekripsiFragment : Fragment() {
@@ -36,17 +38,13 @@ class InputDekripsiFragment : Fragment() {
 
             val cipher = processInput(inCipher)
             val key = processInput(inKey)
-            val iv = MutableList(key!!.size) { 0 }
+            val iv = generateIV(key.size)
             val antrian = iv.toMutableList()
 
-            val cipherStr = Utils.convertIntListToBinaryStringList(cipher)
-            val keyStr = Utils.convertIntListToBinaryStringList(key)
-            val antrianStr = Utils.convertIntListToBinaryStringList(antrian)
-
             val data = arrayOf<Any?>(
-                cipherStr,
-                keyStr,
-                antrianStr
+                cipher,
+                key,
+                antrian
             )
 
             startEncryptionActivity(data)
@@ -57,21 +55,12 @@ class InputDekripsiFragment : Fragment() {
         return view
     }
 
-    private fun processInput(input: String): List<Int>? {
-        return try {
-            if (Utils.isBinaryString(input)) {
-                stringToIntList(input)
-            } else {
-                input.map { it.code }
-            }
-        } catch (e: Exception) {
-            null
+    private fun processInput(input: String): MutableList<String> {
+        return if (Utils.isBinaryString(input)) {
+            input.chunked(8).map { it }.toMutableList()  // Jika input sudah dalam format binary string, langsung pecah per 8 karakter
+        } else {
+            input.map { it.code.toString(2).padStart(8, '0') }.toMutableList()  // Jika input dalam bentuk teks biasa, konversikan ke binary string
         }
-    }
-
-    private fun stringToIntList(binStr: String): List<Int> {
-        val binList = binStr.chunked(8)
-        return binList.map { it.toInt(2) }
     }
 
     private fun showErrorMessage(message: String) {
@@ -83,17 +72,6 @@ class InputDekripsiFragment : Fragment() {
         intent.putExtra("DATA_ENKRIPSI", data)
         startActivity(intent)
     }
-
-    private fun logData(cipher: List<Int>?, key: List<Int>?, iv: List<Int>, antrian: MutableList<Int>) {
-        val logMessage = buildString {
-            cipher?.let { appendLine("Plain: $it") }
-            key?.let { appendLine("Key: $it") }
-            appendLine("initialCCC: $iv")
-            appendLine("antrian: $antrian")
-        }
-        Log.d("coco", logMessage)
-    }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

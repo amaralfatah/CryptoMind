@@ -175,12 +175,9 @@ class SimulasiDekripsiActivity : AppCompatActivity() {
             addSimulationStep {
                 binding.tvPlain.visibility = View.VISIBLE
                 binding.tvPlain.text = plaintext[i]
-                Log.d("CMIND-code", "populateLinearLayout for lyDescCipher")
                 populateLinearLayout(binding.lyDescPlain, plaintext)
             }
             if (i < ciphertext.size - 1) {
-                Log.d("CMIND-code", "HAYOLO $i")
-
                 addSimulationStep {
                     binding.arrowCipher.visibility = View.VISIBLE
                 }

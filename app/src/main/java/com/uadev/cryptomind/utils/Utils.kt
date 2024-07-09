@@ -12,16 +12,6 @@ object Utils {
         return input.length % 8 == 0
     }
 
-    fun convertIntListToBinaryStringList(intList: List<Int>?): List<String> {
-        return intList!!.map { it.toString(2).padStart(8, '0') }
-//        val plainStr = Utils.convertIntListToBinaryStringList(plaintext)
-//        val stringUtuh = plainStr.joinToString(" ")
-    }
-
-    fun convertMutableIntListToMutableBinaryStringList(mutableIntList: MutableList<Int>): MutableList<String> {
-        return mutableIntList.map { it.toString(2).padStart(8, '0') }.toMutableList()
-    }
-
     fun calculateXorString(listA: MutableList<String>, listB: List<String>): MutableList<String> {
         require(listA.size == listB.size) { "Ukuran listA dan listB harus sama" }
 
@@ -41,8 +31,6 @@ object Utils {
         }.joinToString("")
     }
 
-
-
     fun shiftStringLeft(input: MutableList<String>): MutableList<String> {
         // Menggabungkan semua elemen input menjadi satu string
         val gabungInput = input.joinToString("")
@@ -57,8 +45,6 @@ object Utils {
         // Mengembalikan hasil sebagai MutableList<String>
         return chunks.toMutableList()
     }
-
-
 
     fun enkripsi(antrian: MutableList<String>, key: List<String>): List<String> {
         val hasilXor = calculateXorString(antrian, key)
@@ -78,5 +64,19 @@ object Utils {
         input[input.size - 1] = newValue
 
         return input
+    }
+
+    fun generateIV(keySize: Int): MutableList<String> {
+        return MutableList(keySize) { "00000000" }
+    }
+
+    fun logData(plain: MutableList<String>?, key: MutableList<String>?, iv: MutableList<String>, antrian: MutableList<String>) {
+        val logMessage = buildString {
+            plain?.let { appendLine("Plain/Cipher: ${it.joinToString(", ")}") }
+            key?.let { appendLine("Key: ${it.joinToString(", ")}") }
+            appendLine("initialCCC: ${iv.joinToString(", ")}")
+            appendLine("antrian: ${antrian.joinToString(", ")}")
+        }
+        Log.d("CMIND", logMessage)
     }
 }

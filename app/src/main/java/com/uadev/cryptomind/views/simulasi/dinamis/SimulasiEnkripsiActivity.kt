@@ -135,6 +135,7 @@ class SimulasiEnkripsiActivity : AppCompatActivity() {
                 populateLinearLayout(binding.lyHasilEnkripsi, hasilGeserEnkripsi, true)
             }
             addSimulationStep {
+                binding.tvMsb.visibility = View.VISIBLE
                 binding.arrowMsb.visibility = View.VISIBLE
             }
             addSimulationStep {

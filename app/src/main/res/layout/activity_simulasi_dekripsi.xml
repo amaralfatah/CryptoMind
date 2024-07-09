@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lyDesc">
@@ -175,7 +175,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/outline"
                 android:text="@string/enkripsi"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/arrowAntrian" />
@@ -189,7 +189,7 @@
                 android:text="K"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/tvEnkripsi"
                 app:layout_constraintEnd_toStartOf="@+id/arrowK"
                 app:layout_constraintTop_toBottomOf="@+id/arrowAntrian" />
@@ -199,7 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:src="@drawable/ic_arrow"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lyAntrian"
@@ -211,7 +211,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="6dp"
                 android:src="@drawable/ic_arrow_right_long"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/tvEnkripsi"
                 app:layout_constraintEnd_toStartOf="@+id/tvEnkripsi"
                 app:layout_constraintTop_toBottomOf="@+id/arrowAntrian"
@@ -222,7 +222,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_arrow"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvEnkripsi"
@@ -233,7 +233,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/arrowEnkripsi">
@@ -266,7 +266,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_arrow_belok"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@+id/tvXor"
                 app:layout_constraintTop_toBottomOf="@+id/lyHasilEnkripsi"
                 tools:ignore="ContentDescription" />
@@ -278,7 +278,7 @@
                 android:layout_marginEnd="4dp"
                 android:fontFamily="monospace"
                 android:text="MSB"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@+id/arrowMsb"
                 app:layout_constraintTop_toTopOf="@+id/arrowMsb" />
 
@@ -289,7 +289,7 @@
                 android:background="@drawable/outline"
                 android:fontFamily="monospace"
                 android:text="@string/biner_acak"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/tvXor"
                 app:layout_constraintEnd_toStartOf="@+id/arrowPlain"
                 app:layout_constraintTop_toTopOf="@+id/tvXor" />
@@ -299,7 +299,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_arrow_right"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/tvXor"
                 app:layout_constraintEnd_toStartOf="@+id/tvXor"
                 app:layout_constraintTop_toTopOf="@+id/tvXor"
@@ -311,7 +311,7 @@
                 android:layout_height="wrap_content"
                 android:text="⊕"
                 android:textSize="24sp"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/arrowMsb" />
@@ -321,7 +321,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_arrow_right"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/tvXor"
                 app:layout_constraintStart_toEndOf="@id/tvXor"
                 app:layout_constraintTop_toTopOf="@+id/tvXor"
@@ -334,7 +334,7 @@
                 android:background="@drawable/outline"
                 android:fontFamily="monospace"
                 android:text="@string/biner_acak"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/tvXor"
                 app:layout_constraintStart_toEndOf="@id/arrowXor"
                 app:layout_constraintTop_toTopOf="@+id/tvXor" />
@@ -344,7 +344,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_arrow_dec"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:rotation="40"
                 app:layout_constraintBottom_toTopOf="@+id/tvCipher"
                 app:layout_constraintEnd_toEndOf="@+id/lyHasilEnkripsi"
@@ -389,7 +389,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/tvWrapXN"
@@ -434,7 +434,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -481,7 +481,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -511,7 +511,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -555,7 +555,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -586,7 +586,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -631,7 +631,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -655,7 +655,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/tvWrapCN"
@@ -680,7 +680,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -702,7 +702,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/tvWrapPN"

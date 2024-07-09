@@ -170,6 +170,7 @@ class SimulasiDekripsiActivity : AppCompatActivity() {
                 binding.tvCalcPlain.text = plaintext[i]
             }
             addSimulationStep {
+                binding.tvMsb.visibility = View.VISIBLE
                 binding.arrowXor.visibility = View.VISIBLE
             }
             addSimulationStep {

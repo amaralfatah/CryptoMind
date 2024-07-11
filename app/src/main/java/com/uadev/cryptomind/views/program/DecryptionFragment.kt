@@ -65,7 +65,9 @@ class DecryptionFragment : Fragment() {
             val hasilXorDekripsi = calculateXorString(antrian, key)
             val hasilGeserDekripsi = shiftStringLeft(hasilXorDekripsi)
             plainText.add(calculateXorOneString(hasilGeserDekripsi[0], ciphertext[i]))
-            antrian = shiftArrayLeftAndAddNew(antrian, ciphertext[i])
+            if (i < plainText.size) {
+                antrian = shiftArrayLeftAndAddNew(antrian, ciphertext[i])
+            }
         }
         // END fungsi dekripsi
 

@@ -64,7 +64,9 @@ class EncryptionFragment : Fragment() {
             val hasilXorEnkripsi = calculateXorString(antrian, key)
             val hasilGeserEnkripsi = shiftStringLeft(hasilXorEnkripsi)
             cipherText.add(calculateXorOneString(hasilGeserEnkripsi[0], plainText[i]))
-            antrian = shiftArrayLeftAndAddNew(antrian, cipherText[i])
+            if (i < plainText.size) {
+                antrian = shiftArrayLeftAndAddNew(antrian, cipherText[i])
+            }
         }
         // END fungsi enkripsi
 

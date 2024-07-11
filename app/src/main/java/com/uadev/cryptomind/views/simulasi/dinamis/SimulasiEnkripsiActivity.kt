@@ -265,6 +265,7 @@ class SimulasiEnkripsiActivity : AppCompatActivity() {
         binding.wrapCalcHasilEnkripsi.visibility = View.GONE
         binding.arrowEnkripsi.visibility = View.GONE
         binding.lyHasilEnkripsi.visibility = View.GONE
+        binding.tvMsb.visibility = View.GONE
         binding.arrowMsb.visibility = View.GONE
         binding.tvXor.visibility = View.GONE
         binding.arrowPlain.visibility = View.GONE

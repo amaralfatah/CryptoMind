@@ -163,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Menu simulasi berisi berbagai alur cara kerja CFB langkah demi langkah. Pada awal menu simulasi akan ditampilkan pilihan mode simulasi yang tersedia."
+                    android:text="Menu simulasi akan menggambarkan alur kerja CFB langkah demi langkah. Pada awal menu simulasi akan ditampilkan pilihan mode simulasi yang tersedia, lalu melakukan input data."
                     android:textColor="@color/black"
                     android:lineSpacingExtra="6dp"/>
 
@@ -190,7 +190,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Menu simulasi akan menggambarkan alur enkripsi dan dekripsi dengan berbagai bit."
+                    android:text="Setelah data diinputkan, akan muncul simulasi proses enkripsi maupun dekripsi sesuai dengan data yang diinputkan."
                     android:textColor="@color/black"
                     android:lineSpacingExtra="6dp"/>
 
